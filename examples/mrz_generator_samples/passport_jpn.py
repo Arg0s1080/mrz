@@ -14,7 +14,6 @@ print(PassportCodeGenerator("P",            # Document type   Normally 'P' for p
                             "Japan",        # Nationality     3 letter code or country name
                             "790220",       # Birth date      YYMMDD
                             "F",            # Genre           Male: 'M', Female: 'F' or Undefined 'X'
-                            "160320",       # Expiry date     YYMMDD
-                            ""))            # Id number       Non-mandatory field in some countries
+                            "160320"))       # Expiry date     YYMMDD
 
 oi.open_image("passports", "Japan.png")

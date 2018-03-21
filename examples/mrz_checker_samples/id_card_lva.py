@@ -9,4 +9,6 @@ mrz_td1 = ("I<LVAPA99929216121282<88882<<<\n"
 
 td1_check = TD1CodeChecker(mrz_td1, check_expiry=True)
 
-print(td1_check._all_fields)
+for r in td1_check.report:
+    print(r[0] + ":" + str(r[1]).rjust(30 - len(r[0])))
+print("\nResult:" + str(td1_check).rjust(24))

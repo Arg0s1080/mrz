@@ -2,8 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import sys
-sys.path.append(sys.path[1])
-
+sys.path.append(sys.path[0].replace("examples/mrz_checker_samples", ""))
 from checker.td1 import TD1CodeChecker
 
 mrz_td1 = ("I<BAD<BAD<<<<<0<<<<<<BAD<<<<<<\n"

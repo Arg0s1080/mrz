@@ -12,4 +12,4 @@ if not td1_check:
     print("Falses:", td1_check.report_falses)
     print("Warnings:", td1_check.report_warnings)
 
-print(is_code("ASU"))
+print("%s is code: %s" % (td1_check._country, str(is_code("ASU"))))
