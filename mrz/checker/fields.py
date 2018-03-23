@@ -1,8 +1,9 @@
 # GNU General Public License v3.0
 
-import base.string_checkers as check
+import mrz.base.string_checkers as check
+import mrz.checker.honorifics as honorifics
 from datetime import datetime, date, timedelta
-from checker.report import Report
+from mrz.checker.report import Report
 
 
 class FieldChecker(Report):
@@ -42,14 +43,14 @@ class FieldChecker(Report):
     def country(self) -> bool:
         """Return True if the country code is validated, False otherwise."""
 
-        import base.countries_ops as chk
+        import mrz.base.countries_ops as chk
         return self._report("valid country code", chk.is_code(self._country.replace("<", "")))
 
     @property
     def identifier(self) -> bool:
         """Return True is the identifier is validated overcoming the checks, False otherwise."""
 
-        import checker.honorifics
+        from mrz import checker
         id_ = self._identifier
         if not check.is_printable(id_):
             return self._report("identifier", False)
@@ -112,7 +113,7 @@ class FieldChecker(Report):
         Return True if nationality code is validated, False otherwise.
 
         """
-        import base.countries_ops as chk
+        import mrz.base.countries_ops as chk
         return self._report("valid nationality code", chk.is_code(self._nationality.replace("<", "")))
 
     @property
@@ -168,6 +169,8 @@ class FieldChecker(Report):
         return True if check.is_empty(s) else self._report("optional data 2 format", check.is_printable(s)
                                                            and not check.begin_by(s, "<"))
 
+    ['expiry date before than birth date', 'birth date after than today', 'false birth date', 'false expiry date']
+
     def _times(self) -> bool:
         birth, expiry = "", ""
 
@@ -184,20 +187,23 @@ class FieldChecker(Report):
         if self._birth_date_check & self._expiry_date_check:
             today = datetime.combine(date.today(), datetime.min.time())
             leap = not today.year % 4 and date.today() == date(today.year, 2, 29)
+            birth = birth if birth < today else birth.replace(year=birth.year - 100)   # cancel check2
 
             check1 = expiry > birth
-            check2 = birth < today
+            # check2 = birth < today  # Canceled
             check3 = expiry > today
             today = datetime.today().replace(month=3, day=1) if leap else today
             check4 = expiry < today.replace(year=today.year + 10)
 
+            print("Debug:", ("Birth:", str(birth.date())), ("Expiry:", str(expiry.date())))
+
             rep = lambda s, c, k=2: not c and self._report(s, kind=k)
             rep("expiry date before than birth date", check1)
-            rep("birth date after than today", check2)
+            # rep("birth date after than today", check2)  # check2 canceled
             self._check_expiry and rep("document expired", check3, 1)
             self._check_expiry and rep("expiry date greater than 10 years", check4, 1)
 
-            self._birth_date_check = check1 & check2
+            self._birth_date_check = check1  # & check2   # check2 canceled
             self._expiry_date_check = check1 if not self._compute_warnings else check1 & check3 & check4
 
         return self._birth_date_check & self._expiry_date_check
