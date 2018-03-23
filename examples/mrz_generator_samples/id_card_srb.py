@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-from generator.td1 import *
+from mrz.generator.td1 import *
 import examples.functions.functions as oi
 
 print(TD1CodeGenerator(

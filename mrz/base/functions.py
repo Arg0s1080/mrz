@@ -67,7 +67,7 @@ def full_capitalize(string: str) -> str:
 
 def transliterate(string: str, dictionary: dict, sep="<") -> str:
     """
-    >>> import generator.transliterations as dictionary_
+    >>> import mrz.generator.transliterations as dictionary_
     >>> transliterate("ТЕСТ МИЛИЦА", dictionary_.cyrillic_serbian())
     'TEST<MILICA'
     >>> transliterate("Þĩŝ ïŜ Á ţęšť", dictionary_.latin_based(), " ")

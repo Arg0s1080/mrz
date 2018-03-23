@@ -10,6 +10,10 @@
 #
 # Iván Rincón 2018
 
+__author__  = "Iván Rincón"
+__license__ = "GPL3"
+__version__ = "0.2"
+
 # import generator.transliterations as transliteration
 #
 # from base.countries_ops import *

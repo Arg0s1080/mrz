@@ -13,10 +13,10 @@
 #
 # (ɔ) Iván Rincón 2018
 
-import base.functions as functions
-import base.string_checkers as check
-from checker.hash_fields import HashChecker
-from checker.fields import FieldChecker
+import mrz.base.functions as functions
+import mrz.base.string_checkers as check
+from mrz.checker.hash_fields import HashChecker
+from mrz.checker.fields import FieldChecker
 
 
 class _TD3HashChecker(HashChecker):
@@ -147,6 +147,4 @@ class TD3CodeChecker(_TD3HashChecker, _TD3FieldChecker):
     def __bool__(self):
         return self.result
 
-# TODO: Delete
-print("checker/td3.py")
 

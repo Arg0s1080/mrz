@@ -13,15 +13,15 @@
 #
 # Iván Rincón 2018
 
-from .fields import Fields
-from .hash_fields import HashGenerator
-from .holder_name import HolderName
+from mrz.generator.fields import Fields
+from mrz.generator.hash_fields import HashGenerator
+from mrz.generator.holder_name import HolderName
 
-from base.countries_ops import *
+from mrz.base.countries_ops import *
 
-import base.functions as functions
-import base.string_checkers as check
-import generator.transliterations as dictionary
+import mrz.base.functions as functions
+import mrz.base.string_checkers as check
+import mrz.generator.transliterations as dictionary
 
 __all__ = ["TD2CodeGenerator", "dictionary", "code_list", "countries_list", "countries_code_list",
            "code_country_list", "is_country", "is_code", "get_code", "get_country", "find_country"]

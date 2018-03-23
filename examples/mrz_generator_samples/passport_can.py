@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-from generator.td3 import *
+from mrz.generator.td3 import *
 
 td3_generator = PassportCodeGenerator("P",            # Document type   Normally 'P' for passport
                                       "GB",           # Country         3 letters code or country name

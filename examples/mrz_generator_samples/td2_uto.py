@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import examples.functions.functions as oi
-from generator.td2 import TD2CodeGenerator
+from mrz.generator.td2 import TD2CodeGenerator
 
 print(TD2CodeGenerator("I",
                        "Utopia",

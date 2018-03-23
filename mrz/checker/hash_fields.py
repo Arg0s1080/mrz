@@ -1,7 +1,7 @@
 # GNU General Public License v3.0
 
-import base.functions as functions
-from checker.report import Report
+import mrz.base.functions as functions
+from mrz.checker.report import Report
 
 
 class HashChecker(Report):

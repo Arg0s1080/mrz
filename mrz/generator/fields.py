@@ -2,7 +2,7 @@
 #
 # Iván Rincón 2018
 
-import base.string_checkers as check
+import mrz.base.string_checkers as check
 
 
 class Fields:

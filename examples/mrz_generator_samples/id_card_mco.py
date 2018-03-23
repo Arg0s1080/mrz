@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-from generator.td1 import TD1CodeGenerator
+from mrz.generator.td1 import TD1CodeGenerator
 import examples.functions.functions as oi
 
 print(TD1CodeGenerator("I",          # Document type   Normally 'I' or 'ID' for id cards

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-from generator.td3 import PassportCodeGenerator
+from mrz.generator.td3 import PassportCodeGenerator
 import examples.functions.functions as oi
 
 print(PassportCodeGenerator("P",           # Document type   Normally 'P' for passport

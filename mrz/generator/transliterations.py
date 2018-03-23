@@ -17,47 +17,47 @@
 
 
 def arabic():
-    from .dictionaries.arabic import transliteration
+    from mrz.generator.dictionaries.arabic import transliteration
     return transliteration
 
 
 def cyrillic():
-    from .dictionaries.cyrillic import transliteration
+    from mrz.generator.dictionaries.cyrillic import transliteration
     return transliteration
 
 
 def cyrillic_belarussian():
-    from .dictionaries.cyrillic_belarussian import transliteration
+    from mrz.generator.dictionaries.cyrillic_belarussian import transliteration
     return transliteration
 
 
 def cyrillic_bulgarian():
-    from .dictionaries.cyrillic_bulgarian import transliteration
+    from mrz.generator.dictionaries.cyrillic_bulgarian import transliteration
     return transliteration
 
 
 def cyrillic_macedonian():
-    from .dictionaries.cyrillic_macedonian import transliteration
+    from mrz.generator.dictionaries.cyrillic_macedonian import transliteration
     return transliteration
 
 
 def cyrillic_serbian():
-    from .dictionaries.cyrillic_serbian import transliteration
+    from mrz.generator.dictionaries.cyrillic_serbian import transliteration
     return transliteration
 
 
 def cyrillic_ukrainian():
-    from .dictionaries.cyrillic_ukrainian import transliteration
+    from mrz.generator.dictionaries.cyrillic_ukrainian import transliteration
     return transliteration
 
 
 def greek():
-    from .dictionaries.greek import transliteration
+    from mrz.generator.dictionaries.greek import transliteration
     return transliteration
 
 
 def latin_based():
-    from .dictionaries.latin_based import transliteration
+    from mrz.generator.dictionaries.latin_based import transliteration
     return transliteration
 
 

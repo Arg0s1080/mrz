@@ -2,8 +2,8 @@
 #
 # Iván Rincón 2018
 
-import base.functions as functions
-import base.string_checkers as check
+import mrz.base.functions as functions
+import mrz.base.string_checkers as check
 
 
 class HashGenerator:

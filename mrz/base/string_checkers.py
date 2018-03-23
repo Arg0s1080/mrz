@@ -11,10 +11,10 @@
 # Iván Rincón 2018
 
 from string import ascii_letters
-from base.errors import *
+from mrz.base.errors import *
 
-import base.countries as countries
-import base.functions as functions
+import mrz.base.countries as countries
+import mrz.base.functions as functions
 
 
 def date(string):

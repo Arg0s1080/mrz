@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-from checker.td3 import TD3CodeChecker
+from mrz.checker.td3 import TD3CodeChecker
 
 
 td3_check = TD3CodeChecker("P<CZESPECIMEN<<VZOR<<<<<<<<<<<<<<<<<<<<<<<<<\n"

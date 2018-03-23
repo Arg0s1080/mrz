@@ -2,7 +2,7 @@
 # -*- coding UTF-8 -*-
 import sys
 sys.path.append(sys.path[0].replace("examples/mrz_checker_samples", ""))
-from checker.td1 import *
+from mrz.checker.td1 import TD1CodeChecker
 
 mrz_td1 = ("IDLIEID98754015<<<<<<<<<<<<<<<\n" 
            "8205122M1906224LIE<<<<<<<<<<<6\n" 

@@ -2,7 +2,7 @@
 #
 # Iván Rincón 2018
 
-import base.functions as functions
+import mrz.base.functions as functions
 
 
 class HolderName:

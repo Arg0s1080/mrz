@@ -2,8 +2,8 @@
 #
 # (ɔ) Iván Rincón 2018
 
-import base.countries as countries
-from base.functions import full_capitalize
+import mrz.base.countries as countries
+from mrz.base.functions import full_capitalize
 
 dictionary = countries.english
 

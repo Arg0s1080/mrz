@@ -1,5 +1,5 @@
 import unittest
-from generator.td3 import PassportCodeGenerator, dictionary
+from mrz.generator.td3 import PassportCodeGenerator, dictionary
 
 
 class TestCase05(unittest.TestCase):

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-from generator.td3 import PassportCodeGenerator, dictionary
+from mrz.generator.td3 import PassportCodeGenerator, dictionary
 import examples.functions.functions as oi
 
 

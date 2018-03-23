@@ -1,5 +1,5 @@
 import unittest
-from generator.td1 import TD1CodeGenerator
+from mrz.generator.td1 import TD1CodeGenerator
 
 
 class TestCase01(unittest.TestCase):

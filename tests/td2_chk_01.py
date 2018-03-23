@@ -1,5 +1,5 @@
 import unittest
-from checker.td2 import TD2CodeChecker
+from mrz.checker.td2 import TD2CodeChecker
 
 
 class TestCase08(unittest.TestCase):
