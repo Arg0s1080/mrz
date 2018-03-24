@@ -9,17 +9,18 @@ documents sizes 1, 2 and 3. (Passports, national id cards and other
 travel documents)
 
 MZR Generator and MRZ Checker are built according to International Civil
-Aviation Organization specifications (ICAO 9303): - `Specifications
-Common to all Machine Readable Travel Documents
-(MRTDs) <https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf>`__
-- `Specifications for Machine Readable Passports
-(MRPs) <https://www.icao.int/publications/Documents/9303_p4_cons_en.pdf>`__
-- `Specifications for TD1 Size Machine Readable Official Travel
-Documents
-(MROTDs) <https://www.icao.int/publications/Documents/9303_p5_cons_en.pdf>`__
-- `Specifications for TD2 Size Machine Readable Official Travel
-Documents
-(MROTDs) <https://www.icao.int/publications/Documents/9303_p6_cons_en.pdf>`__
+Aviation Organization specifications (ICAO 9303):
+
+-  `Specifications Common to all Machine Readable Travel Documents
+   (MRTDs) <https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf>`__
+-  `Specifications for Machine Readable Passports
+   (MRPs) <https://www.icao.int/publications/Documents/9303_p4_cons_en.pdf>`__
+-  `Specifications for TD1 Size Machine Readable Official Travel
+   Documents
+   (MROTDs) <https://www.icao.int/publications/Documents/9303_p5_cons_en.pdf>`__
+-  `Specifications for TD2 Size Machine Readable Official Travel
+   Documents
+   (MROTDs) <https://www.icao.int/publications/Documents/9303_p6_cons_en.pdf>`__
 
 Fields Distribution of Official Travel Documents:
 -------------------------------------------------
@@ -111,7 +112,9 @@ Passport generator example (ICAO9303 Specimen):
 PassportCodeGenerator str:
 ''''''''''''''''''''''''''
 
-``print(PassportCodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))``
+::
+
+    print(PassportCodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
 
 Output:
 '''''''
@@ -179,7 +182,9 @@ TD1CodeChecker bool
 Output
 ''''''
 
-``True``
+::
+
+    True
 
 Features v 0.2:
 ---------------

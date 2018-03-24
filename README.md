@@ -4,10 +4,11 @@
 MZR is a Machine Readable Zone generator and checker for official travel documents sizes 1, 2 and 3. (Passports, national id cards and other travel documents)
 
 MZR Generator and MRZ Checker are built according to International Civil Aviation Organization specifications (ICAO 9303):
-- [Specifications Common to all Machine Readable Travel Documents (MRTDs)](https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf)
-- [Specifications for Machine Readable Passports (MRPs)](https://www.icao.int/publications/Documents/9303_p4_cons_en.pdf)
-- [Specifications for TD1 Size Machine Readable Official Travel Documents (MROTDs)](https://www.icao.int/publications/Documents/9303_p5_cons_en.pdf)
-- [Specifications for TD2 Size Machine Readable Official Travel Documents (MROTDs)](https://www.icao.int/publications/Documents/9303_p6_cons_en.pdf)
+
+* [Specifications Common to all Machine Readable Travel Documents (MRTDs)](https://www.icao.int/publications/Documents/9303_p3_cons_en.pdf)
+* [Specifications for Machine Readable Passports (MRPs)](https://www.icao.int/publications/Documents/9303_p4_cons_en.pdf)
+* [Specifications for TD1 Size Machine Readable Official Travel Documents (MROTDs)](https://www.icao.int/publications/Documents/9303_p5_cons_en.pdf)
+* [Specifications for TD2 Size Machine Readable Official Travel Documents (MROTDs)](https://www.icao.int/publications/Documents/9303_p6_cons_en.pdf)
 
 
 ## Fields Distribution of Official Travel Documents:
@@ -78,13 +79,11 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
 Note: She is a fictional women from a fictional country (Utopia), but the example is very similar to real passports.
 
 ##### PassportCodeGenerator str:
-`print(PassportCodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))`
+    print(PassportCodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
 
 ##### Output:
-```
-P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
-L898902C36UTO7408122F1204159ZE184226B<<<<<10
-```
+    P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
+    L898902C36UTO7408122F1204159ZE184226B<<<<<10
 
 ## Usage Generator:
 #### TD1's (id cards):
@@ -115,14 +114,12 @@ L898902C36UTO7408122F1204159ZE184226B<<<<<10
 ![image](examples/images/id_cards/Sweden.png)
 
 ##### TD1CodeChecker bool
-```
-print(bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
-                          "8703145M1701027SWE<<<<<<<<<<<8\n"
-                          "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<")))
-```
+    print(bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
+                              "8703145M1701027SWE<<<<<<<<<<<8\n"
+                              "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<")))
 
 ##### Output
-`True`
+    True
 
 
 ## Features v 0.2:
