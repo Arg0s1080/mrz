@@ -4,7 +4,7 @@ from mrz.checker.td1 import TD1CodeChecker
 
 class TestCase06(unittest.TestCase):
 
-    def test_td1_generator(self):
+    def test_td1_checker(self):
         mrz_td1 = ("IDLIEID98754015<<<<<<<<<<<<<<<\n"
                    "8205122M1906224LIE<<<<<<<<<<<6\n"
                    "OSPELT<BECK<<MARISA<<<<<<<<<<<")
