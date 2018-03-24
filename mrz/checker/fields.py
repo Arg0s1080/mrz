@@ -193,7 +193,7 @@ class FieldChecker(Report):
             today = datetime.today().replace(month=3, day=1) if leap else today
             check4 = expiry < today.replace(year=today.year + 10)
 
-            print("Debug:", ("Birth:", str(birth.date())), ("Expiry:", str(expiry.date())))
+            # print("Debug:", ("Birth:", str(birth.date())), ("Expiry:", str(expiry.date())))
 
             rep = lambda s, c, k=2: not c and self._report(s, kind=k)
             rep("expiry date before than birth date", check1)
