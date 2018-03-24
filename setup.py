@@ -1,9 +1,12 @@
 # -*- coding: UTF8 -*-
 
 from setuptools import setup, find_packages
+from os import path
 
-with open("README.md", 'r') as f:
-    long_description = f.read()
+parent = path.abspath(path.dirname(__file__))
+
+with open(path.join(parent, "README.rst"), 'r') as readme:
+    long_description = readme.read()
 
 setup(
     name="mzr",
