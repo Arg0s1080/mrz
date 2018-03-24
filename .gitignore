@@ -8,5 +8,5 @@ __pycache__/
 /Notes_Checker.txt
 /test.py
 /gitscript.sh
-/.pypirc
 .fuse_hidden*
+/md2rst_script.py
