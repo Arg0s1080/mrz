@@ -169,6 +169,3 @@ class TD1CodeGenerator(_TD1HolderName, _TD1HashGenerator, Fields):
                self._line2() + "\n" +
                self.identifier)
 
-
-# TODO: Delete
-print("generator/td1.py")

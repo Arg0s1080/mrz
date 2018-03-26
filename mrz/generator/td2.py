@@ -144,5 +144,3 @@ class TD2CodeGenerator(Fields, _TD2HashGenerator, _TD2HolderName):
         return (self._line1() + "\n" +
                 self._line2())
 
-# TODO: Delete
-print("generator/td2")

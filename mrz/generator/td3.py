@@ -170,6 +170,3 @@ class PassportCodeGenerator(Fields, _PassportHashGenerator, _PassportHolderName)
         return (self._line1() + "\n" +
                 self._line2())
 
-
-# TODO: Delete
-print("generator/td3")
