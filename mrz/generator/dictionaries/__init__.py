@@ -8,8 +8,9 @@
 # For more information on this, and how to apply and follow theGNU GPL, see:
 # http://www.gnu.org/licenses
 #
+# Transliteration Dictionaries
 # (ɔ) Iván Rincón 2018
 
-# from .td1 import TD1CodeChecker
-# from .td2 import TD2CodeChecker
-# from .td3 import TD3CodeChecker
+__author__  = "Iván Rincón"
+__license__ = "GPL3"
+__version__ = "0.1"
