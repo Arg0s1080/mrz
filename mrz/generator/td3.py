@@ -169,4 +169,3 @@ class PassportCodeGenerator(Fields, _PassportHashGenerator, _PassportHolderName)
     def __str__(self):
         return (self._line1() + "\n" +
                 self._line2())
-

@@ -143,4 +143,3 @@ class TD2CodeGenerator(Fields, _TD2HashGenerator, _TD2HolderName):
     def __str__(self):
         return (self._line1() + "\n" +
                 self._line2())
-

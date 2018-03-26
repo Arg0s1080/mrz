@@ -168,4 +168,3 @@ class TD1CodeGenerator(_TD1HolderName, _TD1HashGenerator, Fields):
         return(self._line1() + "\n" +
                self._line2() + "\n" +
                self.identifier)
-
