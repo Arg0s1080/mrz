@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-import examples.functions.functions as oi
 from mrz.generator.td2 import TD2CodeGenerator
+from examples.functions.functions import open_image
 
 print(TD2CodeGenerator("I",
                        "Utopia",
@@ -14,4 +14,4 @@ print(TD2CodeGenerator("I",
                        "F",
                        "120415"))
 
-oi.open_image("other", "TD2_ICAO_Example.png")
+open_image("other", "TD2_ICAO_Example.png")

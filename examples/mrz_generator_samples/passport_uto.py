@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td3 import PassportCodeGenerator
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 print(PassportCodeGenerator("P",           # Document type   Normally 'P' for passport
                             "Utopia",      # Country         3 letters code or country name (fictional ICAO sample)
@@ -15,4 +15,4 @@ print(PassportCodeGenerator("P",           # Document type   Normally 'P' for pa
                             "120415",      # Expiry date     YYMMDD
                             "ZE184226B"))  # Id number       Non-mandatory field in some countries
 
-oi.open_image("passports", "ICAO_Example.png")
+open_image("passports", "ICAO_Example.png")

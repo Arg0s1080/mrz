@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td1 import *
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 print(TD1CodeGenerator(
             "ID",                                 # Document type   Normally 'I' or 'ID' for id cards
@@ -17,5 +17,4 @@ print(TD1CodeGenerator(
             "2902968000000",                      # Optional data 1 empty string by default
             "",                                   # Optional data 2 empty string by default
             dictionary.cyrillic_serbian()))       # Transliteration Dictionary (latin by default)
-
-oi.open_image("id_cards", "Serbia.png")
+open_image("id_cards", "Serbia.png")

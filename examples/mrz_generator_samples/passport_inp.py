@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td3 import PassportCodeGenerator
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 print(PassportCodeGenerator("P",            # Document type   Normally 'P' for passport
                             "Interpol",     # Country         3 letters code or country name
@@ -16,4 +16,4 @@ print(PassportCodeGenerator("P",            # Document type   Normally 'P' for p
                             "1234567890"))  # Id number       Non-mandatory field in some countries
 
 
-oi.open_image("passports", "Interpol.png")
+open_image("passports", "Interpol.png")

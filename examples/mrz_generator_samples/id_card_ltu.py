@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td1 import TD1CodeGenerator
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 print(TD1CodeGenerator("I",              # Document type   Normally 'I' or 'ID' for id cards
                        "LTU",            # Country         3 letters code or country name
@@ -15,4 +15,4 @@ print(TD1CodeGenerator("I",              # Document type   Normally 'I' or 'ID' 
                        "BIRUTĖ",         # Given name(s)   Special characters will be transliterated
                        "46411231034"))   # Optional data 1
 
-oi.open_image("id_cards", "Lithuania.png")
+open_image("id_cards", "Lithuania.png")

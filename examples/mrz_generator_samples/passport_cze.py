@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td3 import *
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 # search for a country by pattern listing the possible results
 print("\n".join(find_country("REPUBLIC")))
@@ -21,4 +21,4 @@ print(PassportCodeGenerator("P",            # Document type   Normally 'P' for p
                             "120704",       # Expiry date     YYMMDD
                             "110101111"))   # Id number       Non-mandatory field in some countries
 
-oi.open_image("passports", "Czech_Republic.png")
+open_image("passports", "Czech_Republic.png")

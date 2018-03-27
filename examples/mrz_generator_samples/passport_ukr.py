@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td3 import *
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 
 print(PassportCodeGenerator(
@@ -18,4 +18,4 @@ print(PassportCodeGenerator(
         "1234567890",
         dictionary.cyrillic_ukrainian()))
 
-oi.open_image("passports", "Ukraine.png")
+open_image("passports", "Ukraine.png")

@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td3 import PassportCodeGenerator, dictionary
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 
 print(PassportCodeGenerator(
@@ -19,4 +19,4 @@ print(PassportCodeGenerator(
         dictionary.arabic(),
         force=True))
 
-oi.open_image("passports", "ICAO_Example2.png")
+open_image("passports", "ICAO_Example2.png")

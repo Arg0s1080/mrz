@@ -15,6 +15,7 @@ td3_generator = PassportCodeGenerator("P",            # Document type   Normally
                                       "ID88933477")   # Id number       Not mandatory field
 
 print(td3_generator)
+print("\n")
 
 td3_generator.country_code = "CAN"
 td3_generator.document_number = "ZE000509"

@@ -3,7 +3,7 @@
 
 
 from mrz.generator.td3 import *
-import examples.functions.functions as oi
+from examples.functions.functions import open_image
 
 
 print(PassportCodeGenerator("P",            # Document type   Normally 'P' for passport
@@ -16,4 +16,4 @@ print(PassportCodeGenerator("P",            # Document type   Normally 'P' for p
                             "F",            # Genre           Male: 'M', Female: 'F' or Undefined 'X'
                             "160320"))       # Expiry date     YYMMDD
 
-oi.open_image("passports", "Japan.png")
+open_image("passports", "Japan.png")

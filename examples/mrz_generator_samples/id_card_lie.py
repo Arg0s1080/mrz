@@ -8,7 +8,7 @@ print(TD1CodeGenerator("ID",           # Document type   Normally 'I' or 'ID' fo
                        "LIE",          # Country         3 letters code or country name
                        "ID9875401",    # Document number
                        "820512",       # Birth date      YYMMDD
-                       "M",            # Genre           Male: 'M', Female: 'F' or Undefined 'X'
+                       "F",            # Genre           Male: 'M', Female: 'F' or Undefined 'X'
                        "190622",       # Expiry date     YYMMDD
                        "LIE",          # Nationality
                        "OSPELT-BECK",  # Surname         Special characters will be transliterated
