@@ -9,7 +9,7 @@ from mrz.checker.report import Report
 class FieldChecker(Report):
     def __init__(self, document_type: str, country: str, identifier: str, document_number: str, nationality: str,
                  birth_date: str, sex: str, expiry_date: str, optional_data: str, optional_data_2: str,
-                 check_expiry: bool, compute_warnings: bool):
+                 check_expiry: bool, compute_warnings: bool, mrz_code: str):
         self._compute_warnings = compute_warnings
         self._document_type = document_type
         self._country = country
@@ -24,7 +24,14 @@ class FieldChecker(Report):
         self._optional_data = optional_data
         self._optional_data_2 = optional_data_2
         self._check_expiry = check_expiry
+        self._mrz_code = mrz_code
         self._times()
+
+    @property
+    def mrz_code(self):
+        """Return Machine Readable Zone code string"""
+
+        return self._mrz_code
 
     @property
     def document_type(self) -> bool:

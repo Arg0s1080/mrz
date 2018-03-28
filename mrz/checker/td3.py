@@ -62,11 +62,11 @@ class _TD3HashChecker(HashChecker):
 class _TD3FieldChecker(FieldChecker):
     def __init__(self, document_type: str, country: str, identifier: str, document_number: str,
                  nationality: str, birth_date: str, sex: str, expiry_date: str, optional_data: str,
-                 check_expiry: bool, compute_warnings: bool):
+                 check_expiry: bool, compute_warnings: bool, mrz_code: str):
         self._optional_data = optional_data
         self._document_type = document_type
         FieldChecker.__init__(self, document_type, country, identifier, document_number, nationality, birth_date,
-                              sex, expiry_date, optional_data, "", check_expiry, compute_warnings)
+                              sex, expiry_date, optional_data, "", check_expiry, compute_warnings, mrz_code)
 
     @property
     def document_type(self) -> bool:
@@ -99,9 +99,9 @@ class TD3CodeChecker(_TD3HashChecker, _TD3FieldChecker):
         compute_warnings (bool):  If it's set True, warnings compute as False
 
     """
-    def __init__(self, string: str, check_expiry=False, compute_warnings=False):
-        check.precheck("TD3", string, 88)
-        lines = string.splitlines()
+    def __init__(self, mrz_code: str, check_expiry=False, compute_warnings=False):
+        check.precheck("TD3", mrz_code, 88)
+        lines = mrz_code.splitlines()
         self._document_type = lines[0][0: 2]
         self._country = lines[0][2: 5]
         self._identifier = lines[0][5: 44]
@@ -138,7 +138,8 @@ class TD3CodeChecker(_TD3HashChecker, _TD3FieldChecker):
                                   self._expiry_date,
                                   self._optional_data,
                                   check_expiry,
-                                  compute_warnings)
+                                  compute_warnings,
+                                  mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
     def __repr__(self):

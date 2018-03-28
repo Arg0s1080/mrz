@@ -66,9 +66,9 @@ class TD1CodeChecker(_TD1HashChecker, FieldChecker):
         compute_warnings (bool):  If it's set True, warnings compute as False
 
     """
-    def __init__(self, mrz_string: str, check_expiry=False, compute_warnings=False):
-        check.precheck("TD1", mrz_string, 90)
-        lines = mrz_string.splitlines()
+    def __init__(self, mrz_code: str, check_expiry=False, compute_warnings=False):
+        check.precheck("TD1", mrz_code, 90)
+        lines = mrz_code.splitlines()
         self._document_type = lines[0][0: 2]
         self._country = lines[0][2: 5]
         self._identifier = lines[2]
@@ -106,7 +106,8 @@ class TD1CodeChecker(_TD1HashChecker, FieldChecker):
                               self._optional_data,
                               self._optional_data_2,
                               check_expiry,
-                              compute_warnings)
+                              compute_warnings,
+                              mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
     def __repr__(self):
