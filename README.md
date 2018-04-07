@@ -17,7 +17,8 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
 ## Usage Generator:
 #### TD1's (id cards):
 
-    Params:
+    Params:                      Case insensitive
+
         document_type    (str):  The first letter shall be 'I', 'A' or 'C'
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         document_number  (str):  Document number
@@ -38,7 +39,8 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
                                  
 #### TD2
 
-    Params:
+    Params:                      Case insensitive
+
         document_type    (str):  The first letter shall be 'I', 'A' or 'C'
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Holder primary identifier(s). This field will be transliterated.
@@ -57,7 +59,8 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
                                  
 #### TD3 (Passports)
 
-    Params:
+    Params:                      Case insensitive
+
         document_type    (str):  Normally 'P' for passport
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Primary identifier(s)
@@ -85,10 +88,11 @@ Note: She is a fictional women from a fictional country (Utopia), but the exampl
     P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
     L898902C36UTO7408122F1204159ZE184226B<<<<<10
 
-## Usage Generator:
+## Usage Checker:
 #### TD1's (id cards):
 
     Params:
+
         mrz_string        (str):  MRZ string of td1s. Must be 90 uppercase characters long (3 lines)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
@@ -97,6 +101,7 @@ Note: She is a fictional women from a fictional country (Utopia), but the exampl
 #### TD2:
 
     Params:
+
         mrz_string        (str):  MRZ string of td2. Must be 72 characters long (uppercase) (2 lines)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
@@ -105,6 +110,7 @@ Note: She is a fictional women from a fictional country (Utopia), but the exampl
 #### TD3 (Passports):
 
     Params:
+
         mrz_string        (str):  MRZ string of td3. Must be 88 characters long (uppercase) (2 lines)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
@@ -114,16 +120,18 @@ Note: She is a fictional women from a fictional country (Utopia), but the exampl
 ![image](examples/images/id_cards/Sweden.png)
 
 ##### TD1CodeChecker bool
-    print(bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
-                              "8703145M1701027SWE<<<<<<<<<<<8\n"
-                              "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<")))
+    bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
+                        "8703145M1701027SWE<<<<<<<<<<<8\n"
+                        "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<"))
 
 ##### Output
     True
 
+## Installation:
+    sudo pip install mrz
 
 ## Features v 0.2:
-- [x] Special Latin characters (acutes, tildes, diaeresis, graves, circumflex, etc)
+- [x] Transliteration of special Latin characters (acutes, tildes, diaeresis, graves, circumflex, etc)
 - [x] Arabic chars transliteration
 - [x] Several variations of Cyrillic added: Serbian, Macedonian, Belarusian, Ukrainian and Bulgarian
 - [x] Transliteration of modern Greek (experimental)
