@@ -10,7 +10,7 @@ with open(path.join(parent, "README.rst"), 'r') as readme:
 
 setup(
     name="mrz",
-    version="0.2.1",
+    version="0.2.2",
     description="Machine readable zone generator and checker for passports and other travel documents",
     license="GPLv3",
     long_description=long_description,
