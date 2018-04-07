@@ -50,13 +50,6 @@ class _TD2HashChecker(HashChecker):
         return str(self._all_hashes())
 
 
-class _TD2FieldChecker(FieldChecker):
-    def __init__(self, document_type: str, country: str, identifier: str, document_number: str, nationality: str,
-                 birth_date: str, sex: str, expiry_date: str, optional_data: str, check_expiry: bool):
-        FieldChecker.__init__(self, document_type, country, identifier, document_number, nationality, birth_date,
-                              sex, expiry_date, optional_data, "", check_expiry)
-
-
 class TD2CodeChecker(_TD2HashChecker, FieldChecker):
     """
     Check the string code of the machine readable zone for official travel documents of size 2
