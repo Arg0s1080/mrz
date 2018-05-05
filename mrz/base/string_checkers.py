@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+#
 # GNU General Public License v3.0
 #
 # Permissions of this strong copyleft license are conditioned on making available

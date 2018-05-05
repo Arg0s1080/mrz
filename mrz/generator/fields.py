@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+#
 # GNU General Public License v3.0
 #
 # Iván Rincón 2018

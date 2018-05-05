@@ -1,5 +1,5 @@
 # GNU General Public License v3.0
-#
+# -*- coding UTF-8 -*- 
 # (ɔ) Iván Rincón 2018
 
 import mrz.base.countries as countries
