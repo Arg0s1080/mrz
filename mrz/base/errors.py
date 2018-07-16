@@ -6,7 +6,7 @@ default = "String was not recognized as a valid "
 class FieldError(ValueError):
     def __init__(self, msg="", cause=""):
         self.cause = cause
-        self.msg = msg if msg else "String contains invalid characters"
+        self.msg = msg or "String contains invalid characters"
         self.args = (self.msg, self.cause)
         super(FieldError, self).__init__(self.msg, self.cause)
 
@@ -16,29 +16,29 @@ class FieldError(ValueError):
 
 class DateError(FieldError):
     def __init__(self, msg="", cause=""):
-        self.msg = msg if msg else default + "date. It should be 'YYMMDD'"
+        self.msg = msg or "%sdate. It should be 'YYMMDD'" % default
         self.cause = cause
         super(DateError, self).__init__(self.msg, self.cause)
 
 
 class SexError(FieldError):
     def __init__(self, msg="", cause=""):
-        self.msg = msg if msg else default + "genre. Sex code should be 'M', 'F' or 'X'"
+        self.msg = msg or "%sgenre. Sex code should be 'M', 'F' or 'X'" % default
         self.cause = cause
         super(SexError, self).__init__(self.msg, self.cause)
 
 
 class CountryError(FieldError):
     def __init__(self, msg="", cause=""):
-        self.msg = msg if msg else default + ("country code or country or country name. It should be a valid "
-                                              "country code (3 letters) or a valid country name (english)")
+        self.msg = msg or ("%scountry code or country or country name. It should be a valid co"
+                           "untry code (3 letters) or a valid country name (english)" % default)
         self.cause = cause
         super(CountryError, self).__init__(self.msg, self.cause)
 
 
 class DocumentTypeError(FieldError):
     def __init__(self, msg="", cause=""):
-        self.msg = msg if msg else default + "type of document."
+        self.msg = msg or "%stype of document." % default
         self.cause = cause
         super(DocumentTypeError, self).__init__(self.msg, self.cause)
 
@@ -48,5 +48,5 @@ class LengthError(FieldError):
         self.document = document
         self.cause = str(cause)
         extra = " as maximum" if amx else ""
-        self.msg = msg if msg else default + "%s. It should have %d characters%s" % (self.document, length, extra)
+        self.msg = msg or "%s%s. It should have %d characters%s" % (default, self.document, length, extra)
         super(LengthError, self).__init__(self.msg, self.cause)

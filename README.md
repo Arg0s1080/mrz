@@ -79,7 +79,6 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
 
 ##### Passport generator example (ICAO9303 Specimen):
 ![image](examples/images/passports/ICAO_Example.png)
-Note: She is a fictional women from a fictional country (Utopia), but the example is very similar to real passports.
 
 ##### PassportCodeGenerator str:
     print(PassportCodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
