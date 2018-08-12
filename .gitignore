@@ -3,10 +3,11 @@
 .idea/
 __pycache__/
 /.directory
-/..gitinore.kate.swp
+/..*.kate.swp
 /Notes.txt
 /Notes_Checker.txt
 /test.py
 /gitscript.sh
 .fuse_hidden*
 /md2rst_script.py
+.~lock*
