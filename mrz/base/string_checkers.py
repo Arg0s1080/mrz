@@ -93,7 +93,7 @@ def document_type(string, td3=False):
 def precheck(document_description: str, string: str, length: int):
     s = string.replace("\n", "")
     if _is_string(_check_upper(string)) and len(s) != length:
-        raise LengthError(cause=len(string), document=document_description, length=length)
+        raise LengthError(cause=len(s), document=document_description, length=length)
     if not is_printable(s):
         raise FieldError("%s contains invalid characters" % document_description, s)
 
