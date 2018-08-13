@@ -13,21 +13,20 @@
 #
 # Iván Rincón 2018
 
-from mrz.generator.fields import Fields
-from mrz.generator.hash_fields import HashGenerator
-from mrz.generator.holder_name import HolderName
+from ..base.countries_ops import *
+from ..base.functions import hash_string, transliterate
+from ._fields import _Fields
+from ._hash_fields import _HashGenerator
+from ._holder_name import _HolderName
 
-from mrz.base.countries_ops import *
-
-import mrz.base.functions as functions
 import mrz.base.string_checkers as check
-import mrz.generator.transliterations as dictionary
+import mrz.generator._transliterations as dictionary
 
 __all__ = ["PassportCodeGenerator", "dictionary", "code_list", "countries_list", "countries_code_list",
            "code_country_list", "is_country", "is_code", "get_code", "get_country", "find_country"]
 
 
-class _PassportHashGenerator(HashGenerator):
+class _PassportHashGenerator(_HashGenerator):
 
     @property
     def id_number(self) -> str:
@@ -47,14 +46,14 @@ class _PassportHashGenerator(HashGenerator):
         Case insensitive property
 
         """
-        self._id_number = check.field(functions.transliterate(value, self.transliteration), 14, "id number", "<")
+        self._id_number = check.field(transliterate(value, self.transliteration), 14, "id number", "<")
 
     @property
     def id_number_hash(self) -> str:
         """Return hash digit of the id_number field
 
         """
-        return functions.hash_string(self.id_number)
+        return hash_string(self.id_number)
 
     @property
     def final_hash(self) -> str:
@@ -70,12 +69,12 @@ class _PassportHashGenerator(HashGenerator):
                         self.id_number +
                         self.id_number_hash)
 
-        return functions.hash_string(final_string)
+        return hash_string(final_string)
 
 
-class _PassportHolderName(HolderName):
+class _PassportHolderName(_HolderName):
     def __init__(self, surname: str, given_names: str, transliteration=dictionary.latin_based()):
-        HolderName.__init__(self, surname, given_names, transliteration)
+        _HolderName.__init__(self, surname, given_names, transliteration)
 
     @property
     def identifier(self) -> str:
@@ -85,7 +84,7 @@ class _PassportHolderName(HolderName):
         return check.field(self.surname + "<<" + self.given_names, 39, "full name", "<")
 
 
-class PassportCodeGenerator(Fields, _PassportHashGenerator, _PassportHolderName):
+class PassportCodeGenerator(_Fields, _PassportHashGenerator, _PassportHolderName):
     """Calculate the string code of the machine readable zone for official travel documents of size 3 (passports)
 
     Params:

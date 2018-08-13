@@ -13,31 +13,32 @@
 #
 # (ɔ) Iván Rincón 2018
 
-import mrz.base.functions as functions
+from ..base.functions import hash_is_ok
+from ._hash_fields import _HashChecker
+from ._fields import _FieldChecker
+
 import mrz.base.string_checkers as check
-from mrz.checker.hash_fields import HashChecker
-from mrz.checker.fields import FieldChecker
 
 
-class _TD2HashChecker(HashChecker):
+class _TD2HashChecker(_HashChecker):
     def __init__(self, document_number, document_number_hash, birth_date, birth_date_hash, expiry_date,
                  expiry_date_hash, optional_data, final_hash):
         self._optional_data = optional_data
         self._final_hash = final_hash
-        HashChecker.__init__(self, document_number, document_number_hash, birth_date, birth_date_hash,
-                             expiry_date, expiry_date_hash)
+        _HashChecker.__init__(self, document_number, document_number_hash, birth_date, birth_date_hash,
+                              expiry_date, expiry_date_hash)
 
     @property
     def final_hash(self) -> bool:
         """Returns True if final hash is True, False otherwise"""
 
-        ok = functions.hash_is_ok(self._document_number +
-                                  self._document_number_hash +
-                                  self._birth_date +
-                                  self._birth_date_hash +
-                                  self._expiry_date +
-                                  self._expiry_date_hash +
-                                  self._optional_data, self._final_hash)
+        ok = hash_is_ok(self._document_number +
+                        self._document_number_hash +
+                        self._birth_date +
+                        self._birth_date_hash +
+                        self._expiry_date +
+                        self._expiry_date_hash +
+                        self._optional_data, self._final_hash)
         return self._report("final hash", ok)
 
     def _all_hashes(self) -> bool:
@@ -50,7 +51,7 @@ class _TD2HashChecker(HashChecker):
         return str(self._all_hashes())
 
 
-class TD2CodeChecker(_TD2HashChecker, FieldChecker):
+class TD2CodeChecker(_TD2HashChecker, _FieldChecker):
     """
     Check the string code of the machine readable zone for official travel documents of size 2
 
@@ -89,20 +90,20 @@ class TD2CodeChecker(_TD2HashChecker, FieldChecker):
                                  self._expiry_date_hash,
                                  self._optional_data,
                                  self._final_hash)
-        FieldChecker.__init__(self,
-                              self._document_type,
-                              self._country,
-                              self._identifier,
-                              self._document_number,
-                              self._nationality,
-                              self._birth_date,
-                              self._sex,
-                              self._expiry_date,
-                              self._optional_data,
-                              "",
-                              check_expiry,
-                              compute_warnings,
-                              mrz_code)
+        _FieldChecker.__init__(self,
+                               self._document_type,
+                               self._country,
+                               self._identifier,
+                               self._document_number,
+                               self._nationality,
+                               self._birth_date,
+                               self._sex,
+                               self._expiry_date,
+                               self._optional_data,
+                               "",
+                               check_expiry,
+                               compute_warnings,
+                               mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
     def __repr__(self):

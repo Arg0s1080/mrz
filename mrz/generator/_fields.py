@@ -7,7 +7,7 @@
 import mrz.base.string_checkers as check
 
 
-class Fields:
+class _Fields:
     def __init__(self, document_type: str, country_code: str, document_number: str,
                  nationality: str, sex: str, force: bool):
         self.force = force

@@ -1,12 +1,13 @@
 # GNU General Public License v3.0
 
-import mrz.base.string_checkers as check
-import mrz.checker.honorifics as honorifics
 from datetime import datetime, date, timedelta
-from mrz.checker.report import Report
+from ._report import _Report
+from ._honorifics import titles
+
+import mrz.base.string_checkers as check
 
 
-class FieldChecker(Report):
+class _FieldChecker(_Report):
     def __init__(self, document_type: str, country: str, identifier: str, document_number: str, nationality: str,
                  birth_date: str, sex: str, expiry_date: str, optional_data: str, optional_data_2: str,
                  check_expiry: bool, compute_warnings: bool, mrz_code: str):
@@ -57,7 +58,6 @@ class FieldChecker(Report):
     def identifier(self) -> bool:
         """Return True is the identifier is validated overcoming the checks, False otherwise."""
 
-        from mrz import checker
         id_ = self._identifier
         if not check.is_printable(id_):
             return self._report("identifier", False)
@@ -97,7 +97,7 @@ class FieldChecker(Report):
                 if not itm:
                     pass
                 else:
-                    for tit in checker.honorifics.titles:
+                    for tit in titles:
                         if tit == itm:
                             if i == 1:
                                 self._report("Possible unauthorized prefix or suffix in identifier", kind=1)

@@ -4,11 +4,11 @@
 #
 # Iván Rincón 2018
 
-import mrz.base.functions as functions
-import mrz.base.string_checkers as check
+from ..base.functions import hash_string
+from ..base.string_checkers import field, date
 
 
-class HashGenerator:
+class _HashGenerator:
     def __init__(self, document_number: str, birth_date: str, expiry_date: str, transliteration: dict):
         self.document_number = document_number
         self.birth_date = birth_date
@@ -35,14 +35,14 @@ class HashGenerator:
         Case insensitive.
 
         """
-        self._document_number = check.field(value, 9, "passport number")
+        self._document_number = field(value, 9, "passport number")
 
     @property
     def document_number_hash(self) -> str:
         """Return hash digit of document number
 
         """
-        return functions.hash_string(self.document_number)
+        return hash_string(self.document_number)
 
     @property
     def birth_date(self) -> str:
@@ -56,14 +56,14 @@ class HashGenerator:
         """Set holder's date of birth with 'YYMMDD' format
 
         """
-        self._birth_date = check.date(value)
+        self._birth_date = date(value)
 
     @property
     def birth_date_hash(self) -> str:
         """Return hash digit of birth date
 
         """
-        return functions.hash_string(self.birth_date)
+        return hash_string(self.birth_date)
 
     @property
     def expiry_date(self) -> str:
@@ -77,11 +77,11 @@ class HashGenerator:
         """Set date of expiry of the MRTD with 'YYMMDD' format
 
         """
-        self._expiry_date = check.date(value)
+        self._expiry_date = date(value)
 
     @property
     def expiry_date_hash(self) -> str:
         """Return hash digit of expiry date
 
         """
-        return functions.hash_string(self.expiry_date)
+        return hash_string(self.expiry_date)

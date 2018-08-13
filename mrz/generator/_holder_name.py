@@ -4,10 +4,10 @@
 #
 # Iván Rincón 2018
 
-import mrz.base.functions as functions
+from ..base.functions import transliterate
 
 
-class HolderName:
+class _HolderName:
     def __init__(self, surname: str, given_names: str, transliteration: dict):
         self.transliteration = transliteration
         self.surname = surname
@@ -55,7 +55,7 @@ class HolderName:
         Case insensitive.
 
         """
-        self._surnames = functions.transliterate(value, self.transliteration)
+        self._surnames = transliterate(value, self.transliteration)
 
     @property
     def given_names(self) -> str:
@@ -77,7 +77,7 @@ class HolderName:
         Case insensitive.
 
         """
-        self._given_names = functions.transliterate(value, self.transliteration)
+        self._given_names = transliterate(value, self.transliteration)
 
     def __str__(self):
         return self.surname + "<<" + self.given_names

@@ -13,21 +13,20 @@
 #
 # Iván Rincón 2018
 
-from mrz.generator.fields import Fields
-from mrz.generator.hash_fields import HashGenerator
-from mrz.generator.holder_name import HolderName
+from ..base.countries_ops import *
+from ..base.functions import hash_string, transliterate
+from ._fields import _Fields
+from ._hash_fields import _HashGenerator
+from ._holder_name import _HolderName
 
-from mrz.base.countries_ops import *
-
-import mrz.base.functions as functions
-import mrz.generator.transliterations as dictionary
+import mrz.generator._transliterations as dictionary
 import mrz.base.string_checkers as check
 
 __all__ = ["TD1CodeGenerator", "dictionary", "code_list", "countries_list", "countries_code_list",
            "code_country_list", "is_country", "is_code", "get_code", "get_country", "find_country"]
 
 
-class _TD1HashGenerator(HashGenerator):
+class _TD1HashGenerator(_HashGenerator):
     @property
     def optional_data1(self) -> str:
         """Return optional data field of the first line (16 to 30 char position) for TD1
@@ -46,8 +45,7 @@ class _TD1HashGenerator(HashGenerator):
         Case insensitive
 
         """
-        self._optional_data1 = check.field(functions.transliterate(value, self.transliteration),
-                                           15, "optional data 1", "<")
+        self._optional_data1 = check.field(transliterate(value, self.transliteration), 15, "optional data 1", "<")
 
     @property
     def optional_data2(self) -> str:
@@ -67,27 +65,26 @@ class _TD1HashGenerator(HashGenerator):
         Case insensitive.
 
         """
-        self._optional_data2 = check.field(functions.transliterate(value, self.transliteration),
-                                           11, "optional data 2", "<")
+        self._optional_data2 = check.field(transliterate(value, self.transliteration), 11, "optional data 2", "<")
 
     @property
     def final_hash(self) -> str:
         """Return final hash digit for TD1
 
         """
-        return functions.hash_string(self.document_number +
-                                     self.document_number_hash +
-                                     self.optional_data1 +
-                                     self.birth_date +
-                                     self.birth_date_hash +
-                                     self.expiry_date +
-                                     self.expiry_date_hash +
-                                     self.optional_data2)
+        return hash_string(self.document_number +
+                           self.document_number_hash +
+                           self.optional_data1 +
+                           self.birth_date +
+                           self.birth_date_hash +
+                           self.expiry_date +
+                           self.expiry_date_hash +
+                           self.optional_data2)
 
 
-class _TD1HolderName(HolderName):
+class _TD1HolderName(_HolderName):
     def __init__(self, surname: str, given_names: str, transliteration: dict):
-        HolderName.__init__(self, surname, given_names, transliteration)
+        _HolderName.__init__(self, surname, given_names, transliteration)
 
     @property
     def identifier(self) -> str:
@@ -97,7 +94,7 @@ class _TD1HolderName(HolderName):
         return check.field(self.surname + "<<" + self.given_names, 30, "full name", "<")
 
 
-class TD1CodeGenerator(_TD1HolderName, _TD1HashGenerator, Fields):
+class TD1CodeGenerator(_TD1HolderName, _TD1HashGenerator, _Fields):
     """Calculate the string code of the machine readable zone for official travel documents of size 1
 
     Params:

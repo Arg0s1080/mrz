@@ -13,21 +13,20 @@
 #
 # Iván Rincón 2018
 
-from mrz.generator.fields import Fields
-from mrz.generator.hash_fields import HashGenerator
-from mrz.generator.holder_name import HolderName
+from ..base.countries_ops import *
+from ..base.functions import hash_string, transliterate
+from ._fields import _Fields
+from ._hash_fields import _HashGenerator
+from ._holder_name import _HolderName
 
-from mrz.base.countries_ops import *
-
-import mrz.base.functions as functions
 import mrz.base.string_checkers as check
-import mrz.generator.transliterations as dictionary
+import mrz.generator._transliterations as dictionary
 
 __all__ = ["TD2CodeGenerator", "dictionary", "code_list", "countries_list", "countries_code_list",
            "code_country_list", "is_country", "is_code", "get_code", "get_country", "find_country"]
 
 
-class _TD2HashGenerator(HashGenerator):
+class _TD2HashGenerator(_HashGenerator):
 
     @property
     def optional_data(self) -> str:
@@ -47,8 +46,7 @@ class _TD2HashGenerator(HashGenerator):
         Case insensitive.
 
         """
-        self._optional_data = check.field(functions.transliterate(value, self.transliteration),
-                                          7, "optional data 1", "<")
+        self._optional_data = check.field(transliterate(value, self.transliteration), 7, "optional data 1", "<")
 
     @property
     def final_hash(self) -> str:
@@ -63,12 +61,12 @@ class _TD2HashGenerator(HashGenerator):
                         self.expiry_date_hash +
                         self.optional_data)
 
-        return functions.hash_string(final_string)
+        return hash_string(final_string)
 
 
-class _TD2HolderName(HolderName):
+class _TD2HolderName(_HolderName):
     def __init__(self, surname: str, given_names: str, transliteration=dictionary.latin_based()):
-        HolderName.__init__(self, surname, given_names, transliteration)
+        _HolderName.__init__(self, surname, given_names, transliteration)
 
     @property
     def identifier(self) -> str:
@@ -78,7 +76,7 @@ class _TD2HolderName(HolderName):
         return check.field(self.surname + "<<" + self.given_names, 31, "full name", "<")
 
 
-class TD2CodeGenerator(Fields, _TD2HashGenerator, _TD2HolderName):
+class TD2CodeGenerator(_Fields, _TD2HashGenerator, _TD2HolderName):
     """Calculate the string code of the machine readable zone for official travel documents of size 2
 
     Params:

@@ -13,39 +13,40 @@
 #
 # (ɔ) Iván Rincón 2018
 
-import mrz.base.functions as functions
+from ..base.functions import hash_is_ok
+from ._hash_fields import _HashChecker
+from ._fields import _FieldChecker
+
 import mrz.base.string_checkers as check
-from mrz.checker.hash_fields import HashChecker
-from mrz.checker.fields import FieldChecker
 
 
-class _TD3HashChecker(HashChecker):
+class _TD3HashChecker(_HashChecker):
     def __init__(self, document_number, document_number_hash, birth_date, birth_date_hash, expiry_date,
                  expiry_date_hash, optional_data, optional_data_hash, final_hash):
         self._optional_data = optional_data
         self._optional_data_hash = optional_data_hash
         self._final_hash = final_hash
-        HashChecker.__init__(self, document_number, document_number_hash, birth_date, birth_date_hash,
-                             expiry_date, expiry_date_hash)
+        _HashChecker.__init__(self, document_number, document_number_hash, birth_date, birth_date_hash,
+                              expiry_date, expiry_date_hash)
 
     @property
     def optional_data_hash(self) -> bool:
         """Return True if hash of id number is True, False otherwise."""
 
-        return self._report("id number hash", functions.hash_is_ok(self._optional_data, self._optional_data_hash))
+        return self._report("id number hash", hash_is_ok(self._optional_data, self._optional_data_hash))
 
     @property
     def final_hash(self) -> bool:
         """Return True if final hash is True, False otherwise"""
 
-        ok = functions.hash_is_ok(self._document_number +
-                                  self._document_number_hash +
-                                  self._birth_date +
-                                  self._birth_date_hash +
-                                  self._expiry_date +
-                                  self._expiry_date_hash +
-                                  self._optional_data +
-                                  self._optional_data_hash, self._final_hash)
+        ok = hash_is_ok(self._document_number +
+                        self._document_number_hash +
+                        self._birth_date +
+                        self._birth_date_hash +
+                        self._expiry_date +
+                        self._expiry_date_hash +
+                        self._optional_data +
+                        self._optional_data_hash, self._final_hash)
         return self._report("final hash", ok)
 
     def _all_hashes(self) -> bool:
@@ -59,14 +60,14 @@ class _TD3HashChecker(HashChecker):
         return str(self._all_hashes())
 
 
-class _TD3FieldChecker(FieldChecker):
+class _TD3FieldChecker(_FieldChecker):
     def __init__(self, document_type: str, country: str, identifier: str, document_number: str,
                  nationality: str, birth_date: str, sex: str, expiry_date: str, optional_data: str,
                  check_expiry: bool, compute_warnings: bool, mrz_code: str):
         self._optional_data = optional_data
         self._document_type = document_type
-        FieldChecker.__init__(self, document_type, country, identifier, document_number, nationality, birth_date,
-                              sex, expiry_date, optional_data, "", check_expiry, compute_warnings, mrz_code)
+        _FieldChecker.__init__(self, document_type, country, identifier, document_number, nationality, birth_date,
+                               sex, expiry_date, optional_data, "", check_expiry, compute_warnings, mrz_code)
 
     @property
     def document_type(self) -> bool:
