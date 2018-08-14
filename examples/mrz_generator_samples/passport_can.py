@@ -3,16 +3,16 @@
 
 from mrz.generator.td3 import *
 
-td3_generator = PassportCodeGenerator("P",            # Document type   Normally 'P' for passport
-                                      "GB",           # Country         3 letters code or country name
-                                      "MARTIN",       # Surname(s)      Special characters will be transliterated
-                                      "SARAH",        # Given name(s)   Special characters will be transliterated
-                                      "980XG47",      # Passport number
-                                      "GBR",          # Nationality     3 letter code or country name
-                                      "850101",       # Birth date      YYMMDD
-                                      "F",            # Genre           Male: 'M', Female: 'F' or Undefined 'X'
-                                      "261228",       # Expiry date     YYMMDD
-                                      "ID88933477")   # Id number       Not mandatory field
+td3_generator = TD3CodeGenerator("P",            # Document type   Normally 'P' for passport
+                                 "GB",           # Country         3 letters code or country name
+                                 "MARTIN",       # Surname(s)      Special characters will be transliterated
+                                 "SARAH",        # Given name(s)   Special characters will be transliterated
+                                 "980XG47",      # Passport number
+                                 "GBR",          # Nationality     3 letter code or country name
+                                 "850101",       # Birth date      YYMMDD
+                                 "F",            # Genre           Male: 'M', Female: 'F' or Undefined 'X'
+                                 "261228",       # Expiry date     YYMMDD
+                                 "ID88933477")   # Id number       Not mandatory field
 
 print(td3_generator)
 print("\n")

@@ -22,11 +22,11 @@ from ._holder_name import _HolderName
 import mrz.base.string_checkers as check
 import mrz.generator._transliterations as dictionary
 
-__all__ = ["PassportCodeGenerator", "dictionary", "code_list", "countries_list", "countries_code_list",
+__all__ = ["TD3CodeGenerator", "dictionary", "code_list", "countries_list", "countries_code_list",
            "code_country_list", "is_country", "is_code", "get_code", "get_country", "find_country"]
 
 
-class _PassportHashGenerator(_HashGenerator):
+class _TD3HashGenerator(_HashGenerator):
 
     @property
     def id_number(self) -> str:
@@ -72,7 +72,7 @@ class _PassportHashGenerator(_HashGenerator):
         return hash_string(final_string)
 
 
-class _PassportHolderName(_HolderName):
+class _TD3HolderName(_HolderName):
     def __init__(self, surname: str, given_names: str, transliteration=dictionary.latin_based()):
         _HolderName.__init__(self, surname, given_names, transliteration)
 
@@ -84,7 +84,7 @@ class _PassportHolderName(_HolderName):
         return check.field(self.surname + "<<" + self.given_names, 39, "full name", "<")
 
 
-class PassportCodeGenerator(_Fields, _PassportHashGenerator, _PassportHolderName):
+class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
     """Calculate the string code of the machine readable zone for official travel documents of size 3 (passports)
 
     Params:
@@ -117,7 +117,7 @@ class PassportCodeGenerator(_Fields, _PassportHashGenerator, _PassportHolderName
                  id_number="",
                  transliteration=dictionary.latin_based(),
                  force=False):
-        _PassportHolderName.__init__(self, surname, given_names, transliteration)
+        _TD3HolderName.__init__(self, surname, given_names, transliteration)
         self.force = force
         self.document_type = document_type
         self.country_code = country_code
@@ -127,25 +127,6 @@ class PassportCodeGenerator(_Fields, _PassportHashGenerator, _PassportHolderName
         self.sex = sex
         self.expiry_date = expiry_date
         self.id_number = id_number
-
-    @property
-    def document_type(self) -> str:
-        """Return document type code of the passport
-
-        """
-        return self._document_type
-
-    @document_type.setter
-    def document_type(self, value: str):
-        """Set document type code of the passport
-
-        Can be used 'P' for passports and other TD3. Optionally, can be used a second character.
-        The second character shall be at discretion of issuing state.
-
-        Case insensitive.
-
-        """
-        self._document_type = check.document_type(value, True)
 
     def _line1(self):
         return (self.document_type +

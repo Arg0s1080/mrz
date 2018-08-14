@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-from mrz.generator.td3 import PassportCodeGenerator, dictionary
+from mrz.generator.td3 import TD3CodeGenerator, dictionary
 from examples.functions.functions import open_image
 
 
-print(PassportCodeGenerator(
+print(TD3CodeGenerator(
         "P",                  # Document type   Normally 'P' for passport
         "ASU",                # Country         3 letters code or country name
         "محمود",              # Surname(s)      Special characters will be transliterated

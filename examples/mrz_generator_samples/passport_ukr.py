@@ -5,7 +5,7 @@ from mrz.generator.td3 import *
 from examples.functions.functions import open_image
 
 
-print(PassportCodeGenerator(
+print(TD3CodeGenerator(
         "P",                               # Document type   Normally 'P' for passport
         "UKRAINE",                         # Country         3 letters code or country name
         "ТКАЧЕНКО",                        # Surname(s)      Special characters will be transliterated
