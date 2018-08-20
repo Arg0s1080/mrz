@@ -287,5 +287,5 @@ english = {
     "Stateless": "XXA",
     "Refugee": "XXA",
     "Refugee B": "XXB",
-    "Unknown Nationality": "XXX"
+    "Unknown": "XXX"
 }

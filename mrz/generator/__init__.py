@@ -18,8 +18,8 @@
 # from base.countries_ops import *
 # from .td1 import TD1CodeGenerator
 # from .td2 import TD2CodeGenerator
-# from .td3 import PassportCodeGenerator
+# from .td3 import TD3CodeGenerator
 #
-# __all__ = ["TD1CodeGenerator", "TD2CodeGenerator", "PassportCodeGenerator", "transliteration",
+# __all__ = ["TD1CodeGenerator", "TD2CodeGenerator", "TD3CodeGenerator", "transliteration",
 #            "code_list", "countries_list", "countries_code_list", "code_country_list", "is_country",
 #            "is_code", "get_code", "get_country", "find_country"]

@@ -5,6 +5,10 @@ from tests.td1_chk_02 import TestCase07
 from tests.td2_chk_01 import TestCase08
 from tests.td3_chk_01 import TestCase09
 from tests.td3_chk_02 import TestCase10
+from tests.mrva_chk_01 import TestCase11
+from tests.mrva_chk_02 import TestCase12
+from tests.mrvb_chk_01 import TestCase13
+from tests.mrvb_chk_02 import TestCase14
 
 
 class TestCaseChkAll(unittest.TestCase):
@@ -16,6 +20,10 @@ class TestCaseChkAll(unittest.TestCase):
         TestCase09().test_b_td3_checker()
         TestCase09().test_c_td3_checker()
         TestCase10().test_td3_checker()
+        TestCase11().test_mrva_checker()
+        TestCase12().test_mrva_checker()
+        TestCase13().test_mrvb_checker()
+        TestCase14().test_mrvb_checker()
 
 
 if __name__ == '__main__':

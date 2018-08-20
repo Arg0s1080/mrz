@@ -6,7 +6,7 @@ Description:
 
 MZR is a Machine Readable Zone generator and checker for official travel
 documents sizes 1, 2 and 3. (Passports, national id cards and other
-travel documents)
+travel documents), Visas type A (MRVA) and Visas type B (MRVB)
 
 MZR Generator and MRZ Checker are built according to International Civil
 Aviation Organization specifications (ICAO 9303):
@@ -21,14 +21,11 @@ Aviation Organization specifications (ICAO 9303):
 -  `Specifications for TD2 Size Machine Readable Official Travel
    Documents
    (MROTDs) <https://www.icao.int/publications/Documents/9303_p6_cons_en.pdf>`__
+-  `Specifications for Machine Readable Visas
+   (MRV) <https://www.icao.int/publications/Documents/9303_p7_cons_en.pdf>`__
 
-Fields Distribution of Official Travel Documents:
--------------------------------------------------
-
-.. figure:: Fields_Distribution.png
-   :alt: image
-
-   image
+\_Fields Distribution of Official Travel Documents: |image|
+-----------------------------------------------------------
 
 Usage Generator:
 ----------------
@@ -106,18 +103,68 @@ TD3 (Passports)
                                  and to use document_type codes without restrictions.
                                  
 
-Passport generator example (ICAO9303 Specimen):
-'''''''''''''''''''''''''''''''''''''''''''''''
-
-|image| Note: She is a fictional women from a fictional country
-(Utopia), but the example is very similar to real passports.
-
-PassportCodeGenerator str:
-''''''''''''''''''''''''''
+MRVA (Visas type A)
+^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    print(PassportCodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
+    Params:                      Case insensitive
+
+        document_type    (str):  The First letter must be 'V'
+        country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
+        surname          (str):  Primary identifier(s)
+        given_names      (str):  Secondary identifier(s)
+        passport_number  (str):  Passport number
+        nationality      (str):  3 letters code (ISO 3166-1) or country name
+        birth_date       (str):  YYMMDD
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        expiry_date      (str):  YYMMDD
+        optional_data    (str):  Optional personal data at the discretion of the issuing State.
+                                 Non-mandatory field. Empty string by default.
+        transliteration (dict):  Transliteration dictionary for non-ascii chars. Latin based by default
+        force           (bool):  Disables checks for country, nationality and document_type fields.
+                                 Allows to use 3-letter-codes not included in the countries dictionary
+                                 and to use document_type codes without restrictions.
+                          
+
+MRVB (Visas type B)
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    Params:                      Case insensitive
+
+        document_type    (str):  The First letter must be 'V'
+        country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
+        surname          (str):  Primary identifier(s)
+        given_names      (str):  Secondary identifier(s)
+        passport_number  (str):  Passport number
+        nationality      (str):  3 letters code (ISO 3166-1) or country name
+        birth_date       (str):  YYMMDD
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        expiry_date      (str):  YYMMDD
+        optional_data    (str):  Optional personal data at the discretion of the issuing State.
+                                 Non-mandatory field. Empty string by default.
+        transliteration (dict):  Transliteration dictionary for non-ascii chars. Latin based by default
+        force           (bool):  Disables checks for country, nationality and document_type fields.
+                                 Allows to use 3-letter-codes not included in the countries dictionary
+                                 and to use document_type codes without restrictions.
+                                 
+
+Passport generator example (ICAO9303 Specimen):
+'''''''''''''''''''''''''''''''''''''''''''''''
+
+.. figure:: examples/images/passports/ICAO_Example.png
+   :alt: image
+
+   image
+
+TD3CodeGenerator str:
+'''''''''''''''''''''
+
+::
+
+    print(TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
 
 Output:
 '''''''
@@ -137,7 +184,7 @@ TD1's (id cards):
 
     Params:
 
-        mrz_string        (str):  MRZ string of td1s. Must be 90 uppercase characters long (3 lines)
+        mrz_string        (str):  MRZ string of TD1. Must be 90 uppercase characters long (3 lines)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
         compute_warnings (bool):  If it's set True, warnings compute as False
@@ -149,7 +196,7 @@ TD2:
 
     Params:
 
-        mrz_string        (str):  MRZ string of td2. Must be 72 characters long (uppercase) (2 lines)
+        mrz_string        (str):  MRZ string of TD2. Must be 72 characters long (uppercase) (2 lines)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
         compute_warnings (bool):  If it's set True, warnings compute as False
@@ -162,7 +209,33 @@ TD3 (Passports):
 
     Params:
 
-        mrz_string        (str):  MRZ string of td3. Must be 88 characters long (uppercase) (2 lines)
+        mrz_string        (str):  MRZ string of TD3. Must be 88 characters long (uppercase) (2 lines)
+        check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
+                                  document is not expired and that expiry_date is not greater than 10 years
+        compute_warnings (bool):  If it's set True, warnings compute as False
+        
+
+MRVA:
+^^^^^
+
+::
+
+    Params:
+
+        mrz_string        (str):  MRZ string of Visas type A. Must be 88 characters long (uppercase) (2 lines)
+        check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
+                                  document is not expired and that expiry_date is not greater than 10 years
+        compute_warnings (bool):  If it's set True, warnings compute as False
+        
+
+MRVB:
+^^^^^
+
+::
+
+    Params:
+
+        mrz_string        (str):  MRZ string of Visas type B. Must be 72 characters long (uppercase) (2 lines)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
         compute_warnings (bool):  If it's set True, warnings compute as False
@@ -199,7 +272,7 @@ Installation:
 
     sudo pip install mrz
 
-Features v 0.2:
+Features v 0.3:
 ---------------
 
 -  [x] Transliteration of special Latin characters (acutes, tildes,
@@ -220,6 +293,7 @@ Features v 0.2:
    countries dictionary and to use document\_type codes without
    restrictions in Generator.
 -  [x] Added new checks for periods of time in Checker.
+-  [x] Visas support
 
 TODO:
      
@@ -227,7 +301,6 @@ TODO:
 -  [ ] Automatic name truncation
 -  [ ] Possibility of disabling checks for country code, nationality and
    type of document in Checker.
--  [ ] Visas support
 
-.. |image| image:: examples/images/passports/ICAO_Example.png
+.. |image| image:: docs/Fields_Distribution.png
 

@@ -28,14 +28,20 @@ class _Fields:
     def document_type(self, value: str):
         """Set document type code
 
-        For TD1 and TD2, can be used 'I', 'A' or 'C'. Optionally, can be used a second character.
-        The second character shall be at discretion of issuing state.
+        For TD1 and TD2, the first letter must be 'I', 'A' or 'C'. Optionally, can be used a
+        second character. The second character shall be at discretion of issuing state.
         Note: 'V' shall not be used as 2nd char and 'C' shall not be used after 'A'. (TD1 and TD2)
+
+        First letter of passports and other TD3 must be 'P'. Optionally, can be used a second
+        character. The second character shall be at discretion of issuing state
+
+        For visas (MRV-A and MRV-B), the first letter must be 'V'. Optionally, can be used a
+        second character. The second character shall be at discretion of issuing state
 
         Case insensitive.
 
         """
-        self._document_type = check.document_type(value) if not self.force \
+        self._document_type = check.document_type(value, self) if not self.force \
             else check.field(value, 2, "document type")
 
     @property

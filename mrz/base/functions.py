@@ -87,6 +87,11 @@ def transliterate(string: str, dictionary: dict, sep="<") -> str:
     return sep.join(word)
 
 
+def get_doc(cls):
+    name = cls.__class__.__name__
+    return name[:name.find("Code")]
+
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod(verbose=True)

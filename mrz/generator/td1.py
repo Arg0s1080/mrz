@@ -29,7 +29,7 @@ __all__ = ["TD1CodeGenerator", "dictionary", "code_list", "countries_list", "cou
 class _TD1HashGenerator(_HashGenerator):
     @property
     def optional_data1(self) -> str:
-        """Return optional data field of the first line (16 to 30 char position) for TD1
+        """Return optional data field of the first line (16 to 30 char position of the first line) for TD1
 
         Optional data at the discretion of the issuing State or organization. Non mandatory field
 
@@ -38,7 +38,7 @@ class _TD1HashGenerator(_HashGenerator):
 
     @optional_data1.setter
     def optional_data1(self, value: str):
-        """Set optional data field of the first line (16 to 30 char position) for TD1
+        """Set optional data field of the first line (16 to 30 char position of the first line) for TD1
 
         Optional data at the discretion of the issuing State or organization. Non mandatory field
 
@@ -49,7 +49,7 @@ class _TD1HashGenerator(_HashGenerator):
 
     @property
     def optional_data2(self) -> str:
-        """Return optional data field of the second line (19 to 29 char position) for TD1
+        """Return optional data field of the second line (19 to 29 char position of the second line) for TD1
 
         Optional data at the discretion of the issuing State or organization. Non mandatory field
 
@@ -58,7 +58,7 @@ class _TD1HashGenerator(_HashGenerator):
 
     @optional_data2.setter
     def optional_data2(self, value: str):
-        """Set optional data field of the second line (19 to 29 char position) for TD1
+        """Set optional data field of the second line (19 to 29 char position of the second line) for TD1
 
         Optional data at the discretion of the issuing State or organization. Non mandatory field
 

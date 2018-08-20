@@ -13,10 +13,10 @@
 # Iván Rincón 2018
 
 from string import ascii_letters
-from mrz.base.errors import *
+from .errors import *
+from .functions import full_capitalize, get_doc
 
 import mrz.base.countries as countries
-import mrz.base.functions as functions
 
 
 def date(string):
@@ -68,26 +68,29 @@ def country(string, dictionary=countries.english):
     """
     if _is_string(string) and string.upper() in dictionary.values():
         return string.upper().ljust(3, "<")
-    elif functions.full_capitalize(string) in dictionary.keys():
-        return dictionary[functions.full_capitalize(string)].ljust(3, "<")
+    elif full_capitalize(string) in dictionary.keys():
+        return dictionary[full_capitalize(string)].ljust(3, "<")
     else:
         raise CountryError(cause=string)
 
 
-def document_type(string, td3=False):
-    """
-    >>> document_type("ID")
-    'ID'
-    >>> document_type("px", td3=True)
-    'PX'
-    """
+def document_type(string, cls):
+    ok = False
+    doc = get_doc(cls)
     s = string.upper()
     if _is_string(s) and s and len(s) <= 2:
-        if not td3 and s[0] in "IiAaCc" and s.find("V") != 1 and s != "AC":
-            return s.ljust(2, "<")
-        elif td3 and s[0] in "Pp":
-            return s.ljust(2, "<")
-    raise DocumentTypeError(cause=string)
+        if doc == "TD1" or doc == "TD2":
+            if s[0] in "IiAaCc" and s.find("V") != 1 and s != "AC":
+                ok = True
+        elif doc == "TD3" or doc == "Passport":
+            if s[0] in "Pp":
+                ok = True
+        elif doc == "MRVA" or doc == "MRVB":
+            if s[0] in "Vv":
+                ok = True
+    if not ok:
+        raise DocumentTypeError(cause=string)
+    return s.ljust(2, "<")
 
 
 def precheck(document_description: str, string: str, length: int):

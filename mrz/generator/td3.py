@@ -29,31 +29,33 @@ __all__ = ["TD3CodeGenerator", "dictionary", "code_list", "countries_list", "cou
 class _TD3HashGenerator(_HashGenerator):
 
     @property
-    def id_number(self) -> str:
-        """Return ID Number of the passport holder
+    def optional_data(self) -> str:
+        """Return optional data field (ID Number of the passport holder)
 
-        Optional data at the discretion of the issuing State or organization. Non mandatory field
+        Optional data at the discretion of the issuing State or organization. Non mandatory field.
+        29 to 42 char position of the second line.
 
         """
-        return self._id_number
+        return self._optional_data
 
-    @id_number.setter
-    def id_number(self, value: str):
-        """Return ID Number of the passport holder
+    @optional_data.setter
+    def optional_data(self, value: str):
+        """Set optional data field (ID Number of the passport holder)
 
-        Optional data at the discretion of the issuing State or organization. Non mandatory field
+        Optional data at the discretion of the issuing State or organization. Non mandatory field.
+        29 to 42 char position of the second line.
 
         Case insensitive property
 
         """
-        self._id_number = check.field(transliterate(value, self.transliteration), 14, "id number", "<")
+        self._optional_data = check.field(transliterate(value, self.transliteration), 14, "optional data", "<")
 
     @property
-    def id_number_hash(self) -> str:
+    def optional_data_hash(self) -> str:
         """Return hash digit of the id_number field
 
         """
-        return hash_string(self.id_number)
+        return hash_string(self.optional_data)
 
     @property
     def final_hash(self) -> str:
@@ -66,8 +68,8 @@ class _TD3HashGenerator(_HashGenerator):
                         self.birth_date_hash +
                         self.expiry_date +
                         self.expiry_date_hash +
-                        self.id_number +
-                        self.id_number_hash)
+                        self.optional_data +
+                        self.optional_data_hash)
 
         return hash_string(final_string)
 
@@ -114,7 +116,7 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
                  birth_date: str,
                  sex: str,
                  expiry_date: str,
-                 id_number="",
+                 optional_data="",
                  transliteration=dictionary.latin_based(),
                  force=False):
         _TD3HolderName.__init__(self, surname, given_names, transliteration)
@@ -126,7 +128,7 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
         self.birth_date = birth_date
         self.sex = sex
         self.expiry_date = expiry_date
-        self.id_number = id_number
+        self.optional_data = optional_data
 
     def _line1(self):
         return (self.document_type +
@@ -142,8 +144,8 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
                 self.sex +
                 self.expiry_date +
                 self.expiry_date_hash +
-                self.id_number +
-                self.id_number_hash +
+                self.optional_data +
+                self.optional_data_hash +
                 self.final_hash)
 
     def __str__(self):

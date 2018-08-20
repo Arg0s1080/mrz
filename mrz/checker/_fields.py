@@ -40,7 +40,7 @@ class _FieldChecker(_Report):
 
         ok = False
         try:
-            ok = bool(check.document_type(self._document_type))
+            ok = bool(check.document_type(self._document_type, self))
         except ValueError:  # as error:
             # print("%s: %s", (error.args[0], error.args[1]))
             pass
@@ -166,15 +166,13 @@ class _FieldChecker(_Report):
         """Return True if the format of the optional data field is validated, False otherwise."""
 
         s = self._optional_data
-        return True if check.is_empty(s) else self._report("optional data format", check.is_printable(s)
-                                                           and not check.begin_by(s, "<"))
+        return True if check.is_empty(s) else self._report("optional data format", check.is_printable(s))
 
     @property
     def optional_data_2(self) -> bool:
         """Return True if the format of the optional data field is validated, False otherwise."""
         s = self._optional_data_2
-        return True if check.is_empty(s) else self._report("optional data 2 format", check.is_printable(s)
-                                                           and not check.begin_by(s, "<"))
+        return True if check.is_empty(s) else self._report("optional data 2 format", check.is_printable(s))
 
     def _times(self) -> bool:
         birth, expiry = "", ""

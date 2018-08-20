@@ -13,11 +13,16 @@
 #
 # (ɔ) Iván Rincón 2018
 
+from ..base.countries_ops import *
 from ..base.functions import hash_is_ok
 from ._hash_fields import _HashChecker
 from ._fields import _FieldChecker
 
 import mrz.base.string_checkers as check
+
+
+__all__ = ["TD1CodeChecker", "code_list", "countries_list", "countries_code_list", "code_country_list",
+           "is_country", "is_code", "get_code", "get_country", "find_country"]
 
 
 class _TD1HashChecker(_HashChecker):

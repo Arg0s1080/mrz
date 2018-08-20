@@ -13,11 +13,16 @@
 #
 # (ɔ) Iván Rincón 2018
 
+from ..base.countries_ops import *
 from ..base.functions import hash_is_ok
 from ._hash_fields import _HashChecker
 from ._fields import _FieldChecker
 
 import mrz.base.string_checkers as check
+
+
+__all__ = ["TD3CodeChecker", "code_list", "countries_list", "countries_code_list", "code_country_list",
+           "is_country", "is_code", "get_code", "get_country", "find_country"]
 
 
 class _TD3HashChecker(_HashChecker):
@@ -31,9 +36,9 @@ class _TD3HashChecker(_HashChecker):
 
     @property
     def optional_data_hash(self) -> bool:
-        """Return True if hash of id number is True, False otherwise."""
+        """Return True if hash of optional data is True, False otherwise."""
 
-        return self._report("id number hash", hash_is_ok(self._optional_data, self._optional_data_hash))
+        return self._report("optional data hash", hash_is_ok(self._optional_data, self._optional_data_hash))
 
     @property
     def final_hash(self) -> bool:
@@ -60,34 +65,7 @@ class _TD3HashChecker(_HashChecker):
         return str(self._all_hashes())
 
 
-class _TD3FieldChecker(_FieldChecker):
-    def __init__(self, document_type: str, country: str, identifier: str, document_number: str,
-                 nationality: str, birth_date: str, sex: str, expiry_date: str, optional_data: str,
-                 check_expiry: bool, compute_warnings: bool, mrz_code: str):
-        self._optional_data = optional_data
-        self._document_type = document_type
-        _FieldChecker.__init__(self, document_type, country, identifier, document_number, nationality, birth_date,
-                               sex, expiry_date, optional_data, "", check_expiry, compute_warnings, mrz_code)
-
-    @property
-    def document_type(self) -> bool:
-        """Return True if the format of the document type is validated, False otherwise"""
-
-        ok = False
-        try:
-            ok = bool(check.document_type(self._document_type, True))
-        except ValueError:  # as error:
-            # print("%s: %s", (error.args[0], error.args[1]))
-            pass
-        finally:
-            return self._report("document type format", ok)
-
-    @property
-    def optional_data(self) -> bool:
-        return self._report("id number format", check.is_printable(self._optional_data))
-
-
-class TD3CodeChecker(_TD3HashChecker, _TD3FieldChecker):
+class TD3CodeChecker(_TD3HashChecker, _FieldChecker):
     """
     Check the string code of the machine readable zone for passports and other official travel documents of size 3
 
@@ -128,19 +106,20 @@ class TD3CodeChecker(_TD3HashChecker, _TD3FieldChecker):
                                  self._optional_data,
                                  self._optional_data_hash,
                                  self._final_hash)
-        _TD3FieldChecker.__init__(self,
-                                  self._document_type,
-                                  self._country,
-                                  self._identifier,
-                                  self._document_number,
-                                  self._nationality,
-                                  self._birth_date,
-                                  self._sex,
-                                  self._expiry_date,
-                                  self._optional_data,
-                                  check_expiry,
-                                  compute_warnings,
-                                  mrz_code)
+        _FieldChecker.__init__(self,
+                               self._document_type,
+                               self._country,
+                               self._identifier,
+                               self._document_number,
+                               self._nationality,
+                               self._birth_date,
+                               self._sex,
+                               self._expiry_date,
+                               self._optional_data,
+                               "",
+                               check_expiry,
+                               compute_warnings,
+                               mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
     def __repr__(self):

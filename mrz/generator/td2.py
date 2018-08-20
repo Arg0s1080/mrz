@@ -46,7 +46,7 @@ class _TD2HashGenerator(_HashGenerator):
         Case insensitive.
 
         """
-        self._optional_data = check.field(transliterate(value, self.transliteration), 7, "optional data 1", "<")
+        self._optional_data = check.field(transliterate(value, self.transliteration), 7, "optional data", "<")
 
     @property
     def final_hash(self) -> str:
