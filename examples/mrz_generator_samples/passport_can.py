@@ -21,6 +21,6 @@ td3_generator.country_code = "CAN"
 td3_generator.document_number = "ZE000509"
 td3_generator.nationality = "CAN"
 td3_generator.expiry_date = "230114"
-td3_generator.id_number = ""
+td3_generator.optional_data = ""
 
 print(td3_generator)

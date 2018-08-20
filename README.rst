@@ -154,7 +154,7 @@ MRVB (Visas type B)
 Passport generator example (ICAO9303 Specimen):
 '''''''''''''''''''''''''''''''''''''''''''''''
 
-.. figure:: examples/images/passports/ICAO_Example.png
+.. figure:: docs/images/passports/ICAO_Example.png
    :alt: image
 
    image
@@ -244,7 +244,7 @@ MRVB:
 Id Card Checker example
 '''''''''''''''''''''''
 
-.. figure:: examples/images/id_cards/Sweden.png
+.. figure:: docs/images/id_cards/Sweden.png
    :alt: image
 
    image

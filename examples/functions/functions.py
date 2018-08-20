@@ -11,8 +11,8 @@ def open_image(directory, image):
     if answer in ("y", "yes") or answer == "":
         try:
             # TODO: Test abspath() on Windows
-            parent = os.path.dirname(__file__)
-            image_path = os.path.join(parent.replace("functions", ""), "images", directory, image)
+            image_path = os.path.join(os.pardir, os.pardir, "docs", "images", directory, image)
+            print(image_path)
 
             if sys.platform.startswith('darwin'):
                 subprocess.call(('open', image_path))
