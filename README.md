@@ -117,7 +117,7 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
                                  and to use document_type codes without restrictions.
                                  
 ##### Passport generator example (ICAO9303 Specimen):
-![image](docs/images/passports/ICAO_Example.png)
+![image](https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/images/passports/ICAO_Example.png)
 
 ##### TD3CodeGenerator str: 
     print(TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
@@ -173,7 +173,7 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
         compute_warnings (bool):  If it's set True, warnings compute as False
         
 ##### Id Card Checker example
-![image](docs/images/id_cards/Sweden.png)
+![image](https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/images/id_cards/Sweden.png)
 
 ##### TD1CodeChecker bool
     bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
