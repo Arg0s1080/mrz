@@ -27,7 +27,7 @@ Aviation Organization specifications (ICAO 9303):
 Fields Distribution of Official Travel Documents:
 -------------------------------------------------
 
-.. figure:: docs/Fields_Distribution.png
+.. figure:: https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/Fields_Distribution.png
    :alt: image
 
    image

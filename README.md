@@ -12,7 +12,7 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
 * [Specifications for Machine Readable Visas (MRV)](https://www.icao.int/publications/Documents/9303_p7_cons_en.pdf)
 
 ## Fields Distribution of Official Travel Documents:
-![image](docs/Fields_Distribution.png)
+![image](https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/Fields_Distribution.png)
 
 ## Usage Generator:
 #### TD1's (id cards):
