@@ -116,7 +116,7 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
                                  Allows to use 3-letter-codes not included in the countries dictionary
                                  and to use document_type codes without restrictions.
                                  
-##### Passport generator example (ICAO9303 Specimen):
+##### Passport generator example (ICAO9303 Specimen): 
 ![image](docs/images/passports/ICAO_Example.png)
 
 ##### TD3CodeGenerator str:
