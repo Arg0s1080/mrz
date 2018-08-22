@@ -2,6 +2,7 @@
 
 from setuptools import setup
 from os import path
+from mrz import __version__ as version
 
 parent = path.abspath(path.dirname(__file__))
 
@@ -10,15 +11,15 @@ with open(path.join(parent, "README.rst"), 'r') as readme:
 
 setup(
     name="mrz",
-    version="0.2.2",
-    description="Machine readable zone generator and checker for passports and other travel documents",
+    version=version,
+    description="Machine readable zone generator and checker for passports, visas, id cards and other travel documents",
     license="GPLv3",
     long_description=long_description,
     author='Ivan Rincon',
     author_email='ivan.rincon76@gmail.com',
     url="https://github.com/Arg0s1080/mrz",
-    keywords="mrz passports id cards td1 td2 td3 icao",
-    packages=["mrz.base", "mrz.checker", "mrz.generator", "mrz.generator.dictionaries"],
+    keywords="mrz passports visas id cards td1 td2 td3 mrva mrvb icao",
+    packages=["mrz", "mrz.base", "mrz.checker", "mrz.generator", "mrz.generator.dictionaries"],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
