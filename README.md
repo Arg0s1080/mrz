@@ -119,7 +119,7 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
 ##### Passport generator example (ICAO9303 Specimen): 
 ![image](docs/images/passports/ICAO_Example.png)
 
-##### TD3CodeGenerator str:
+##### TD3CodeGenerator str: 
     print(TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
 
 ##### Output:
