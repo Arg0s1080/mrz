@@ -4,9 +4,9 @@ MZR Generator & MRZ Checker
 Description:
 ------------
 
-MZR is a Machine Readable Zone generator and checker for official travel
-documents sizes 1, 2 and 3. (Passports, national id cards and other
-travel documents), Visas type A (MRVA) and Visas type B (MRVB)
+Machine Readable Zone generator and checker for official travel
+documents sizes 1, 2, 3, MRVA and MRVB (Passports, Visas, national id
+cards and other travel documents)
 
 MZR Generator and MRZ Checker are built according to International Civil
 Aviation Organization specifications (ICAO 9303):
@@ -24,8 +24,13 @@ Aviation Organization specifications (ICAO 9303):
 -  `Specifications for Machine Readable Visas
    (MRV) <https://www.icao.int/publications/Documents/9303_p7_cons_en.pdf>`__
 
-\_Fields Distribution of Official Travel Documents: |image|
------------------------------------------------------------
+Fields Distribution of Official Travel Documents:
+-------------------------------------------------
+
+.. figure:: docs/Fields_Distribution.png
+   :alt: image
+
+   image
 
 Usage Generator:
 ----------------
@@ -270,7 +275,7 @@ Installation:
 
 ::
 
-    sudo pip install mrz
+    sudo -H pip install mrz
 
 Features v 0.3:
 ---------------
@@ -301,6 +306,3 @@ TODO:
 -  [ ] Automatic name truncation
 -  [ ] Possibility of disabling checks for country code, nationality and
    type of document in Checker.
-
-.. |image| image:: docs/Fields_Distribution.png
-
