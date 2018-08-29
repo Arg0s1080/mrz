@@ -1,3 +1,10 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+from os.path import abspath, join, pardir
+import sys
+sys.path.append(abspath(join(pardir, pardir)))
+
 from mrz.checker.td2 import TD2CodeChecker
 
 print(TD2CodeChecker("I<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<\n"

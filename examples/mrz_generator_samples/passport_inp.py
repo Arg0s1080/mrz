@@ -1,4 +1,12 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Set PYTHONPATH to execute example as script
+from os.path import abspath, join, pardir
+import sys
+sys.path.append(abspath(join(pardir, pardir)))
+
+#!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
 from mrz.generator.td3 import TD3CodeGenerator

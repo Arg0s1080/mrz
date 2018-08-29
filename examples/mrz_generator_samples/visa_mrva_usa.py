@@ -1,3 +1,11 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Set PYTHONPATH to execute example as script
+from os.path import abspath, join, pardir
+import sys
+sys.path.append(abspath(join(pardir, pardir)))
+
 from mrz.generator.mrva import MRVBCodeGenerator
 from examples.functions.functions import open_image
 
