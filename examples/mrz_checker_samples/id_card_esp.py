@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
+
+# Adding mrz to PYTHONPATH to execute this example as script
 import sys
 sys.path.append(sys.path[0].replace("examples/mrz_checker_samples", ""))
+#############################################################
+
 from mrz.checker.td1 import TD1CodeChecker
 
 print(TD1CodeChecker("IDESPBAA000589599999999R<<<<<<\n"

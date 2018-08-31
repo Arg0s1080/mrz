@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
+# Adding mrz to PYTHONPATH to execute this example as script
+from os.path import dirname, join, pardir, realpath
+import sys
+sys.path.append(realpath(join(dirname(__file__), pardir, pardir)))
+#############################################################
+
 from mrz.generator.td3 import TD3CodeGenerator
 from examples.functions.functions import open_image
 
