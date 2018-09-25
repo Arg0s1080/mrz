@@ -99,7 +99,7 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
         birth_date       (str):  YYMMDD
         sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
         expiry_date      (str):  YYMMDD
-        id_number        (str):  Personal number. In some countries non-mandatory field. Empty string by default
+        optional data    (str):  Personal number. In some countries non-mandatory field. Empty string by default
         transliteration (dict):  Transliteration dictionary for non-ascii chars. Latin based by default
         force           (bool):  Disables checks for country, nationality and document_type fields.
                                  Allows to use 3-letter-codes not included in the countries dictionary
