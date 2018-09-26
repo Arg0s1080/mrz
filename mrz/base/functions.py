@@ -11,8 +11,9 @@
 # For more information on this, and how to apply and follow theGNU GPL, see:
 # http://www.gnu.org/licenses
 #
-# Iván Rincón 2018
+# (ɔ) Iván Rincón 2018
 
+from string import ascii_uppercase, digits
 
 def hash_string(string: str) -> str:
     """
@@ -25,21 +26,16 @@ def hash_string(string: str) -> str:
     >>> hash_string("0")
     '0'
     """
-    from string import ascii_uppercase
+    printable = digits + ascii_uppercase
     string = string.upper().replace("<", "0")
     weight = [7, 3, 1]
-    hsh = 0
+    smm = 0
     for i in range(len(string)):
-        c = list(string)[i]
-        w = weight[i % 3]
-        if c.isdigit():
-            hsh += int(c) * w
-        elif c in ascii_uppercase:
-            hsh += list(ascii_uppercase).index(c) * w
-        else:
+        c = string[i]
+        if c not in printable:
             raise ValueError("%s contains invalid characters" % string, c)
-
-    return str(hsh % 10)
+        smm += printable.index(c) * weight[i % 3]
+    return str(smm % 10)
 
 
 def hash_is_ok(string: str, hash_: str) -> bool:
@@ -68,14 +64,17 @@ def full_capitalize(string: str) -> str:
 
 def transliterate(string: str, dictionary: dict, sep="<") -> str:
     """
-    >>> import mrz.generator.transliterations as dictionary_
-    >>> transliterate("ТЕСТ МИЛИЦА", dictionary_.cyrillic_serbian())
+    >>> from mrz.generator.dictionaries.cyrillic_serbian import transliteration as serbian
+    >>> from mrz.generator.dictionaries.latin_based import transliteration as latin_based
+    >>> from mrz.generator.dictionaries.arabic import transliteration as arabic
+    >>> from mrz.generator.dictionaries.greek import transliteration as greek
+    >>> transliterate("ТЕСТ МИЛИЦА", serbian)
     'TEST<MILICA'
-    >>> transliterate("Þĩŝ ïŜ Á ţęšť", dictionary_.latin_based(), " ")
+    >>> transliterate("Þĩŝ ïŜ Á ţęšť", latin_based, " ")
     'THIS IS A TEST'
-    >>> transliterate("محمود عبدالرحيم", dictionary_.arabic(), "-")
+    >>> transliterate("محمود عبدالرحيم", arabic, "-")
     'MXHMWD-EBDALRXHYM'
-    >>> transliterate("παράδειγμα δοκιμής", dictionary_.greek())
+    >>> transliterate("παράδειγμα δοκιμής", greek)
     'PAPADEIGMA<DOKIMIS'
     """
     word = string.replace(u"\u002D", u"\u0020").split(u"\u0020")
