@@ -29,13 +29,13 @@ def hash_string(string: str) -> str:
     printable = digits + ascii_uppercase
     string = string.upper().replace("<", "0")
     weight = [7, 3, 1]
-    smm = 0
+    summation = 0
     for i in range(len(string)):
         c = string[i]
         if c not in printable:
             raise ValueError("%s contains invalid characters" % string, c)
-        smm += printable.index(c) * weight[i % 3]
-    return str(smm % 10)
+        summation += printable.index(c) * weight[i % 3]
+    return str(summation % 10)
 
 
 def hash_is_ok(string: str, hash_: str) -> bool:

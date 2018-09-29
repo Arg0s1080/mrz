@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # -*- coding: UTF8 -*-
 
 from setuptools import setup
