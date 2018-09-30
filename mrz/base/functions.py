@@ -15,6 +15,7 @@
 
 from string import ascii_uppercase, digits
 
+
 def hash_string(string: str) -> str:
     """
     >>> hash_string("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
