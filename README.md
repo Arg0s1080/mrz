@@ -185,8 +185,8 @@ print(TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO"
 from mrz.checker.td1 import TD1CodeChecker
     
 bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
-                        "8703145M1701027SWE<<<<<<<<<<<8\n"
-                        "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<"))
+                    "8703145M1701027SWE<<<<<<<<<<<8\n"
+                    "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<"))
 ```
 
 ##### Output
