@@ -164,12 +164,16 @@ Passport generator example (ICAO9303 Specimen):
 
    image
 
-TD3CodeGenerator str:
-'''''''''''''''''''''
+TD3CodeGenerator -> str:
+''''''''''''''''''''''''
 
-::
+.. code:: python
 
-    print(TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
+    from mrz.generator.td3 import TD3CodeGenerator
+
+    code = TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B")
+
+    print(code)
 
 Output:
 '''''''
@@ -254,14 +258,18 @@ Id Card Checker example
 
    image
 
-TD1CodeChecker bool
-'''''''''''''''''''
+TD1CodeChecker -> bool
+''''''''''''''''''''''
 
-::
+.. code:: python
 
-    bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
-                        "8703145M1701027SWE<<<<<<<<<<<8\n"
-                        "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<"))
+    from mrz.checker.td1 import TD1CodeChecker
+        
+    result = bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
+                                 "8703145M1701027SWE<<<<<<<<<<<8\n"
+                                 "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<"))
+
+    print(result)
 
 Output
 ''''''
