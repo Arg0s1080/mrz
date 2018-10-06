@@ -120,9 +120,12 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
 ![image](https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/images/passports/ICAO_Example.png)
 
 ##### TD3CodeGenerator -> str: 
-    from mrz.generator.td3 import TD3CodeGenerator
+
+```python
+from mrz.generator.td3 import TD3CodeGenerator
+print(TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
+```
     
-    print(TD3CodeGenerator("P", "UTO", "Eriksson", "Anna María", "L898902C3", "UTO", "740812", "F", "120415","ZE184226B"))
 
 ##### Output:
     P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
@@ -178,11 +181,13 @@ MZR Generator and MRZ Checker are built according to International Civil Aviatio
 ![image](https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/images/id_cards/Sweden.png)
 
 ##### TD1CodeChecker -> bool
-    from mrz.checker.td1 import TD1CodeChecker
+```python
+from mrz.checker.td1 import TD1CodeChecker
     
-    bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
+bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
                         "8703145M1701027SWE<<<<<<<<<<<8\n"
                         "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<"))
+```
 
 ##### Output
     True
