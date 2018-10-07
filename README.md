@@ -134,6 +134,8 @@ print(code)
     P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
     L898902C36UTO7408122F1204159ZE184226B<<<<<10
 
+###### Note: See other uses in 'examples/mrz_generator_samples/' folder
+
 ## Usage Checker:
 #### TD1's (id cards):
 
@@ -196,6 +198,8 @@ print(result)
 
 ##### Output
     True
+
+###### Note: See other uses in 'examples/mrz_checker_samples/' folder
 
 ## Installation:
     sudo -H pip install mrz

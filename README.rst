@@ -183,6 +183,9 @@ Output:
     P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
     L898902C36UTO7408122F1204159ZE184226B<<<<<10
 
+Note: See other uses in 'examples/mrz\_generator\_samples/' folder
+                                                                  
+
 Usage Checker:
 --------------
 
@@ -277,6 +280,9 @@ Output
 ::
 
     True
+
+Note: See other uses in 'examples/mrz\_checker\_samples/' folder
+                                                                
 
 Installation:
 -------------
