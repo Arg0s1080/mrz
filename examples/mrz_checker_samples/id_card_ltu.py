@@ -1,12 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
-# Adding mrz path to PYTHONPATH to execute the example as script
-from os.path import dirname, join, pardir, realpath
-import sys
-sys.path.append(realpath(join(dirname(__file__), pardir, pardir)))
-##################################################################
-
 from mrz.generator.td1 import TD1CodeGenerator
 from mrz.checker.td1 import TD1CodeChecker
 import examples.functions.functions as functions

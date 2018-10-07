@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Adding mrz to PYTHONPATH to execute this example as script
+# Note for end users: #######################################################################
+#
+# Adding mrz (local) to PYTHONPATH to execute this example as a script without installing mrz
+# (if it was installed using pip or setup.py the three lines below are not necessary)
 from os.path import dirname, join, pardir, realpath
 import sys
 sys.path.append(realpath(join(dirname(__file__), pardir, pardir)))
-#############################################################
+##############################################################################################
 
 from mrz.generator.mrva import MRVBCodeGenerator
 from examples.functions.functions import open_image
