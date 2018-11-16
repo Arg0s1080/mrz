@@ -75,17 +75,19 @@ def country(string, dictionary=countries.english):
 
 
 def document_type(string, cls):
+    # To know document type the name of the class is read. (class name must be TD1Type1CodeChecker,
+    # MRVAUKCodeGenerator, TD2BRACodeGenerator, TD3CodeCheckerBlahBlah or similar)
     ok = False
     doc = get_doc(cls)
     s = string.upper()
     if _is_string(s) and s and len(s) <= 2:
-        if doc == "TD1" or doc == "TD2":
+        if doc.startswith("TD1") or doc.startswith("TD2"):
             if s[0] in "IiAaCc" and s.find("V") != 1 and s != "AC":
                 ok = True
-        elif doc == "TD3" or doc == "Passport":
+        elif doc == doc.startswith("TD3") or doc.startswith("Passport"):
             if s[0] in "Pp":
                 ok = True
-        elif doc == "MRVA" or doc == "MRVB":
+        elif doc.startswith("MRVA") or doc.startswith("MRVB"):
             if s[0] in "Vv":
                 ok = True
     if not ok:
