@@ -35,7 +35,7 @@ class _HashGenerator:
         Case insensitive.
 
         """
-        self._document_number = field(value, 9, "passport number")
+        self._document_number = field(value, 9, "document number")
 
     @property
     def document_number_hash(self) -> str:
