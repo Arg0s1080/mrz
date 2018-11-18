@@ -84,7 +84,7 @@ def document_type(string, cls):
         if doc.startswith("TD1") or doc.startswith("TD2"):
             if s[0] in "IiAaCc" and s.find("V") != 1 and s != "AC":
                 ok = True
-        elif doc == doc.startswith("TD3") or doc.startswith("Passport"):
+        elif doc.startswith("TD3") or doc.startswith("Passport"):
             if s[0] in "Pp":
                 ok = True
         elif doc.startswith("MRVA") or doc.startswith("MRVB"):
