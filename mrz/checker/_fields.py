@@ -57,53 +57,54 @@ class _FieldChecker(_Report):
     @property
     def identifier(self) -> bool:
         """Return True is the identifier is validated overcoming the checks, False otherwise."""
-
-        id_ = self._identifier
-        if not check.is_printable(id_):
-            return self._report("identifier", False)
-        ok = True
-        if check.is_empty(id_):
-            return self._report("empty identifier", kind=2)
-        if check.uses_nums(id_):
+        full_id = self._identifier.rstrip("<")
+        padding = self._identifier[len(full_id):]
+        id2iter = full_id.split("<<")
+        id_len = len(id2iter)
+        primary = secondary = None
+        if not check.is_printable(self._identifier):
+            ok = False
+        elif check.is_empty(self._identifier):
+            self._report("empty identifier", kind=2)
+            ok = False
+        elif check.uses_nums(full_id):
             self._report("identifier with numbers", kind=2)
-            ok &= False
-        id2iter = id_.split("<<")
-        if len(id2iter) == 1:
-            secondary = id2iter[0]
-            primary = ""
-            ok &= False if self._compute_warnings else ok
-            # print("Only one identifier")
-            self._report("only one identifier", kind=1)
+            ok = False
         else:
-            secondary = id2iter[1]
-            primary = id2iter[0]
-        # print("Debug. (name, surname):", (secondary, primary))
-        # secondary is not ok. secondary -= padding  # secondary.replace(padding, "")
-        padding = id_[id_.find(secondary) + len(secondary):]
-        padding = padding if primary != secondary else padding.replace(secondary, "")
-        # print("Debug. padding:", padding)
-        if not len(padding) and id_[-1] in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-            self._report("possible truncating", kind=1)
-            ok &= False if self._compute_warnings else ok  # TODO: compute as False?
-        if not check.is_empty(padding):
-            # print("Error, Padding is not empty")
-            self._report("more than two identifiers", kind=2)
-            ok &= False
-        if check.begin_by(primary, "<") or check.begin_by(secondary, "<"):
-            self._report("some identifier begin by '<'", kind=2)
-            ok &= False
-        for i in range(2):
-            for itm in id2iter[i].split("<"):
-                if not itm:
-                    pass
+            if id_len == len([i for i in id2iter if i]):
+                if id_len == 2:
+                    primary, secondary = id2iter
+                    ok = True
+                elif id_len == 1:
+                    primary, secondary = id2iter[0], ""
+                    self._report("only one identifier", kind=1)
+                    ok = not self._compute_warnings
                 else:
-                    for tit in titles:
-                        if tit == itm:
-                            if i == 1:
-                                self._report("Possible unauthorized prefix or suffix in identifier", kind=1)
-                            else:
-                                self._report("Possible not recommended prefix or suffix in identifier", kind=1)
-                            ok &= False if self._compute_warnings else ok
+                    self._report("more than two identifiers", kind=2)
+                    ok = False
+            else:  # too many '<' in id
+                self._report("invalid identifier format", kind=2)
+                ok = False
+        # print("Debug. id2iter ............:", id2iter)
+        # print("Debug. (secondary, primary):", (secondary, primary))
+        # print("Debug. padding ............:", padding)
+        if ok:
+            if primary.startswith("<") or secondary and secondary.startswith("<"):
+                self._report("some identifier begin by '<'", kind=2)
+                ok = False
+            if not padding:
+                self._report("possible truncating", kind=1)
+                ok = False if self._compute_warnings else ok
+            for i in range(id_len):
+                for itm in id2iter[i].split("<"):
+                    if itm:
+                        for tit in titles:
+                            if tit == itm:
+                                if i:  # secondary id
+                                    self._report("Possible unauthorized prefix or suffix in identifier", kind=1)
+                                else:  # primary id
+                                    self._report("Possible not recommended prefix or suffix in identifier", kind=1)
+                                ok = False if self._compute_warnings else ok
         return self._report("identifier", ok)
 
     @property
@@ -164,7 +165,6 @@ class _FieldChecker(_Report):
     @property
     def optional_data(self) -> bool:
         """Return True if the format of the optional data field is validated, False otherwise."""
-
         s = self._optional_data
         return True if check.is_empty(s) else self._report("optional data format", check.is_printable(s))
 
@@ -199,7 +199,6 @@ class _FieldChecker(_Report):
             check4 = expiry < today.replace(year=today.year + 10)
 
             # print("Debug:", ("Birth:", str(birth.date())), ("Expiry:", str(expiry.date())))
-
             rep = lambda s, c, k=2: not c and self._report(s, kind=k)
             rep("expiry date before than birth date", check1)
             # rep("birth date after than today", check2)  # check2 canceled
@@ -225,3 +224,4 @@ class _FieldChecker(_Report):
 
     def __repr__(self) -> str:
         return str(self._all_fields())
+
