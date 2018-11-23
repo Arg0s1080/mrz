@@ -10,7 +10,7 @@ class _Report:
         if result is not None:
             self._rep[0].append((description, result))
             if result is False:
-                self._rep[2].append(str(result).lower() + " " + description)
+                self._rep[2].append("false %s" % description)
         else:
             self._rep[kind].append(description)
         return result
