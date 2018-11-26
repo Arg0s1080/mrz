@@ -67,9 +67,6 @@ class _FieldChecker(_Report):
         elif check.is_empty(self._identifier):
             self._report("empty identifier", kind=2)
             ok = False
-        elif check.uses_nums(full_id):
-            self._report("identifier with numbers", kind=2)
-            ok = False
         else:
             if id_len == len([i for i in id2iter if i]):
                 if id_len == 2:
@@ -89,6 +86,9 @@ class _FieldChecker(_Report):
         # print("Debug. (secondary, primary):", (secondary, primary))
         # print("Debug. padding ............:", padding)
         if ok:
+            if check.uses_nums(full_id):
+                self._report("identifier with numbers", kind=2)
+                ok = False
             if primary.startswith("<") or secondary and secondary.startswith("<"):
                 self._report("some identifier begin by '<'", kind=2)
                 ok = False
