@@ -8,7 +8,7 @@ Machine Readable Zone generator and checker for official travel
 documents sizes 1, 2, 3, MRVA and MRVB (Passports, Visas, national id
 cards and other travel documents)
 
-MZR Generator and MRZ Checker are built according to International Civil
+MZR Generator and MZR Checker are built according to International Civil
 Aviation Organization specifications (ICAO 9303):
 
 -  `Specifications Common to all Machine Readable Travel Documents
