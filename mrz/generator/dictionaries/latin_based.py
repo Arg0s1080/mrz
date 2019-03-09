@@ -120,4 +120,3 @@ transliteration = {
     for c in string:
         u = str(c.encode("unicode_escape")).replace("x", "u00").replace("'", "").replace("b\\", "").upper()
         print(u.replace(u[1], "u"))"""
-
