@@ -15,4 +15,4 @@
 
 __author__  = "Iván Rincón"
 __license__ = "GPL3"
-__version__ = "0.3.5"
+__version__ = "0.4.0"
