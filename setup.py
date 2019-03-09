@@ -22,7 +22,7 @@ setup(
     keywords="mrz passports visas id cards td1 td2 td3 mrva mrvb icao",
     packages=["mrz", "mrz.base", "mrz.checker", "mrz.generator", "mrz.generator.dictionaries"],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3",
         "Topic :: Security"
