@@ -44,9 +44,9 @@ class PassportINDCodeChecker(TD3CodeChecker):
             else:  # too many '<' in id
                 self._report("invalid identifier format", kind=2)
                 ok = False
-        print("Debug. id2iter ............:", id2iter)
-        print("Debug. (secondary, primary):", (secondary, primary))
-        print("Debug. padding ............:", padding)
+        # print("Debug. id2iter ............:", id2iter)
+        # print("Debug. (secondary, primary):", (secondary, primary))
+        # print("Debug. padding ............:", padding)
         if ok:
             if False and not full_id.startswith("<<"):
                 self._report("identifier doesn't starts with '<<'", kind=2)
