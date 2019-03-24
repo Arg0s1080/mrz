@@ -11,3 +11,4 @@ __pycache__/
 .fuse_hidden*
 /md2rst_script.py
 .~lock*
+/examples/mrz_generator_samples/id_card_ivan.py
