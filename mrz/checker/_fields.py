@@ -105,6 +105,8 @@ class _FieldChecker(_Report):
                                 else:  # primary id
                                     self._report("Possible not recommended prefix or suffix in identifier", kind=1)
                                 ok = False if self._compute_warnings else ok
+        self._id_secondary = str(secondary)
+        self._id_primary = str(primary)
         return self._report("identifier", ok)
 
     @property
