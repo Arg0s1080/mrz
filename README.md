@@ -222,7 +222,7 @@ print(get_country(fields.country))
 MARISA OSPELT BECK
 Liechtenstein
 ```
-###### Note: See other uses in 'examples/mrz_checker_samples/' folder and #6 issue
+###### Note: See other uses in 'examples/mrz_checker_samples/' folder and [this issue](https://github.com/Arg0s1080/mrz/issues/6)
 
 
 ## Installation:
