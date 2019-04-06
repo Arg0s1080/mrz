@@ -111,6 +111,26 @@ class TD2CodeChecker(_TD2HashChecker, _FieldChecker):
                                mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
+    def fields(self):
+        from collections import namedtuple
+        data = namedtuple("fields", "document_type country surname name document_number document_number_hash "
+                                    "nationality birth_date birth_date_hash sex expiry_date expiry_date_hash "
+                                    "optional_data final_hash ")
+        return data(self._document_type.rstrip("<"),
+                    self._country.rstrip("<"),
+                    self._id_primary.replace("<", " "),
+                    self._id_secondary.replace("<", " "),
+                    self._document_number.rstrip("<"),
+                    self._document_number_hash,
+                    self._nationality.rstrip("<"),
+                    self._birth_date,
+                    self._birth_date_hash,
+                    self._sex,
+                    self._expiry_date,
+                    self._expiry_date_hash,
+                    self._optional_data.rstrip("<"),
+                    self._final_hash)
+
     def __repr__(self):
         return str(self.result)
 

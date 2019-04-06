@@ -284,15 +284,54 @@ Output
 Note: See other uses in 'examples/mrz\_checker\_samples/' folder
                                                                 
 
+Fields extraction example (valid for td1, td2, td3 and visas)
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+.. code:: python
+
+    from mrz.checker.td1 import TD1CodeChecker, get_country
+
+    td1_check = TD1CodeChecker("IDLIEID98754015<<<<<<<<<<<<<<<\n"
+                               "8205122M1906224LIE<<<<<<<<<<<6\n"
+                               "OSPELT<BECK<<MARISA<<<<<<<<<<<")
+
+    fields = td1_check.fields()
+
+    print(fields.name, fields.surname)
+    print(get_country(fields.country))
+
+Output
+''''''
+
+::
+
+    MARISA OSPELT BECK
+    Liechtenstein
+
+Note: See other uses in 'examples/mrz\_checker\_samples/' folder
+                                                                
+
 Installation:
 -------------
+
+By pip (It may not be the latest version):
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
     sudo -H pip install mrz
 
-Features v 0.3:
----------------
+Cloning this repo (It may not work fine):
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    git clone https://github.com/Arg0s1080/mrz.git
+    cd mrz
+    sudo python3 setup.py install
+
+Features:
+---------
 
 -  [x] Transliteration of special Latin characters (acutes, tildes,
    diaeresis, graves, circumflex, etc)
@@ -313,6 +352,7 @@ Features v 0.3:
    restrictions in Generator.
 -  [x] Added new checks for periods of time in Checker.
 -  [x] Visas support
+-  [x] Fields extraction in checker (name, surname, country, sex, etc)
 
 TODO:
      
