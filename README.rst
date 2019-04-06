@@ -308,8 +308,8 @@ Output
     MARISA OSPELT BECK
     Liechtenstein
 
-Note: See other uses in 'examples/mrz\_checker\_samples/' folder
-                                                                
+Note: See other uses in 'examples/mrz\_checker\_samples/' folder and #6 issue
+                                                                             
 
 Installation:
 -------------
@@ -353,7 +353,7 @@ Features:
 -  [x] Added new checks for periods of time in Checker.
 -  [x] Visas support
 -  [x] Fields extraction in checker (name, surname, country, sex, etc)
-   (ver 0.5.0)
+   (version 0.5.0)
 
 TODO:
      
