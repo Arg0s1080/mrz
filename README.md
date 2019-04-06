@@ -201,10 +201,43 @@ print(result)
 
 ###### Note: See other uses in 'examples/mrz_checker_samples/' folder
 
-## Installation:
-    sudo -H pip install mrz
 
-## Features v 0.3:
+##### Fields extraction example (valid for td1, td2, td3 and visas)
+```python
+from mrz.checker.td1 import TD1CodeChecker, get_country
+
+td1_check = TD1CodeChecker("IDLIEID98754015<<<<<<<<<<<<<<<\n"
+                           "8205122M1906224LIE<<<<<<<<<<<6\n"
+                           "OSPELT<BECK<<MARISA<<<<<<<<<<<")
+
+fields = td1_check.fields()
+
+print(fields.name, fields.surname)
+print(get_country(fields.country))
+
+```
+
+##### Output
+```
+MARISA OSPELT BECK
+Liechtenstein
+```
+###### Note: See other uses in 'examples/mrz_checker_samples/' folder
+
+
+## Installation:
+
+#### By pip (It may not be the latest version):
+    sudo -H pip install mrz
+    
+#### Cloning this repo (It may not work fine):
+```
+git clone https://github.com/Arg0s1080/mrz.git
+cd mrz
+sudo python3 setup.py install
+```
+
+## Features:
 - [x] Transliteration of special Latin characters (acutes, tildes, diaeresis, graves, circumflex, etc)
 - [x] Arabic chars transliteration
 - [x] Several variations of Cyrillic added: Serbian, Macedonian, Belarusian, Ukrainian and Bulgarian
@@ -217,9 +250,9 @@ print(result)
 - [x] Possibility of disabling checks for country code, nationality and type of document, allowing to use 3-letter-codes not included in the countries dictionary and to use document_type codes without restrictions in Generator.
 - [x] Added new checks for periods of time in Checker.
 - [x] Visas support
+- [x] Fields extraction in checker (name, surname, country, sex, etc) (version 0.5.0)
 
 
 ###### TODO:
 - [ ] Automatic name truncation
 - [ ] Possibility of disabling checks for country code, nationality, type of document and the others fields in Checker.
-
