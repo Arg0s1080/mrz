@@ -134,7 +134,7 @@ print(code)
     P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
     L898902C36UTO7408122F1204159ZE184226B<<<<<10
 
-###### Note: See other uses in 'examples/mrz_generator_samples/' folder
+###### Note: See other uses in [mrz.generator examples folder](https://github.com/Arg0s1080/mrz/tree/master/examples/mrz_generator_samples)
 
 ## Usage Checker:
 #### TD1's (id cards):
@@ -199,7 +199,7 @@ print(result)
 ##### Output
     True
 
-###### Note: See other uses in 'examples/mrz_checker_samples/' folder
+###### Note: See other uses in [mrz.checker examples folder](https://github.com/Arg0s1080/mrz/tree/master/examples/mrz_checker_samples)
 
 
 ##### Fields extraction example (valid for td1, td2, td3 and visas)
@@ -222,7 +222,7 @@ print(get_country(fields.country))
 MARISA OSPELT BECK
 Liechtenstein
 ```
-###### Note: See other uses in 'examples/mrz_checker_samples/' folder and [this issue](https://github.com/Arg0s1080/mrz/issues/6)
+###### Note: See other uses in [mrz.checker examples folder](https://github.com/Arg0s1080/mrz/tree/master/examples/mrz_checker_samples) and [this issue](https://github.com/Arg0s1080/mrz/issues/6)
 
 
 ## Installation:

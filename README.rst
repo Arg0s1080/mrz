@@ -183,8 +183,8 @@ Output:
     P<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<
     L898902C36UTO7408122F1204159ZE184226B<<<<<10
 
-Note: See other uses in 'examples/mrz\_generator\_samples/' folder
-                                                                  
+Note: See other uses in `mrz.generator examples folder <https://github.com/Arg0s1080/mrz/tree/master/examples/mrz_generator_samples>`__
+                                                                                                                                       
 
 Usage Checker:
 --------------
@@ -281,8 +281,8 @@ Output
 
     True
 
-Note: See other uses in 'examples/mrz\_checker\_samples/' folder
-                                                                
+Note: See other uses in `mrz.checker examples folder <https://github.com/Arg0s1080/mrz/tree/master/examples/mrz_checker_samples>`__
+                                                                                                                                   
 
 Fields extraction example (valid for td1, td2, td3 and visas)
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -308,8 +308,8 @@ Output
     MARISA OSPELT BECK
     Liechtenstein
 
-Note: See other uses in 'examples/mrz\_checker\_samples/' folder and `this issue <https://github.com/Arg0s1080/mrz/issues/6>`__
-                                                                                                                               
+Note: See other uses in `mrz.checker examples folder <https://github.com/Arg0s1080/mrz/tree/master/examples/mrz_checker_samples>`__ and `this issue <https://github.com/Arg0s1080/mrz/issues/6>`__
+                                                                                                                                                                                                  
 
 Installation:
 -------------
