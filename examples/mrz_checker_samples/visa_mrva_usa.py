@@ -25,7 +25,7 @@ def print_txt(title, value):
     print(title.ljust(20), value)
 
 
-fields = checker.fields()
+fields = checker.fields_OLD()
 
 print_txt("Document Type:", fields.document_type)
 print_txt("Country:", fields.country)
@@ -40,4 +40,3 @@ print_txt("Sex:", fields.sex)
 print_txt("Expiry Date:", fields.expiry_date)
 print_txt("Expiry Date Hash:", fields.expiry_date_hash)
 print_txt("Optional data:", fields.optional_data)
-print_txt("Final Hash:", fields.final_hash)
