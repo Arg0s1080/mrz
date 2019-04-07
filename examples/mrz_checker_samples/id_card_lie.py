@@ -12,6 +12,7 @@ td1_check = TD1CodeChecker(mrz_td1)
 if bool(td1_check) == False:
     print(td1_check.report_falses)
 
+
 fields = td1_check.fields()
 
 
