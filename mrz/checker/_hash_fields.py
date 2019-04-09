@@ -38,5 +38,9 @@ class _HashChecker(_Report):
                 self.birth_date_hash &
                 self.expiry_date_hash)
 
+    def _str_common_hashes(self):
+        return ((self._birth_date_hash, self._expiry_date_hash, self._document_number_hash),
+                "birth_date_hash expiry_date_hash document_number_hash ")
+
     def __repr__(self):
         return self._all_hashes()
