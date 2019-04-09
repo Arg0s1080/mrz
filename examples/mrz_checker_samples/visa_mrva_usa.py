@@ -25,7 +25,7 @@ def print_txt(title, value):
     print(title.ljust(20), value)
 
 
-fields = checker.fields_OLD()
+fields = checker.fields()
 
 print_txt("Document Type:", fields.document_type)
 print_txt("Country:", fields.country)
