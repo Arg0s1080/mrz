@@ -27,6 +27,7 @@ class _FieldChecker(_Report):
         self._check_expiry = check_expiry
         self._mrz_code = mrz_code
         self._times()
+        self._id_primary = self._id_secondary = None  # Will be set later
 
     @property
     def mrz_code(self):
@@ -223,6 +224,21 @@ class _FieldChecker(_Report):
                 self.document_number &
                 self.optional_data &
                 self.optional_data_2)
+
+    def _str_common_fields(self):
+        fields = (self._id_primary.replace("<", " "),
+                  self._id_secondary.replace("<", " "),
+                  self._country.rstrip("<"),
+                  self._nationality.rstrip("<"),
+                  self._birth_date,
+                  self._expiry_date,
+                  self._sex,
+                  self._document_type.rstrip("<"),
+                  self._document_number.rstrip("<"),
+                  self._optional_data.rstrip("<"))
+        names = ("surname name country nationality birth_date expiry_date sex "
+                 "document_type document_number optional_data ")
+        return fields, names
 
     def __repr__(self) -> str:
         return str(self._all_fields())
