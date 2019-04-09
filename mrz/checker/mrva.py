@@ -14,6 +14,7 @@
 # (ɔ) Iván Rincón 2018
 
 from ..base.countries_ops import *
+from ..base.functions import namedtuple_maker
 from .td3 import TD3CodeChecker
 
 import mrz.base.string_checkers as check
@@ -46,28 +47,11 @@ class MRVACodeChecker(TD3CodeChecker):
         s = self._optional_data = self.mrz_code.splitlines()[1][28: 44]
         return True if check.is_empty(s) else self._report("optional data format", check.is_printable(s))
 
+    def fields(self):
+        return namedtuple_maker(self._str_common_fields(), self._str_common_hashes())
+
     def _all_hashes(self) -> bool:
         return (self.document_number_hash &
                 self.birth_date_hash &
                 self.expiry_date_hash)
 
-    def fields(self):
-        from collections import namedtuple
-        data = namedtuple("fields", "document_type country surname name document_number document_number_hash "
-                                    "nationality birth_date birth_date_hash sex expiry_date expiry_date_hash "
-                                    "optional_data optional_data_hash final_hash ")
-        return data(self._document_type.rstrip("<"),
-                    self._country.rstrip("<"),
-                    self._id_primary.replace("<", " "),
-                    self._id_secondary.replace("<", " "),
-                    self._document_number.rstrip("<"),
-                    self._document_number_hash,
-                    self._nationality.rstrip("<"),
-                    self._birth_date,
-                    self._birth_date_hash,
-                    self._sex,
-                    self._expiry_date,
-                    self._expiry_date_hash,
-                    self._optional_data.rstrip("<"),
-                    self._optional_data_hash,
-                    self._final_hash)
