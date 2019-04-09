@@ -48,6 +48,13 @@ class MRVACodeChecker(TD3CodeChecker):
         return True if check.is_empty(s) else self._report("optional data format", check.is_printable(s))
 
     def fields(self):
+        """Returns a namedtuple with all fields strings
+
+        Available strings for Visas A:
+        surname, name, country, nationality, birth_date, expiry_date, sex, document_type,
+        document_number, optional_data, birth_date_hash, expiry_date_hash and document_number_hash,
+
+        """
         return namedtuple_maker(self._str_common_fields(), self._str_common_hashes())
 
     def _all_hashes(self) -> bool:

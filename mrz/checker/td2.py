@@ -112,6 +112,14 @@ class TD2CodeChecker(_TD2HashChecker, _FieldChecker):
         self.result = self._all_hashes() & self._all_fields()
 
     def fields(self):
+        """Returns a namedtuple with all fields strings
+
+        Available strings for td2's:
+        surname, name, country, nationality, birth_date, expiry_date, sex, document_type,
+        document_number, optional_data, birth_date_hash, expiry_date_hash, document_number_hash
+        and final_hash
+
+        """
         extra_fields = self._final_hash,
         extra_names = "final_hash"
         return namedtuple_maker(self._str_common_fields(), self._str_common_hashes(), extra_fields, extra_names)
