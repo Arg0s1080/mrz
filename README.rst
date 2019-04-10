@@ -358,6 +358,7 @@ Features:
 TODO:
      
 
--  [ ] Automatic name truncation
+-  [ ] Automatic name truncation in Generator
 -  [ ] Possibility of disabling checks for country code, nationality,
    type of document and the others fields in Checker.
+-  [ ] Add logging
