@@ -7,7 +7,7 @@
 # using a licensed work, under the same license. Copyright and license notices must be
 # preserved. Contributors provide an express grant of patent rights.
 #
-# For more information on this, and how to apply and follow theGNU GPL, see:
+# For more information on this, and how to apply and follow the GNU GPL, see:
 # http://www.gnu.org/licenses
 #
 # (ɔ) Iván Rincón 2018
