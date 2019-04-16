@@ -11,7 +11,7 @@
 # For more information on this, and how to apply and follow the GNU GPL, see:
 # http://www.gnu.org/licenses
 #
-# Iván Rincón 2018
+# Iván Rincón 2019
 
 from ..base.countries_ops import *
 from ..base.functions import hash_string, transliterate

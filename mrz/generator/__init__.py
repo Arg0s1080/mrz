@@ -11,7 +11,7 @@
 # For more information on this, and how to apply and follow the GNU GPL, see:
 # http://www.gnu.org/licenses
 #
-# Iván Rincón 2018
+# Iván Rincón 2019
 
 # import generator.transliterations as transliteration
 #

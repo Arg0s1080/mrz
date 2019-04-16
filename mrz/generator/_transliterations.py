@@ -13,7 +13,7 @@
 # For more information on this, and how to apply and follow the
 # GNU GPL, see http://www.gnu.org/licenses
 #
-# (ɔ) Iván Rincón 2018
+# (ɔ) Iván Rincón 2019
 
 
 def arabic():
