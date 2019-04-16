@@ -1,3 +1,11 @@
+# -*- Coding: UTF-8 -*-
+#
+# GNU General Public License v3.0
+#
+# https://www.gnu.org/licenses/gpl-3.0.html
+#
+# (ɔ) Iván Rincón 2019
+
 from mrz.base.functions import hash_is_ok
 from mrz.checker.td1 import *
 

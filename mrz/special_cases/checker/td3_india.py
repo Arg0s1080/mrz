@@ -1,4 +1,13 @@
+# -*- Coding: UTF-8 -*-
+#
+# GNU General Public License v3.0
+#
+# https://www.gnu.org/licenses/gpl-3.0.html
+#
+# (ɔ) Iván Rincón 2019
+
 import mrz.base.string_checkers as check
+
 from mrz.checker.td3 import *
 from mrz.checker._honorifics import titles
 from mrz.base.functions import hash_is_ok

@@ -1,6 +1,10 @@
+# -*- Coding: UTF-8 -*-
+#
 # GNU General Public License v3.0
-# -*- coding UTF-8 -*- 
-# (ɔ) Iván Rincón 2018
+#
+# https://www.gnu.org/licenses/gpl-3.0.html
+#
+# (ɔ) Iván Rincón 2019
 
 import mrz.base.countries as countries
 from mrz.base.functions import full_capitalize
