@@ -28,7 +28,7 @@ class MRVBCodeGenerator(TD2CodeGenerator):
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Primary identifier(s)
         given_names      (str):  Secondary identifier(s)
-        passport_number  (str):  Passport number
+        document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
         sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'

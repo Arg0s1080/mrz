@@ -94,7 +94,7 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Primary identifier(s)
         given_names      (str):  Secondary identifier(s)
-        passport_number  (str):  Passport number
+        document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
         sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
@@ -111,7 +111,7 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
                  country_code: str,
                  surname: str,
                  given_names: str,
-                 passport_number: str,
+                 document_number: str,
                  nationality: str,
                  birth_date: str,
                  sex: str,
@@ -123,7 +123,7 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
         self.force = force
         self.document_type = document_type
         self.country_code = country_code
-        self.document_number = passport_number
+        self.document_number = document_number
         self.nationality = nationality
         self.birth_date = birth_date
         self.sex = sex

@@ -28,7 +28,7 @@ class MRVBCodeGenerator(TD3CodeGenerator):
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Primary identifier(s)
         given_names      (str):  Secondary identifier(s)
-        passport_number  (str):  Passport number
+        document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
         sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
@@ -46,7 +46,7 @@ class MRVBCodeGenerator(TD3CodeGenerator):
                  country_code: str,
                  surname: str,
                  given_names: str,
-                 passport_number: str,
+                 document_number: str,
                  nationality: str,
                  birth_date: str,
                  sex: str,
@@ -54,7 +54,7 @@ class MRVBCodeGenerator(TD3CodeGenerator):
                  optional_data="",
                  transliteration=dictionary.latin_based(),
                  force=False):
-        TD3CodeGenerator.__init__(self, document_type, country_code, surname, given_names, passport_number,
+        TD3CodeGenerator.__init__(self, document_type, country_code, surname, given_names, document_number,
                                   nationality, birth_date, sex, expiry_date, optional_data, transliteration,
                                   force)
         self.optional_data = optional_data

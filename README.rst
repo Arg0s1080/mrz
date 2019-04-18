@@ -55,11 +55,13 @@ TD1's (id cards):
                                  Non-mandatory field. Empty string by default
         optional_data2   (str):  Optional personal data at the discretion of the issuing State.
                                  Non-mandatory field. Empty string by default
-        transliteration (dict):  Transliteration dictionary for non-ascii chars. Latin based by default
-        force           (bool):  Disables checks for country, nationality and document_type fields.
-                                 Allows to use 3-letter-codes not included in the countries dictionary
-                                 and to use document_type codes without restrictions.
-                                 
+        transliterat        passport_number  (str):  Passport number
+
+ion (dict): Transliteration dictionary for non-ascii chars. Latin based
+by default force (bool): Disables checks for country, nationality and
+document\_type fields. Allows to use 3-letter-codes not included in the
+countries dictionary and to use document\_type codes without
+restrictions.
 
 TD2
 ^^^
@@ -96,7 +98,7 @@ TD3 (Passports)
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Primary identifier(s)
         given_names      (str):  Secondary identifier(s)
-        passport_number  (str):  Passport number
+        document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
         sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
@@ -119,7 +121,7 @@ MRVA (Visas type A)
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Primary identifier(s)
         given_names      (str):  Secondary identifier(s)
-        passport_number  (str):  Passport number
+        document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
         sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
@@ -143,7 +145,7 @@ MRVB (Visas type B)
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Primary identifier(s)
         given_names      (str):  Secondary identifier(s)
-        passport_number  (str):  Passport number
+        document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
         sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
