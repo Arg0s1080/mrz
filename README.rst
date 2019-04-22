@@ -55,13 +55,11 @@ TD1's (id cards):
                                  Non-mandatory field. Empty string by default
         optional_data2   (str):  Optional personal data at the discretion of the issuing State.
                                  Non-mandatory field. Empty string by default
-        transliterat        passport_number  (str):  Passport number
-
-ion (dict): Transliteration dictionary for non-ascii chars. Latin based
-by default force (bool): Disables checks for country, nationality and
-document\_type fields. Allows to use 3-letter-codes not included in the
-countries dictionary and to use document\_type codes without
-restrictions.
+        transliteration (dict):  Transliteration dictionary for non-ascii chars. Latin based by default
+        force           (bool):  Disables checks for country, nationality and document_type fields.
+                                 Allows to use 3-letter-codes not included in the countries dictionary
+                                 and to use document_type codes without restrictions.
+                                 
 
 TD2
 ^^^
