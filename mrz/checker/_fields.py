@@ -184,13 +184,12 @@ class _FieldChecker(_Report):
         return True if check.is_empty(s) else self._report("optional data 2 format", check.is_printable(s))
 
     def _times(self) -> bool:
-        birth, expiry = "", ""
+        birth = expiry = None
 
         try:
             birth = datetime.strptime(self._birth_date, "%y%m%d")
         except ValueError:
             self._birth_date_check = False
-
         try:
             expiry = datetime.strptime(self._expiry_date, "%y%m%d") + timedelta(days=1)
         except ValueError:
