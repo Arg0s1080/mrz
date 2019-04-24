@@ -268,10 +268,10 @@ TD1CodeChecker -> bool
 
     from mrz.checker.td1 import TD1CodeChecker
         
-    result = bool(TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
-                                 "8703145M1701027SWE<<<<<<<<<<<8\n"
-                                 "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<"))
-
+    check = TD1CodeChecker("I<SWE59000002<8198703142391<<<\n"
+                           "8703145M1701027SWE<<<<<<<<<<<8\n"
+                           "SPECIMEN<<SVEN<<<<<<<<<<<<<<<<")
+    result = bool(check)
     print(result)
 
 Output
