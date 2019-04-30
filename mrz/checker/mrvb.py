@@ -31,7 +31,7 @@ class MRVBCodeChecker(TD2CodeChecker):
     __bool__() returns True if all fields are validated, False otherwise
 
     Params:
-        mrz_string        (str):  MRZ string of td3. Must be 88 characters long (uppercase)
+        mrz_string        (str):  MRZ string of MRVB. Must be 88 characters long (uppercase)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
         compute_warnings (bool):  If it's set True, warnings compute as False
@@ -52,7 +52,7 @@ class MRVBCodeChecker(TD2CodeChecker):
 
         Available strings for Visas B:
         surname, name, country, nationality, birth_date, expiry_date, sex, document_type,
-        document_number, optional_data, birth_date_hash, expiry_date_hash and document_number_hash,
+        document_number, optional_data, birth_date_hash, expiry_date_hash and document_number_hash
 
         """
         return namedtuple_maker(self._str_common_fields(), self._str_common_hashes())

@@ -66,7 +66,7 @@ class TD1CodeChecker(_TD1HashChecker, _FieldChecker):
     __bool__() returns True if all fields are validated, False otherwise
 
     Params:
-        mrz_string        (str):  MRZ string of td1s. Must be 90 uppercase characters long
+        mrz_string        (str):  MRZ string of TD1's. Must be 90 uppercase characters long
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
                                   document is not expired and that expiry_date is not greater than 10 years
         compute_warnings (bool):  If it's set True, warnings compute as False
@@ -119,7 +119,7 @@ class TD1CodeChecker(_TD1HashChecker, _FieldChecker):
     def fields(self):
         """Returns a namedtuple with all fields strings
 
-        Available strings for id cards and others td1's:
+        Available strings for ID Cards and others TD1's:
         surname, name, country, nationality, birth_date, expiry_date, sex, document_type,
         document_number, optional_data, birth_date_hash, expiry_date_hash, document_number_hash,
         optional_data_2 and final_hash
