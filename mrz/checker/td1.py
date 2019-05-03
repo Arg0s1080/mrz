@@ -125,7 +125,7 @@ class TD1CodeChecker(_TD1HashChecker, _FieldChecker):
         optional_data_2 and final_hash
 
         """
-        extra_fields = self._optional_data_2.rstrip("<"), self._final_hash
+        extra_fields = self._optional_data_2.strip("<"), self._final_hash
         extra_names = "optional_data_2 final_hash"
         return namedtuple_maker(self._str_common_fields(), self._str_common_hashes(), extra_fields, extra_names)
 

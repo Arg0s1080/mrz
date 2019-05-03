@@ -239,8 +239,8 @@ class _FieldChecker(_Report):
                   self._expiry_date,
                   self._sex,
                   self._document_type.rstrip("<"),
-                  self._document_number.rstrip("<"),
-                  self._optional_data.rstrip("<"))
+                  self._document_number.strip("<"),
+                  self._optional_data.strip("<"))
         names = ("surname name country nationality birth_date expiry_date sex "
                  "document_type document_number optional_data ")
         return fields, names
