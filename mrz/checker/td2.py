@@ -111,7 +111,7 @@ class TD2CodeChecker(_TD2HashChecker, _FieldChecker):
                                mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
-    def fields(self):
+    def fields(self, zero_fill=False):
         """Returns a namedtuple with all fields strings
 
         Available strings for TD2's:
@@ -119,10 +119,15 @@ class TD2CodeChecker(_TD2HashChecker, _FieldChecker):
         document_number, optional_data, birth_date_hash, expiry_date_hash, document_number_hash
         and final_hash
 
+        Params:
+            zero_fill  (bool): Replace '<' char by '0' in alphanum fields (document_number and
+                               optional_data)
+
         """
         extra_fields = self._final_hash,
         extra_names = "final_hash"
-        return namedtuple_maker(self._str_common_fields(), self._str_common_hashes(), extra_fields, extra_names)
+        return namedtuple_maker(self._str_common_fields(zero_fill), self._str_common_hashes(),
+                                extra_fields, extra_names)
 
     def __repr__(self):
         return str(self.result)

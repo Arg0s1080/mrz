@@ -14,7 +14,7 @@
 # (ɔ) Iván Rincón 2019
 
 from ..base.countries_ops import *
-from ..base.functions import hash_is_ok, namedtuple_maker
+from ..base.functions import hash_is_ok, namedtuple_maker, anset
 from ._hash_fields import _HashChecker
 from ._fields import _FieldChecker
 
@@ -116,7 +116,7 @@ class TD1CodeChecker(_TD1HashChecker, _FieldChecker):
                                mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
-    def fields(self):
+    def fields(self, zeroes_fill=False):
         """Returns a namedtuple with all fields strings
 
         Available strings for ID Cards and others TD1's:
@@ -124,10 +124,15 @@ class TD1CodeChecker(_TD1HashChecker, _FieldChecker):
         document_number, optional_data, birth_date_hash, expiry_date_hash, document_number_hash,
         optional_data_2 and final_hash
 
+        Params:
+            zero_fill  (bool): Replace '<' char by '0' in alphanum fields (document_number,
+                               optional_data and optional_data_2)
+
         """
-        extra_fields = self._optional_data_2.strip("<"), self._final_hash
+        extra_fields = anset(self._optional_data_2, zeroes_fill), self._final_hash
         extra_names = "optional_data_2 final_hash"
-        return namedtuple_maker(self._str_common_fields(), self._str_common_hashes(), extra_fields, extra_names)
+        return namedtuple_maker(self._str_common_fields(zeroes_fill), self._str_common_hashes(),
+                                extra_fields, extra_names)
 
     def __repr__(self):
         return str(self.result)

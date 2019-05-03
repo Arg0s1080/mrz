@@ -92,11 +92,12 @@ def get_doc(cls):
     return name[:name.find("Code")]
 
 
-def namedtuple_maker(*args):
+def namedtuple_maker(*args, zfill=False):
     # USE:
     # namedtuple_maker(common_fields, common_hashes)
     # namedtuple_maker(common_fields, common_hashes, extra_fields, extra_names)
     from collections import namedtuple
+
     cf, cfn = args[0]
     ch, chn = args[1]
     names = cfn + chn
@@ -104,8 +105,18 @@ def namedtuple_maker(*args):
     if len(args) > 2:
         names += args[3]
         fields += args[2]
+    if not zfill:
+        for name, field in zip(names.split(), fields):
+            if name in "optional_data document_number":
+                pass
+
     data = namedtuple("fields", names)
     return data(*fields)
+
+
+def anset(string: str, zfill: bool) -> str:
+    # AlphaNum string setter
+    return string.strip("<") if not zfill else string.replace("<", "0")
 
 
 if __name__ == '__main__':
