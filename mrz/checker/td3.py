@@ -74,8 +74,8 @@ class TD3CodeChecker(_TD3HashChecker, _FieldChecker):
     Params:
         mrz_string        (str):  MRZ string of TD3. Must be 88 characters long (uppercase)
         check_expiry     (bool):  If it's set to True, it is verified and reported as warning that the
-                                  document is not expired and that expiry_date is not greater than 10 years
-        compute_warnings (bool):  If it's set True, warnings compute as False
+                                  document is not expired and that expiry_date is not greater than 10 years.
+        compute_warnings (bool):  If it's set True, warnings compute as False.
 
     """
     def __init__(self, mrz_code: str, check_expiry=False, compute_warnings=False):
@@ -122,7 +122,7 @@ class TD3CodeChecker(_TD3HashChecker, _FieldChecker):
                                mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
-    def fields(self):
+    def fields(self, zero_fill=False):
         """Returns a namedtuple with all fields strings
 
         Available strings for Passports and other TD3's:
@@ -130,10 +130,15 @@ class TD3CodeChecker(_TD3HashChecker, _FieldChecker):
         document_number, optional_data, birth_date_hash, expiry_date_hash, document_number_hash,
         optional_data_hash and final_hash
 
+        Params:
+            zero_fill  (bool): Replace '<' char by '0' in alphanum fields (document_number and
+                               optional_data)
+
         """
         extra_fields = self._optional_data_hash, self._final_hash
         extra_names = "optional_data_hash final_hash"
-        return namedtuple_maker(self._str_common_fields(), self._str_common_hashes(), extra_fields, extra_names)
+        return namedtuple_maker(self._str_common_fields(zero_fill), self._str_common_hashes(),
+                                extra_fields, extra_names)
 
     def __repr__(self):
         return str(self.result)

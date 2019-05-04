@@ -6,9 +6,10 @@
 #
 # (ɔ) Iván Rincón 2019
 
-from datetime import datetime, date, timedelta
+from ..base.functions import anset
 from ._report import _Report
 from ._honorifics import titles
+from datetime import datetime, date, timedelta
 
 import mrz.base.string_checkers as check
 
@@ -230,7 +231,7 @@ class _FieldChecker(_Report):
                 self.optional_data &
                 self.optional_data_2)
 
-    def _str_common_fields(self):
+    def _str_common_fields(self, zfill: bool):
         fields = (self._id_primary.replace("<", " "),
                   self._id_secondary.replace("<", " "),
                   self._country.rstrip("<"),
@@ -239,8 +240,8 @@ class _FieldChecker(_Report):
                   self._expiry_date,
                   self._sex,
                   self._document_type.rstrip("<"),
-                  self._document_number.strip("<"),
-                  self._optional_data.strip("<"))
+                  anset(self._document_number, zfill),
+                  anset(self._optional_data, zfill))
         names = ("surname name country nationality birth_date expiry_date sex "
                  "document_type document_number optional_data ")
         return fields, names

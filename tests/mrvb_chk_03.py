@@ -25,6 +25,9 @@ class TestCase19(unittest.TestCase):
         self.assertEqual("1", fields.expiry_date_hash)
         self.assertEqual("0", fields.document_number_hash)
 
+        fields = mrvb_check.fields(zero_fill=True)
+        self.assertEqual("02020711", fields.optional_data)
+
 
 if __name__ == '__main__':
     unittest.main()
