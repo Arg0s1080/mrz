@@ -105,11 +105,6 @@ def namedtuple_maker(*args, zfill=False):
     if len(args) > 2:
         names += args[3]
         fields += args[2]
-    if not zfill:
-        for name, field in zip(names.split(), fields):
-            if name in "optional_data document_number":
-                pass
-
     data = namedtuple("fields", names)
     return data(*fields)
 
