@@ -92,7 +92,7 @@ def get_doc(cls):
     return name[:name.find("Code")]
 
 
-def namedtuple_maker(*args, zfill=False):
+def namedtuple_maker(*args):
     # USE:
     # namedtuple_maker(common_fields, common_hashes)
     # namedtuple_maker(common_fields, common_hashes, extra_fields, extra_names)
