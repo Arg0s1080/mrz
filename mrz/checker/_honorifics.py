@@ -12,7 +12,26 @@
 #
 # (ɔ) Iván Rincón 2018
 
-# TODO: Shorten
+
+""" Forbidden titles
+
+    ICAO SPECS:
+
+    Prefixes and suffixes, including titles, professional and academic qualifications,
+    honours, awards, and hereditary status (such as Dr., Sir, Jr., Sr., I I and III)
+    shall not be included in the MRZ except where the issuing State considers these to
+    be legally part of the name. In such cases, prefixes or suffixes shall be represented
+    as components of the secondary identifier(s)
+
+    Therefore, items in the list below will be reported as warnings or errors if they
+    are found in the secondary id. or primary id.
+
+    Add or delete items according to needs
+
+"""
+# Forbidden titles:
+
+
 titles = [
     "MR",
     "SIR",
