@@ -116,7 +116,20 @@ transliteration = {
 # https://en.wikipedia.org/wiki/List_of_Unicode_characters
 
 # Function to get unicode string
-"""def str2unicode(string):
+'''
+def str2unicode(string):
+    """Prints the unicode hex representation of each char in a string
+
+        Note: Only for development purposes"""
+    def gv(s):
+        return s[2:].zfill(4)
+    print("{")
     for c in string:
-        u = str(c.encode("unicode_escape")).replace("x", "u00").replace("'", "").replace("b\\", "").upper()
-        print(u.replace(u[1], "u"))"""
+        u = c.encode("unicode_escape").decode()  # é -> \xe9, a -> a, 𐍈 -> \U00010348
+        ln = len(u)
+        prefix = "\\u" if ln < 7 else u[:2]
+        value = gv(hex(ord(u))) if ln < 2 else gv(u) if ln < 7 else u[2:]
+        # print('%s: u"%s%s"' % (c, prefix, value.upper()))
+        print('    u"%s%s": "%s",' % (prefix, value.upper(), c))
+    print("}")
+'''
