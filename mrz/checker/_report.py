@@ -22,9 +22,7 @@ class _Report:
         return result
 
     def _report_reset(self):
-        self._rep[0] = []
-        self._rep[1] = []
-        self._rep[2] = []
+        self._rep = [[], [], []]
 
     @property
     def report(self) -> list:
