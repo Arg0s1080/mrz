@@ -21,7 +21,7 @@ print(MRVBCodeGenerator(
     "DEDIC",       # Surname(s)      Special characters will be transliterated
     "SIDNAN",      # Given name(s)   Special characters will be transliterated
     "D09174053",   # Document number
-    "BOS",         # Nationality     3 letter code or country name
+    "BOS",         # Nationality     3 letter code or country name.  Note: 'BOS' is deprecated
     "820113",      # Birth date      YYMMDD
     "M",           # Genre           Male: 'M', Female: 'F' or Undefined 'X'
     "970801",      # Expiry date     YYMMDD
