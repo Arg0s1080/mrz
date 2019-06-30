@@ -2,8 +2,12 @@
 # -*- coding: UTF8 -*-
 
 from setuptools import setup
+from sys import version_info, exit
 from os import path
 from mrz import __version__ as version
+
+if version_info < (3, 4):
+    exit("MRZ does not work on Python version < 3.4")
 
 parent = path.abspath(path.dirname(__file__))
 
