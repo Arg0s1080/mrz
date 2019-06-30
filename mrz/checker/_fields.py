@@ -7,7 +7,7 @@
 # (ɔ) Iván Rincón 2019
 
 from ..base.functions import anset
-from ._report import _Report
+from ._report import _Report, Kind
 from ._honorifics import titles
 from datetime import datetime, date, timedelta
 
@@ -73,7 +73,7 @@ class _FieldChecker(_Report):
         if not check.is_printable(self._identifier):
             ok = False
         elif check.is_empty(self._identifier):
-            self._report("empty identifier", level=2)
+            self._report("empty identifier", level=Kind.ERROR)
             ok = False
         else:
             if id_len == len([i for i in id2iter if i]):
@@ -82,26 +82,26 @@ class _FieldChecker(_Report):
                     ok = True
                 elif id_len == 1:
                     primary, secondary = id2iter[0], ""
-                    self._report("only one identifier", level=1)
+                    self._report("only one identifier", level=Kind.WARNING)
                     ok = not self._compute_warnings
                 else:
-                    self._report("more than two identifiers", level=2)
+                    self._report("more than two identifiers", level=Kind.ERROR)
                     ok = False
             else:  # too many '<' in id
-                self._report("invalid identifier format", level=2)
+                self._report("invalid identifier format", level=Kind.ERROR)
                 ok = False
         # print("Debug. id2iter ............:", id2iter)
         # print("Debug. (secondary, primary):", (secondary, primary))
         # print("Debug. padding ............:", padding)
         if ok:
             if check.uses_nums(full_id):
-                self._report("identifier with numbers", level=2)
+                self._report("identifier with numbers", level=Kind.ERROR)
                 ok = False
             if primary.startswith("<") or secondary and secondary.startswith("<"):
-                self._report("some identifier begin by '<'", level=2)
+                self._report("some identifier begin by '<'", level=Kind.ERROR)
                 ok = False
             if not padding:
-                self._report("possible truncating", level=1)
+                self._report("possible truncating", level=Kind.WARNING)
                 ok = False if self._compute_warnings else ok
             for i in range(id_len):
                 for itm in id2iter[i].split("<"):
@@ -109,9 +109,11 @@ class _FieldChecker(_Report):
                         for tit in titles:
                             if tit == itm:
                                 if i:  # secondary id
-                                    self._report("Possible unauthorized prefix or suffix in identifier", level=1)
+                                    self._report("Possible unauthorized prefix or suffix in identifier",
+                                                 level=Kind.WARNING)
                                 else:  # primary id
-                                    self._report("Possible not recommended prefix or suffix in identifier", level=1)
+                                    self._report("Possible not recommended prefix or suffix in identifier",
+                                                 level=Kind.WARNING)
                                 ok = False if self._compute_warnings else ok
         self._id_secondary = str(secondary)
         self._id_primary = str(primary)
@@ -211,8 +213,8 @@ class _FieldChecker(_Report):
             rep = lambda s, c, k=2: not c and self._report(s, level=k)
             rep("expiry date before than birth date", check1)
             # rep("birth date after than today", check2)  # check2 canceled
-            self._check_expiry and rep("document expired", check3, 1)
-            self._check_expiry and rep("expiry date greater than 10 years", check4, 1)
+            self._check_expiry and rep("document expired", check3, Kind.WARNING)
+            self._check_expiry and rep("expiry date greater than 10 years", check4, Kind.WARNING)
 
             self._birth_date_check = check1  # & check2   # check2 canceled
             self._expiry_date_check = check1 if not self._compute_warnings else check1 & check3 & check4

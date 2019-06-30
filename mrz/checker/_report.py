@@ -6,11 +6,22 @@
 #
 # (ɔ) Iván Rincón 2019
 
+from enum import IntEnum
+
+
+class Kind(IntEnum):
+    # Base class is IntEnum instead Enum for compatibility with previous versions of mrz
+    # e.g. with Enum Kind.ERROR != 2, with IntEnum Kind.ERROR == 2
+    FIELDS = 0
+    WARNING = 1
+    ERROR = 2
+
+
 class _Report:
 
     _rep = [[], [], []]  # [[fields], [warnings], [errors]]
 
-    def _report(self, description, result=None, level=0):
+    def _report(self, description, result=None, level=Kind.FIELDS):
         # kind = 0: fields, 1: warning, 2: error
         if result is not None:
             self._rep[0].append((description, result))
