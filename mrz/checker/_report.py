@@ -6,19 +6,18 @@
 #
 # (ɔ) Iván Rincón 2019
 
-
 class _Report:
 
     _rep = [[], [], []]  # [[fields], [warnings], [errors]]
 
-    def _report(self, description, result=None, kind=0):
+    def _report(self, description, result=None, level=0):
         # kind = 0: fields, 1: warning, 2: error
         if result is not None:
             self._rep[0].append((description, result))
             if result is False:
                 self._rep[2].append("false %s" % description)
         else:
-            self._rep[kind].append(description)
+            self._rep[level].append(description)
         return result
 
     def _report_reset(self):

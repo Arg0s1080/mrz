@@ -1,0 +1,7 @@
+- [ ] Automatic name truncation in Generator
+- [ ] Possibility of disabling checks for country code, nationality, type of document and the others fields in Checker.
+- [ ] Add logging
+- [ ] Use `enum.Enum` instead `int` for kinds _report (Checker)
+- [ ] Fix bug #2 issue
+- [ ] See #1 issue P<IND<<AHMADI<etc https://github.com/Arg0s1080/mrz/issues/1
+- [ ] add primary and secondary id's clarification in name and surname

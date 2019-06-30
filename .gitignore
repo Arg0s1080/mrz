@@ -6,6 +6,7 @@ __pycache__/
 /..*.kate.swp
 /Notes.txt
 /Notes_Checker.txt
+/TODO.md
 /test*.py
 /gitscript.sh
 .fuse_hidden*

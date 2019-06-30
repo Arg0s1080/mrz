@@ -73,7 +73,7 @@ class _FieldChecker(_Report):
         if not check.is_printable(self._identifier):
             ok = False
         elif check.is_empty(self._identifier):
-            self._report("empty identifier", kind=2)
+            self._report("empty identifier", level=2)
             ok = False
         else:
             if id_len == len([i for i in id2iter if i]):
@@ -82,26 +82,26 @@ class _FieldChecker(_Report):
                     ok = True
                 elif id_len == 1:
                     primary, secondary = id2iter[0], ""
-                    self._report("only one identifier", kind=1)
+                    self._report("only one identifier", level=1)
                     ok = not self._compute_warnings
                 else:
-                    self._report("more than two identifiers", kind=2)
+                    self._report("more than two identifiers", level=2)
                     ok = False
             else:  # too many '<' in id
-                self._report("invalid identifier format", kind=2)
+                self._report("invalid identifier format", level=2)
                 ok = False
         # print("Debug. id2iter ............:", id2iter)
         # print("Debug. (secondary, primary):", (secondary, primary))
         # print("Debug. padding ............:", padding)
         if ok:
             if check.uses_nums(full_id):
-                self._report("identifier with numbers", kind=2)
+                self._report("identifier with numbers", level=2)
                 ok = False
             if primary.startswith("<") or secondary and secondary.startswith("<"):
-                self._report("some identifier begin by '<'", kind=2)
+                self._report("some identifier begin by '<'", level=2)
                 ok = False
             if not padding:
-                self._report("possible truncating", kind=1)
+                self._report("possible truncating", level=1)
                 ok = False if self._compute_warnings else ok
             for i in range(id_len):
                 for itm in id2iter[i].split("<"):
@@ -109,9 +109,9 @@ class _FieldChecker(_Report):
                         for tit in titles:
                             if tit == itm:
                                 if i:  # secondary id
-                                    self._report("Possible unauthorized prefix or suffix in identifier", kind=1)
+                                    self._report("Possible unauthorized prefix or suffix in identifier", level=1)
                                 else:  # primary id
-                                    self._report("Possible not recommended prefix or suffix in identifier", kind=1)
+                                    self._report("Possible not recommended prefix or suffix in identifier", level=1)
                                 ok = False if self._compute_warnings else ok
         self._id_secondary = str(secondary)
         self._id_primary = str(primary)
@@ -208,7 +208,7 @@ class _FieldChecker(_Report):
             check4 = expiry < today.replace(year=today.year + 10)
 
             # print("Debug:", ("Birth:", str(birth.date())), ("Expiry:", str(expiry.date())))
-            rep = lambda s, c, k=2: not c and self._report(s, kind=k)
+            rep = lambda s, c, k=2: not c and self._report(s, level=k)
             rep("expiry date before than birth date", check1)
             # rep("birth date after than today", check2)  # check2 canceled
             self._check_expiry and rep("document expired", check3, 1)
