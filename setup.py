@@ -6,8 +6,12 @@ from sys import version_info, exit
 from os import path
 from mrz import __version__ as version
 
-if version_info < (3, 4):
-    exit("MRZ does not work on Python version < 3.4")
+if version_info < (3, 9):
+    RED = "\33[31m"
+    END = "\033[0m"
+    print("%s%s%s" % (RED, "MRZ does not work on Python version < 3.4", END))
+    print("Your version is: %d.%d.%d" % (version_info.major, version_info.minor, version_info.micro))
+    exit(1)
 
 parent = path.abspath(path.dirname(__file__))
 
