@@ -6,7 +6,7 @@ from sys import version_info, exit
 from os import path
 from mrz import __version__ as version
 
-if version_info < (3, 9):
+if version_info < (3, 4):
     RED = "\33[31m"
     END = "\033[0m"
     print("%s%s%s" % (RED, "MRZ does not work on Python version < 3.4", END))
