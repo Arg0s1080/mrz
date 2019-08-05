@@ -210,7 +210,7 @@ class _FieldChecker(_Report):
             check4 = expiry < today.replace(year=today.year + 10)
 
             # print("Debug:", ("Birth:", str(birth.date())), ("Expiry:", str(expiry.date())))
-            rep = lambda s, c, k=2: not c and self._report(s, level=k)
+            rep = lambda s, c, k=Kind.ERROR: not c and self._report(s, level=k)
             rep("expiry date before than birth date", check1)
             # rep("birth date after than today", check2)  # check2 canceled
             self._check_expiry and rep("document expired", check3, Kind.WARNING)
