@@ -6,19 +6,10 @@
 #
 # (ɔ) Iván Rincón 2019
 
-from enum import Enum, IntEnum
+from enum import IntEnum
 
-class Kind(IntEnum):  # kind = 0: fields, 1: warning, 2: error
+
+class Kind(IntEnum):  # kind = 0:  fields, 1: warning, 2: error
     FIELDS = 0
     WARNING = 1
     ERROR = 2
-
-
-class Foo(Enum):
-    AAA = 0
-    BBB = 1
-    CCC = 2
-
-
-print(type(Kind.FIELDS))
-print(type(Foo.AAA))
