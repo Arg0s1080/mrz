@@ -1,0 +1,10 @@
+#
+# This list is used by git-shortlog to fix a few botched name translations
+# in the git archive, either because the author's full name was messed up
+# and/or not always written the same way, making contributions from the
+# same person appearing not to be so.
+#
+
+Arg0s (Python Repos) <ivan.rincon76@gmail.com>
+Arg0s1080 <ivan.rincon76@gmail.com>
+Davit Kobaladze <davitkobaladze3@gmail.com> Davit Kobaladze <dkobaladze@raizomat.com>
