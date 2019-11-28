@@ -1,11 +1,11 @@
 import unittest
-from mrz.generator.mrva import MRVBCodeGenerator
+from mrz.generator.mrva import MRVACodeGenerator
 
 
 class TestCase07(unittest.TestCase):
 
     def test_mrva_generator(self):
-        generator = MRVBCodeGenerator("VI", "USA", "TRAVELER", "HAPPYPERSON", "555123ABC", "GBR",
+        generator = MRVACodeGenerator("VI", "USA", "TRAVELER", "HAPPYPERSON", "555123ABC", "GBR",
                                       "650205", "F", "041223", "IFLND00AMS803085")
 
         result = ("VIUSATRAVELER<<HAPPYPERSON<<<<<<<<<<<<<<<<<<\n"

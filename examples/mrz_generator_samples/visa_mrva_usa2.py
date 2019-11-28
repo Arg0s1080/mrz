@@ -1,7 +1,7 @@
-from mrz.generator.mrva import MRVBCodeGenerator
+from mrz.generator.mrva import MRVACodeGenerator
 from examples.functions.functions import open_image
 
-print(MRVBCodeGenerator(
+print(MRVACodeGenerator(
     "VI",                  # Document type   For visas, the first letter must be 'V'
     "USA",                 # Country         3 letters code or country name
     "TRAVELER",            # Surname(s)      Special characters will be transliterated

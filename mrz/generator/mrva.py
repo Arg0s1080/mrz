@@ -20,7 +20,7 @@ import mrz.base.string_checkers as check
 import mrz.generator._transliterations as dictionary
 
 
-class MRVBCodeGenerator(TD3CodeGenerator):
+class MRVACodeGenerator(TD3CodeGenerator):
     """Calculate the string code for machine readable zone visas of type A (MRVA)
 
     Params:
