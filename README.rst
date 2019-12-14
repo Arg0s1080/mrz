@@ -46,7 +46,7 @@ TD1's (id cards):
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         document_number  (str):  Document number
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         nationality      (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Holder primary identifier(s). This field will be transliterated
@@ -75,7 +75,7 @@ TD2
         document_number  (str):  Document number.
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         optional_data    (str):  Optional personal data at the discretion of the issuing State.
                                  Non-mandatory field. Empty string by default
@@ -99,7 +99,7 @@ TD3 (Passports)
         document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         optional data    (str):  Personal number. In some countries non-mandatory field. Empty string by default
         transliteration (dict):  Transliteration dictionary for non-ascii chars. Latin based by default
@@ -122,7 +122,7 @@ MRVA (Visas type A)
         document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         optional_data    (str):  Optional personal data at the discretion of the issuing State.
                                  Non-mandatory field. Empty string by default.
@@ -146,7 +146,7 @@ MRVB (Visas type B)
         document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         optional_data    (str):  Optional personal data at the discretion of the issuing State.
                                  Non-mandatory field. Empty string by default.

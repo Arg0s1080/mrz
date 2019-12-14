@@ -87,7 +87,7 @@ class TD2CodeGenerator(_Fields, _TD2HashGenerator, _TD2HolderName):
         document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         optional_data    (str):  Optional personal data at the discretion of the issuing State.
                                  Non-mandatory field. Empty string by default

@@ -41,7 +41,7 @@ def sex(string):
     >>> sex("m")
     'M'
     """
-    if _is_string(string) and len(string) != 1 or string not in "MmFfXx":
+    if _is_string(string) and len(string) != 1 or string not in "MmFf<":
         raise SexError(cause=string)
     return string.upper()
 

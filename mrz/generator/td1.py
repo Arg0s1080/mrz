@@ -102,7 +102,7 @@ class TD1CodeGenerator(_TD1HolderName, _TD1HashGenerator, _Fields):
         country_code     (str):  3 letters code (ISO 3166-1) or country name (in English)
         document_number  (str):  Document number
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         nationality      (str):  3 letters code (ISO 3166-1) or country name (in English)
         surname          (str):  Holder primary identifier(s)

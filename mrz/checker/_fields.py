@@ -151,7 +151,7 @@ class _FieldChecker(_Report):
 
     @property
     def sex(self) -> bool:
-        """Return True if the sex is "M", "F" or "X", False otherwise."""
+        """Return True if the sex is "M", "F", "X", "<" or "", False otherwise."""
 
         ok = False
         try:

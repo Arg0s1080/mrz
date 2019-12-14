@@ -29,7 +29,7 @@ class DateError(FieldError):
 
 class SexError(FieldError):
     def __init__(self, msg="", cause=""):
-        self.msg = msg or "%sgenre. Sex code should be 'M', 'F' or 'X'" % default
+        self.msg = msg or "%sgenre. Sex code should be 'M', 'F' or undefined" % default
         self.cause = cause
         super(SexError, self).__init__(self.msg, self.cause)
 

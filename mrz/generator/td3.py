@@ -97,7 +97,7 @@ class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
         document_number  (str):  Document number
         nationality      (str):  3 letters code (ISO 3166-1) or country name
         birth_date       (str):  YYMMDD
-        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined 'X'
+        sex              (str):  Genre. Male: 'M', Female: 'F' or Undefined: 'X', "<" or ""
         expiry_date      (str):  YYMMDD
         optional data    (str):  Personal number. In some countries non-mandatory field. Empty string by default
         transliteration (dict):  Transliteration dictionary for non-ascii chars. Latin based by default

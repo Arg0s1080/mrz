@@ -16,7 +16,7 @@ print(TD1CodeGenerator("ID",                 # Document type   Normally 'I' or '
                        "ESP",                # Country         3 letters code or country name
                        "BAA000589",          # Document number
                        "800101",             # Birth date      YYMMDD
-                       "F",                  # Genre           Male: 'M', Female: 'F' or Undefined 'X'
+                       "F",                  # Genre           Male: 'M', Female: 'F' or Undefined
                        "250101",             # Expiry date     YYMMDD
                        "ESP",                # Nationality
                        "ESPAÑOLA ESPAÑOLA",  # Surname         Special characters will be transliterated

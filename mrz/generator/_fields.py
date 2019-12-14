@@ -99,8 +99,9 @@ class _Fields:
     def sex(self, value: str):
         """Set holder's genre
 
-        Can be used 'F' (female), 'M' (male) or 'X' (undefined). Case insensitive.
+        Can be used 'F' (female), 'M' (male) or undefined. Case insensitive.
 
         """
+        value = value if value not in "Xx" else "<"
         self._sex = check.sex(value)
 
