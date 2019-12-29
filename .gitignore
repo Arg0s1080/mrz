@@ -13,3 +13,4 @@ __pycache__/
 /md2rst_script.py
 .~lock*
 /examples/mrz_generator_samples/id_card_ivan.py
+/docs/ICAO9303/*/*.pdf
