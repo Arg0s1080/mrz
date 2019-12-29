@@ -24,6 +24,9 @@ Aviation Organization specifications (ICAO 9303):
 -  `Specifications for Machine Readable Visas
    (MRV) <https://www.icao.int/publications/Documents/9303_p7_cons_en.pdf>`__
 
+See all 9303 ICAO docs (`Arab <https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Arab>`__, `Chinese <https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Chinese>`__, `English <https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/English>`__, `French <https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/French>`__ and `Spanish <https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Spanish>`__)
+                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
 Fields Distribution of Official Travel Documents:
 -------------------------------------------------
 
@@ -314,12 +317,12 @@ Note: See other uses in `mrz.checker examples folder <https://github.com/Arg0s10
 Installation:
 -------------
 
-By pip (It may not be the latest version):
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+From `Pypi repo <https://pypi.org/project/mrz/>`__ (It may not be the latest version):
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
 
-    sudo -H pip install mrz
+    pip install mrz 
 
 Cloning this repo (It may not work fine):
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

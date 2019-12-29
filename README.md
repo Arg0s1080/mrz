@@ -11,6 +11,8 @@ MRZ Generator and MRZ Checker are built according to International Civil Aviatio
 * [Specifications for TD2 Size Machine Readable Official Travel Documents (MROTDs)](https://www.icao.int/publications/Documents/9303_p6_cons_en.pdf)
 * [Specifications for Machine Readable Visas (MRV)](https://www.icao.int/publications/Documents/9303_p7_cons_en.pdf)
 
+
+###### See all 9303 ICAO docs ([Arab](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Arab), [Chinese](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Chinese), [English](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/English), [French](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/French) and [Spanish](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Spanish))
 ## Fields Distribution of Official Travel Documents:
 ![image](https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/Fields_Distribution.png)
 
@@ -227,8 +229,8 @@ Liechtenstein
 
 ## Installation:
 
-#### By pip (It may not be the latest version):
-    sudo -H pip install mrz
+#### From [Pypi repo](https://pypi.org/project/mrz/) (It may not be the latest version):
+    pip install mrz 
     
 #### Cloning this repo (It may not work fine):
 ```
