@@ -12,7 +12,7 @@ MRZ Generator and MRZ Checker are built according to International Civil Aviatio
 * [Specifications for Machine Readable Visas (MRV)](https://www.icao.int/publications/Documents/9303_p7_cons_en.pdf)
 
 
-###### See all 9303 ICAO docs ([Arab](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Arab/Files_ar.md), [Chinese](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Chinese/Files_zh.md), [English](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/English/Files_en.md), [French](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/French/Files_fr.md), [Russian](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Russian/Files_ru.md) and [Spanish](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Spanish/Files_es.md))
+###### See all 9303 ICAO docs ([Arab](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Arab/Files_ar.rst), [Chinese](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Chinese/Files_zh.rst), [English](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/English/Files_en.rst), [French](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/French/Files_fr.rst), [Russian](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Russian/Files_ru.rst) and [Spanish](https://github.com/Arg0s1080/mrz/tree/master/docs/ICAO9303/Spanish/Files_es.rst))
 
 ## Fields Distribution of Official Travel Documents:
 ![image](https://raw.githubusercontent.com/Arg0s1080/mrz/master/docs/Fields_Distribution.png)
