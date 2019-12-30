@@ -14,3 +14,4 @@ __pycache__/
 .~lock*
 /examples/mrz_generator_samples/id_card_ivan.py
 /docs/ICAO9303/*/*.pdf
+/docs/ICAO9303/*/*.md
