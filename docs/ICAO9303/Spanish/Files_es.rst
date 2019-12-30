@@ -25,6 +25,7 @@ ICAO 9303
 -  `Parte 10: Estructura lógica de datos (LDS) para el almacenamiento de
    datos biométricos y de otro tipo en el circuito integrado (CI) sin
    contacto <https://www.icao.int/publications/Documents/9303_p10_cons_es.pdf>`__
--  `9303\_p11\_cons\_es.pdf <https://www.icao.int/publications/Documents/9303_p11_cons_es.pdf>`__
--  `Parte 12: Mecanismos de
+-  `Parte 11: Mecanismos de
    seguridad <https://www.icao.int/publications/Documents/9303_p11_cons_es.pdf>`__
+-  `Parte 12: Infraestructura de clave pública para los
+   MRTD <https://www.icao.int/publications/Documents/9303_p11_cons_es.pdf>`__
