@@ -26,7 +26,7 @@ def date(string):
     >>> date("200229")
     '200229'
     """
-    if _is_string(string):
+    if check_string(string):
         try:
             from datetime import datetime
             datetime.strptime(string, "%y%m%d").strftime("%y%m%d")
@@ -41,7 +41,7 @@ def sex(string):
     >>> sex("m")
     'M'
     """
-    if _is_string(string) and len(string) != 1 or string not in "MmFf<":
+    if check_string(string) and len(string) != 1 or string not in "MmFf<":
         raise SexError(cause=string)
     return string.upper()
 
@@ -51,7 +51,7 @@ def field(string: str, str_length: int, field_description: str, exception="") ->
     >>> field("string", 8, "description")
     'STRING<<'
     """
-    if _is_string(string) and len(string) > str_length:
+    if check_string(string) and len(string) > str_length:
         raise LengthError(document=field_description, cause=len(string), length=str_length, amx=True)
     for c in string:
         if c not in ascii_letters + "0123456789" + exception:
@@ -66,7 +66,7 @@ def country(string, dictionary=countries.english):
     >>> country("yemen")
     'YEM'
     """
-    if _is_string(string) and string.upper() in dictionary.values():
+    if check_string(string) and string.upper() in dictionary.values():
         return string.upper().ljust(3, "<")
     elif full_capitalize(string) in dictionary.keys():
         return dictionary[full_capitalize(string)].ljust(3, "<")
@@ -80,7 +80,7 @@ def document_type(string, cls):
     ok = False
     doc = get_doc(cls)
     s = string.upper()
-    if _is_string(s) and s and len(s) <= 2:
+    if check_string(s) and s and len(s) <= 2:
         if doc.startswith("TD1") or doc.startswith("TD2"):
             if s[0] in "IiAaCc" and s.find("V") != 1 and s != "AC":
                 ok = True
@@ -96,16 +96,15 @@ def document_type(string, cls):
 
 
 def precheck(document_description: str, string: str, length: int):
-    s = string.replace("\n", "")
-    if _is_string(_check_upper(string)) and len(s) != length:
+    if check_string(_check_upper(string)) and len(string) != length:
         raise LengthError(cause=len(s), document=document_description, length=length)
-    if not is_printable(s):
+    if not is_printable(string, "\n"):
         raise FieldError("%s contains invalid characters" % document_description, s)
 
 
-def is_printable(string: str) -> bool:
+def is_printable(string: str, additions="") -> bool:
     for c in string:
-        if c not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<":
+        if c not in "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<" + additions:
             return False
     return True
 
@@ -134,7 +133,7 @@ def is_empty(string, padding="<"):
     return string == padding * len(string)
 
 
-def _is_string(o):
+def check_string(o):
     if isinstance(o, str):
         return True
     else:
