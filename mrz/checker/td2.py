@@ -70,7 +70,7 @@ class TD2CodeChecker(_TD2HashChecker, _FieldChecker):
 
     """
     def __init__(self, mrz_code: str, check_expiry=False, compute_warnings=False):
-        check.precheck("TD2", mrz_code, 72)
+        check.precheck("TD2", mrz_code, 73)
         lines = mrz_code.splitlines()
         self._document_type = lines[0][0: 2]
         self._country = lines[0][2: 5]
