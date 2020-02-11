@@ -77,7 +77,7 @@ english = {
     "Denmark": "DNK",
     "Djibouti": "DJI",
     "Dominica": "DMA",
-    "Dominican Republic ": "DOM",
+    "Dominican Republic": "DOM",
     "Ecuador": "ECU",
     "Egypt": "EGY",
     "El Salvador": "SLV",
