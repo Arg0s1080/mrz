@@ -25,10 +25,10 @@ class _FieldChecker(_Report):
         self._document_number = document_number
         self._nationality = nationality
         self._birth_date = birth_date
-        self._birth_date_check = True
+        self._birth_date_check = True  # !?
         self._sex = sex
         self._expiry_date = expiry_date
-        self._expiry_date_check = True
+        self._expiry_date_check = True  # !?
         self._optional_data = optional_data
         self._optional_data_2 = optional_data_2
         self._check_expiry = check_expiry
