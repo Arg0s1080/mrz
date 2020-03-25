@@ -15,7 +15,7 @@ if version_info < (3, 4):
 
 parent = path.abspath(path.dirname(__file__))
 
-with open(path.join(parent, "README.rst"), 'r') as readme:
+with open(path.join(parent, "README.rst"), 'r', errors='ignore') as readme:
     long_description = readme.read()
 
 setup(
