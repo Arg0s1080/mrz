@@ -16,3 +16,17 @@
 # from .td1 import TD1CodeChecker
 # from .td2 import TD2CodeChecker
 # from .td3 import TD3CodeChecker
+
+
+# def check(doc: str) -> bool:
+#     from mrz.base.string_checkers import precheck, check_string
+#     doc_len = len(check_string(doc))
+#     if doc_len == 90:
+#         # TD1
+#         pass
+#     elif doc_len == 72:
+#         # TD2
+#         pass
+#     elif doc_len == 88:
+#         # TD3
+#         pass
