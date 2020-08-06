@@ -15,11 +15,11 @@
 
 from ..base.countries_ops import *
 from ..base.functions import hash_is_ok, namedtuple_maker
+from ..base.string_checkers import is_empty
 from ._hash_fields import _HashChecker
 from ._fields import _FieldChecker
 
 import mrz.base.string_checkers as check
-
 
 __all__ = ["TD3CodeChecker", "code_list", "countries_list", "countries_code_list", "code_country_list",
            "is_country", "is_code", "get_code", "get_country", "find_country"]
@@ -38,7 +38,9 @@ class _TD3HashChecker(_HashChecker):
     def optional_data_hash(self) -> bool:
         """Return True if hash of optional data is True, False otherwise."""
 
-        return self._report("optional data hash", hash_is_ok(self._optional_data, self._optional_data_hash))
+        ok = True if is_empty(self._optional_data) and self._optional_data_hash == "<" \
+            else hash_is_ok(self._optional_data, self._optional_data_hash)
+        return self._report("optional data hash", ok)
 
     @property
     def final_hash(self) -> bool:
@@ -78,6 +80,7 @@ class TD3CodeChecker(_TD3HashChecker, _FieldChecker):
         compute_warnings (bool):  If it's set True, warnings compute as False.
 
     """
+
     def __init__(self, mrz_code: str, check_expiry=False, compute_warnings=False):
         check.precheck("TD3", mrz_code, 89)
         lines = mrz_code.splitlines()
@@ -145,5 +148,3 @@ class TD3CodeChecker(_TD3HashChecker, _FieldChecker):
 
     def __bool__(self):
         return self.result
-
-
