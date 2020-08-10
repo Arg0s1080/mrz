@@ -276,7 +276,7 @@ english = {
     "European Union": "EUE",
     "United Nations Organization": "UNO",
     "United Nations Agency": "UNA",
-    "Kosovo": "UNK",
+    "Kosovo": "RKS",
     "African Development Bank": "XBA",
     "Afrexim": "XIM",
     "Caricom": "XCC",
