@@ -16,7 +16,7 @@
 from ..base.countries_ops import *
 from ..base.functions import hash_is_ok, namedtuple_maker, anset
 from ._hash_fields import _HashChecker
-from ._fields import _FieldChecker
+from ._fields import _FieldsChecker
 
 import mrz.base.string_checkers as check
 
@@ -59,7 +59,7 @@ class _TD1HashChecker(_HashChecker):
         return str(self._all_hashes())
 
 
-class TD1CodeChecker(_TD1HashChecker, _FieldChecker):
+class TD1CodeChecker(_TD1HashChecker, _FieldsChecker):
     """
     Check the string code of the machine readable zone for official travel documents of size 1
 
@@ -100,20 +100,20 @@ class TD1CodeChecker(_TD1HashChecker, _FieldChecker):
                                  self._optional_data,
                                  self._optional_data_2,
                                  self._final_hash)
-        _FieldChecker.__init__(self,
-                               self._document_type,
-                               self._country,
-                               self._identifier,
-                               self._document_number,
-                               self._nationality,
-                               self._birth_date,
-                               self._sex,
-                               self._expiry_date,
-                               self._optional_data,
-                               self._optional_data_2,
-                               check_expiry,
-                               compute_warnings,
-                               mrz_code)
+        _FieldsChecker.__init__(self,
+                                self._document_type,
+                                self._country,
+                                self._identifier,
+                                self._document_number,
+                                self._nationality,
+                                self._birth_date,
+                                self._sex,
+                                self._expiry_date,
+                                self._optional_data,
+                                self._optional_data_2,
+                                check_expiry,
+                                compute_warnings,
+                                mrz_code)
         self.result = self._all_hashes() & self._all_fields()
 
     def fields(self, zeroes_fill=False):

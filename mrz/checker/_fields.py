@@ -14,7 +14,7 @@ from datetime import datetime, date, timedelta
 import mrz.base.string_checkers as check
 
 
-class _FieldChecker(_Report):
+class _FieldsChecker(_Report):
     def __init__(self, document_type: str, country: str, identifier: str, document_number: str, nationality: str,
                  birth_date: str, sex: str, expiry_date: str, optional_data: str, optional_data_2: str,
                  check_expiry: bool, compute_warnings: bool, mrz_code: str):
