@@ -15,7 +15,7 @@
 
 from ..base.countries_ops import *
 from ..base.functions import hash_string, transliterate
-from ._fields import _Fields
+from ._fields import _FieldsGenerator
 from ._hash_fields import _HashGenerator
 from ._holder_name import _HolderName
 
@@ -86,7 +86,7 @@ class _TD3HolderName(_HolderName):
         return check.field(self.surname + "<<" + self.given_names, 39, "full name", "<")
 
 
-class TD3CodeGenerator(_Fields, _TD3HashGenerator, _TD3HolderName):
+class TD3CodeGenerator(_FieldsGenerator, _TD3HashGenerator, _TD3HolderName):
     """Calculate the string code of the machine readable zone for official travel documents of size 3 (passports)
 
     Params:
