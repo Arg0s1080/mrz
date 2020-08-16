@@ -1,7 +1,14 @@
-#ignores
+# Ignores
+
+# Folders:
 .git/
 .idea/
 __pycache__/
+build/
+dist/
+*.egg-info/
+
+# Files:
 /.directory
 /..*.kate.swp
 /Notes.txt
