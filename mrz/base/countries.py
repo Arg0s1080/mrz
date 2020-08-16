@@ -276,7 +276,8 @@ english = {
     "European Union": "EUE",
     "United Nations Organization": "UNO",
     "United Nations Agency": "UNA",
-    "Kosovo": "UNK",
+    "Kosovo UN": "UNK",  # ceased being issued in 2008
+    "Kosovo": "RKS",  # not ICAO-endorsed
     "African Development Bank": "XBA",
     "Afrexim": "XIM",
     "Caricom": "XCC",
