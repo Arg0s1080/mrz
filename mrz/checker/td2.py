@@ -44,7 +44,7 @@ class _TD2HashChecker(_HashChecker):
                         self._expiry_date +
                         self._expiry_date_hash +
                         self._optional_data, self._final_hash)
-        return self._report("final hash", ok)
+        return self.report.add("final hash", ok)
 
     def _all_hashes(self) -> bool:
         return (self.final_hash &
@@ -85,7 +85,6 @@ class TD2CodeChecker(_TD2HashChecker, _FieldsChecker):
         self._expiry_date_hash = lines[1][27]
         self._optional_data = lines[1][28: 35]
         self._final_hash = lines[1][35]
-        self._report_reset()
         _TD2HashChecker.__init__(self,
                                  self._document_number,
                                  self._document_number_hash,
@@ -105,7 +104,7 @@ class TD2CodeChecker(_TD2HashChecker, _FieldsChecker):
                                 self._sex,
                                 self._expiry_date,
                                 self._optional_data,
-                               "",
+                                "",
                                 check_expiry,
                                 compute_warnings,
                                 mrz_code)
