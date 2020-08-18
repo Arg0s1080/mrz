@@ -47,7 +47,7 @@ class _TD1HashChecker(_HashChecker):
                         self._expiry_date +
                         self._expiry_date_hash +
                         self._optional_data_2, self._final_hash)
-        return self._report("final hash", ok)
+        return self.report.add("final hash", ok)
 
     def _all_hashes(self) -> bool:
         return (self.final_hash &
@@ -89,7 +89,6 @@ class TD1CodeChecker(_TD1HashChecker, _FieldsChecker):
         self._optional_data = lines[0][15: 30]
         self._optional_data_2 = lines[1][18: 29]
         self._final_hash = lines[1][29]
-        self._report_reset()
         _TD1HashChecker.__init__(self,
                                  self._document_number,
                                  self._document_number_hash,
