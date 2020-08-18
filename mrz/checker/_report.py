@@ -19,23 +19,24 @@ class Kind(IntEnum):
 
 class _Report:
 
-    _rep = [[], [], []]  # [[fields], [warnings], [errors]]
+    def __init__(self):
+        self._rep = [[], [], []]  # [[fields], [warnings], [errors]]
 
-    def _report(self, description, result=None, level=Kind.FIELDS):
+    def add(self, description, result=None, level=Kind.FIELDS):
         # kind = 0: fields, 1: warning, 2: error
         if result is not None:
-            self._rep[0].append((description, result))
+            self._rep[Kind.FIELDS].append((description, result))
             if result is False:
-                self._rep[2].append("false %s" % description)
+                self._rep[Kind.ERROR].append("false %s" % description)
         else:
             self._rep[level].append(description)
         return result
 
-    def _report_reset(self):
+    def reset(self):
         self._rep = [[], [], []]
 
     @property
-    def report(self) -> list:
+    def fields(self) -> list:
         """Returns a list with all fields checked.
 
         Returns:
@@ -46,19 +47,19 @@ class _Report:
         return self._rep[0]
 
     @property
-    def report_falses(self) -> list:
+    def falses(self) -> list:
         """Returns a list of tuples with all wrong fields checked."""
 
         return [item for item in self._rep[0] if not item[1]]
 
     @property
-    def report_warnings(self) -> list:
+    def warnings(self) -> list:
         """Returns a list of detected warnings"""
 
         return self._rep[1]
 
     @property
-    def report_errors(self) -> list:
+    def errors(self) -> list:
         """Returns a list of detected errors"""
 
         return self._rep[2]
