@@ -40,7 +40,7 @@ class _TD3HashChecker(_HashChecker):
 
         ok = True if is_empty(self._optional_data) and self._optional_data_hash == "<" \
             else hash_is_ok(self._optional_data, self._optional_data_hash)
-        return self._report("optional data hash", ok)
+        return self.report.add("optional data hash", ok)
 
     @property
     def final_hash(self) -> bool:
@@ -54,7 +54,7 @@ class _TD3HashChecker(_HashChecker):
                         self._expiry_date_hash +
                         self._optional_data +
                         self._optional_data_hash, self._final_hash)
-        return self._report("final hash", ok)
+        return self.report.add("final hash", ok)
 
     def _all_hashes(self) -> bool:
         return (self.final_hash &
@@ -98,7 +98,6 @@ class TD3CodeChecker(_TD3HashChecker, _FieldsChecker):
         self._optional_data = lines[1][28: 42]
         self._optional_data_hash = lines[1][42]
         self._final_hash = lines[1][43]
-        self._report_reset()
         _TD3HashChecker.__init__(self,
                                  self._document_number,
                                  self._document_number_hash,
@@ -119,7 +118,7 @@ class TD3CodeChecker(_TD3HashChecker, _FieldsChecker):
                                 self._sex,
                                 self._expiry_date,
                                 self._optional_data,
-                               "",
+                                "",
                                 check_expiry,
                                 compute_warnings,
                                 mrz_code)
