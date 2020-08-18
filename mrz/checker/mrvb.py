@@ -45,7 +45,7 @@ class MRVBCodeChecker(TD2CodeChecker):
         """Return True if the format of the optional data field is validated, False otherwise."""
 
         s = self._optional_data = self.mrz_code.splitlines()[1][28: 36]
-        return True if check.is_empty(s) else self._report("optional data format", check.is_printable(s))
+        return True if check.is_empty(s) else self.report.add("optional data format", check.is_printable(s))
 
     def fields(self, zero_fill=False):
         """Returns a namedtuple with all fields strings
