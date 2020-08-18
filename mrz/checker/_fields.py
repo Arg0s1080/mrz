@@ -14,7 +14,7 @@ from datetime import datetime, date, timedelta
 import mrz.base.string_checkers as check
 
 
-class _FieldsChecker(_Report):
+class _FieldsChecker:
     def __init__(self, document_type: str, country: str, identifier: str, document_number: str, nationality: str,
                  birth_date: str, sex: str, expiry_date: str, optional_data: str, optional_data_2: str,
                  check_expiry: bool, compute_warnings: bool, mrz_code: str):
@@ -33,6 +33,7 @@ class _FieldsChecker(_Report):
         self._optional_data_2 = optional_data_2
         self._check_expiry = check_expiry
         self._mrz_code = mrz_code
+        self.report = _Report()
         self._times()
         self._id_primary = self._id_secondary = None  # Will be set later
 
@@ -53,14 +54,14 @@ class _FieldsChecker(_Report):
             # print("%s: %s", (error.args[0], error.args[1]))
             pass
         finally:
-            return self._report("document type format", ok)
+            return self.report.add("document type format", ok)
 
     @property
     def country(self) -> bool:
         """Return True if the country code is validated, False otherwise."""
 
         import mrz.base.countries_ops as chk
-        return self._report("valid country code", chk.is_code(self._country.replace("<", "")))
+        return self.report.add("valid country code", chk.is_code(self._country.replace("<", "")))
 
     @property
     def identifier(self) -> bool:
@@ -73,7 +74,7 @@ class _FieldsChecker(_Report):
         if not check.is_printable(self._identifier):
             ok = False
         elif check.is_empty(self._identifier):
-            self._report("empty identifier", level=Kind.ERROR)
+            self.report.add("empty identifier", level=Kind.ERROR)
             ok = False
         else:
             if id_len == len([i for i in id2iter if i]):
@@ -82,26 +83,26 @@ class _FieldsChecker(_Report):
                     ok = True
                 elif id_len == 1:
                     primary, secondary = id2iter[0], ""
-                    self._report("only one identifier", level=Kind.WARNING)
+                    self.report.add("only one identifier", level=Kind.WARNING)
                     ok = not self._compute_warnings
                 else:
-                    self._report("more than two identifiers", level=Kind.ERROR)
+                    self.report.add("more than two identifiers", level=Kind.ERROR)
                     ok = False
             else:  # too many '<' in id
-                self._report("invalid identifier format", level=Kind.ERROR)
+                self.report.add("invalid identifier format", level=Kind.ERROR)
                 ok = False
         # print("Debug. id2iter ............:", id2iter)
         # print("Debug. (secondary, primary):", (secondary, primary))
         # print("Debug. padding ............:", padding)
         if ok:
             if check.uses_nums(full_id):
-                self._report("identifier with numbers", level=Kind.ERROR)
+                self.report.add("identifier with numbers", level=Kind.ERROR)
                 ok = False
             if primary.startswith("<") or secondary and secondary.startswith("<"):
-                self._report("some identifier begin by '<'", level=Kind.ERROR)
+                self.report.add("some identifier begin by '<'", level=Kind.ERROR)
                 ok = False
             if not padding:
-                self._report("possible truncating", level=Kind.WARNING)
+                self.report.add("possible truncating", level=Kind.WARNING)
                 ok = False if self._compute_warnings else ok
             for i in range(id_len):
                 for itm in id2iter[i].split("<"):
@@ -109,22 +110,22 @@ class _FieldsChecker(_Report):
                         for tit in titles:
                             if tit == itm:
                                 if i:  # secondary id
-                                    self._report("Possible unauthorized prefix or suffix in identifier",
+                                    self.report.add("Possible unauthorized prefix or suffix in identifier",
                                                  level=Kind.WARNING)
                                 else:  # primary id
-                                    self._report("Possible not recommended prefix or suffix in identifier",
+                                    self.report.add("Possible not recommended prefix or suffix in identifier",
                                                  level=Kind.WARNING)
                                 ok = False if self._compute_warnings else ok
         self._id_secondary = str(secondary)
         self._id_primary = str(primary)
-        return self._report("identifier", ok)
+        return self.report.add("identifier", ok)
 
     @property
     def document_number(self) -> bool:
         """Return True if the document number format is validated, False otherwise."""
 
         s = self._document_number
-        return self._report("document number format",
+        return self.report.add("document number format",
                             not check.is_empty(s) and check.is_printable(s) and not check.begin_by(s, "<"))
 
     @property
@@ -134,7 +135,7 @@ class _FieldsChecker(_Report):
 
         """
         import mrz.base.countries_ops as chk
-        return self._report("valid nationality code", chk.is_code(self._nationality.replace("<", "")))
+        return self.report.add("valid nationality code", chk.is_code(self._nationality.replace("<", "")))
 
     @property
     def birth_date(self) -> bool:
@@ -147,7 +148,7 @@ class _FieldsChecker(_Report):
         except ValueError:
             pass
         finally:
-            return self._report("birth date", ok)
+            return self.report.add("birth date", ok)
 
     @property
     def sex(self) -> bool:
@@ -159,7 +160,7 @@ class _FieldsChecker(_Report):
         except ValueError:
             pass
         finally:
-            return self._report("valid genre format", ok)
+            return self.report.add("valid genre format", ok)
 
     @property
     def expiry_date(self) -> bool:
@@ -172,19 +173,19 @@ class _FieldsChecker(_Report):
         except ValueError:
             pass
         finally:
-            return self._report("expiry date", ok)
+            return self.report.add("expiry date", ok)
 
     @property
     def optional_data(self) -> bool:
         """Return True if the format of the optional data field is validated, False otherwise."""
         s = self._optional_data
-        return True if check.is_empty(s) else self._report("optional data format", check.is_printable(s))
+        return True if check.is_empty(s) else self.report.add("optional data format", check.is_printable(s))
 
     @property
     def optional_data_2(self) -> bool:
         """Return True if the format of the optional data field is validated, False otherwise."""
         s = self._optional_data_2
-        return True if check.is_empty(s) else self._report("optional data 2 format", check.is_printable(s))
+        return True if check.is_empty(s) else self.report.add("optional data 2 format", check.is_printable(s))
 
     def _times(self) -> bool:
         birth = expiry = None
@@ -210,7 +211,7 @@ class _FieldsChecker(_Report):
             check4 = expiry < today.replace(year=today.year + 10)
 
             # print("Debug:", ("Birth:", str(birth.date())), ("Expiry:", str(expiry.date())))
-            rep = lambda s, c, k=Kind.ERROR: not c and self._report(s, level=k)
+            rep = lambda s, c, k=Kind.ERROR: not c and self.report.add(s, level=k)
             rep("expiry date before than birth date", check1)
             # rep("birth date after than today", check2)  # check2 canceled
             self._check_expiry and rep("document expired", check3, Kind.WARNING)
