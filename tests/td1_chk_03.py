@@ -1,5 +1,5 @@
 import unittest
-from mrz.checker.td1 import TD1CodeChecker,get_country
+from mrz.checker.td1 import TD1CodeChecker, get_country
 
 # unittest for td1 fields()
 
