@@ -4,6 +4,7 @@
 from mrz.generator.td1 import *
 from examples.functions.functions import open_image
 
+
 print(TD1CodeGenerator(
             "ID",                                 # Document type   Normally 'I' or 'ID' for id cards
             "Serbia",                             # Country         3 letters code or country name
