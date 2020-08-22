@@ -6,7 +6,7 @@ from mrz.checker.td1 import TD1CodeChecker
 
 def print_report(checker: TD1CodeChecker):
     print("REPORT")
-    for r in checker.report:
+    for r in checker.report.fields:
         print(r[0] + ":" + str(r[1]).rjust(30 - len(r[0])))
     print("\nResult:" + str(td1_check).rjust(24).upper())
 

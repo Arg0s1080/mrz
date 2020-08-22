@@ -9,4 +9,4 @@ td3_check = TD3CodeChecker("P<CZESPECIMEN<<VZOR<<<<<<<<<<<<<<<<<<<<<<<<<\n"
                            check_expiry=True)
 
 print(bool(td3_check))
-print(td3_check.report_warnings)
+print(td3_check.report.warnings)

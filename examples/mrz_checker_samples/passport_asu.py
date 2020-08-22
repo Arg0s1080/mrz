@@ -12,8 +12,8 @@ td3_check = TD3CodeChecker(mrz_td3, check_expiry=True)
 print(td3_check.mrz_code)
 
 if not td3_check:
-    print("Falses:", td3_check.report_falses)
-    print("Warnings:", td3_check.report_warnings)
+    print("Falses:", td3_check.report.falses)
+    print("Warnings:", td3_check.report.warnings)
 
 print("'%s' is code: %s" % (td3_check._country, str(is_code("ASU"))))
 

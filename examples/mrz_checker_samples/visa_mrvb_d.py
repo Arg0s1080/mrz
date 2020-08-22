@@ -11,11 +11,11 @@ print("The visa is: %s" % ok)
 
 if not ok:
     print("FALSE")
-    for false in checker.report_falses:
+    for false in checker.report.falses:
         print("- %s" % false[0])
 
     print("WARNINGS")
-    for warning in checker.report_warnings:
+    for warning in checker.report.warnings:
         print("- %s" % warning)
 
 
