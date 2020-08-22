@@ -18,13 +18,13 @@ class TD1DutchCodeChecker(TD1CodeChecker):
     def optional_data_hash(self):
         self._optional_data_hash = self.mrz_code.splitlines()[0][29]
         self._optional_data = self.mrz_code.splitlines()[0][15: 29]
-        return self._report("id number hash", hash_is_ok(self._optional_data, self._optional_data_hash))
+        return self.report.add("id number hash", hash_is_ok(self._optional_data, self._optional_data_hash))
 
     @property
     def optional_data(self) -> bool:
         """Return True if the format of the optional data field is validated, False otherwise."""
         s = self._optional_data
-        return True if check.is_empty(s) else self._report("id number format", check.is_printable(s))
+        return True if check.is_empty(s) else self.report.add("id number format", check.is_printable(s))
 
     def _all_hashes(self) -> bool:
         return (self.final_hash &

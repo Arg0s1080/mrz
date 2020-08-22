@@ -24,7 +24,7 @@ class PassportINDCodeChecker(TD3CodeChecker):
             ok = True
         else:
             ok = hash_is_ok(self._optional_data, self._optional_data_hash)
-        return self._report("optional data hash", ok)
+        return self.report.add("optional data hash", ok)
 
     @property
     def identifier(self) -> bool:
@@ -37,7 +37,7 @@ class PassportINDCodeChecker(TD3CodeChecker):
         if not check.is_printable(self._identifier):
             ok = False
         elif check.is_empty(self._identifier):
-            self._report("empty identifier", level=Kind.ERROR)
+            self.report.add("empty identifier", level=Kind.ERROR)
             ok = False
         else:
             if id_len == len([i for i in id2iter if i]):
@@ -46,32 +46,32 @@ class PassportINDCodeChecker(TD3CodeChecker):
                     ok = True
                 elif id_len == 1:
                     primary, secondary = id2iter[0], ""
-                    self._report("only one identifier", level=Kind.WARNING)
+                    self.report.add("only one identifier", level=Kind.WARNING)
                     ok = not self._compute_warnings
                 else:
-                    self._report("more than two identifiers", level=Kind.ERROR)
+                    self.report.add("more than two identifiers", level=Kind.ERROR)
                     ok = False
             else:  # too many '<' in id
-                self._report("invalid identifier format", level=Kind.ERROR)
+                self.report.add("invalid identifier format", level=Kind.ERROR)
                 ok = False
         # print("Debug. id2iter ............:", id2iter)
         # print("Debug. (secondary, primary):", (secondary, primary))
         # print("Debug. padding ............:", padding)
         if ok:
             if False and not full_id.startswith("<<"):
-                self._report("identifier doesn't starts with '<<'", level=Kind.ERROR)
+                self.report.add("identifier doesn't starts with '<<'", level=Kind.ERROR)
                 ok = False
                 # If you want to report as a warning instead of as an error uncomment lines below
                 # self._report("identifier doesn't starts with '<<'", kind=1)
                 # ok = False if self._compute_warnings else ok
             if check.uses_nums(full_id):
-                self._report("identifier with numbers", level=Kind.ERROR)
+                self.report.add("identifier with numbers", level=Kind.ERROR)
                 ok = False
             if primary.startswith("<") or secondary and secondary.startswith("<"):
-                self._report("some identifier begin by '<'", level=Kind.ERROR)
+                self.report.add("some identifier begin by '<'", level=Kind.ERROR)
                 ok = False
             if not padding:
-                self._report("possible truncating", level=Kind.WARNING)
+                self.report.add("possible truncating", level=Kind.WARNING)
                 ok = False if self._compute_warnings else ok
             for i in range(id_len):
                 for itm in id2iter[i].split("<"):
@@ -79,13 +79,13 @@ class PassportINDCodeChecker(TD3CodeChecker):
                         for tit in titles:
                             if tit == itm:
                                 if i:  # secondary id
-                                    self._report("Possible unauthorized prefix or suffix in identifier",
-                                                 level=Kind.WARNING)
+                                    self.report.add("Possible unauthorized prefix or suffix in identifier",
+                                                    level=Kind.WARNING)
                                 else:  # primary id
-                                    self._report("Possible not recommended prefix or suffix in identifier",
-                                                 level=Kind.WARNING)
+                                    self.report.add("Possible not recommended prefix or suffix in identifier",
+                                                    level=Kind.WARNING)
                                 ok = False if self._compute_warnings else ok
-        return self._report("identifier", ok)
+        return self.report.add("identifier", ok)
 
 
 

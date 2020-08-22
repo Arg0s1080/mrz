@@ -19,4 +19,4 @@ class TD1BELCodeChecker(TD1CodeChecker):
             doc_number_fin = self._optional_data.rstrip("<")
             self._document_number = self._document_number + "<" + doc_number_fin[:-1]
             self._document_number_hash = doc_number_fin[-1]
-        return self._report("document number hash", hash_is_ok(self._document_number, self._document_number_hash))
+        return self.report.add("document number hash", hash_is_ok(self._document_number, self._document_number_hash))
