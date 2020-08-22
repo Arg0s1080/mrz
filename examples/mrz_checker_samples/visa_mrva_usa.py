@@ -20,7 +20,6 @@ checker = MRVACodeChecker(mrz_code)
 print(checker.result)
 
 
-
 def print_txt(title, value):
     print(title.ljust(20), value)
 
