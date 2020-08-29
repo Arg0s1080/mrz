@@ -20,13 +20,13 @@ mrva_code = ("V<UTOERIKSSON<<ANNA<MARIA<<<<<<<<<<<<<<<<<<<\n"
 checker = MRVACodeChecker(mrva_code, check_expiry=True)  # Check expiry date as warning
 
 print("Expiry date : %s" % checker.expiry_date)                # True              (It's a real date)
-print("Warning ....: %s" % "".join(checker.report_warnings))   # document expired
+print("Warning ....: %s" % "".join(checker.report.warnings))   # document expired
 print("VISA .......: %s" % str(checker).upper())               # TRUE
 
 checker = MRVACodeChecker(mrva_code, check_expiry=True, compute_warnings=True)  # Compute Warnings as False
 print()
 print("Expiry date : %s" % checker.expiry_date)                # False
-print("Warning ....: %s" % "".join(checker.report_warnings))   # document expired
+print("Warning ....: %s" % ", ".join(checker.report.warnings))   # document expired
 print("VISA .......: %s" % str(checker).upper())               # FALSE
 
 print()
