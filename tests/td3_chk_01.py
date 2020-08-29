@@ -11,7 +11,7 @@ class TestCase09(unittest.TestCase):
         self.assertTrue(bool(TD3CodeChecker(self.mrz_td3)))
 
     def test_b_td3_checker(self):
-        self.assertListEqual(TD3CodeChecker(self.mrz_td3, check_expiry=True).report_warnings, ['document expired'])
+        self.assertListEqual(TD3CodeChecker(self.mrz_td3, check_expiry=True).report.warnings, ['document expired'])
 
     def test_c_td3_checker(self):
         self.assertFalse(bool(TD3CodeChecker(self.mrz_td3, check_expiry=True, compute_warnings=True)))
