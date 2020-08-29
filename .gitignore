@@ -9,15 +9,16 @@ dist/
 *.egg-info/
 
 # Files:
-/.directory
+
 /TODO.md
 /test*.py
 /gitscript.sh
-.fuse_hidden*
 /md2rst_script.py
 /examples/mrz_generator_samples/id_card_ivan.py
 /docs/ICAO9303/*/*.pdf
 /docs/ICAO9303/*/*.md
 *.~lock*
+*.directory
+*.fuse_hidden*
 *.kate.swp
 *.txt
