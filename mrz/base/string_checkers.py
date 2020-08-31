@@ -96,6 +96,7 @@ def document_type(string, cls):
 
 
 def precheck(document_description: str, string: str, length: int):
+    s = string.replace("\n", "")
     if check_string(_check_upper(string)) and len(string) != length:
         raise LengthError(cause=len(s), document=document_description, length=length)
     if not is_printable(string, "\n"):
