@@ -71,6 +71,7 @@ class _FieldsChecker:
         id2iter = full_id.split("<<")
         id_len = len(id2iter)
         primary = secondary = None
+
         if not check.is_printable(self._identifier):
             ok = False
         elif check.is_empty(self._identifier):
@@ -111,10 +112,10 @@ class _FieldsChecker:
                             if tit == itm:
                                 if i:  # secondary id
                                     self.report.add("Possible unauthorized prefix or suffix in identifier",
-                                                 level=Kind.WARNING)
+                                                    level=Kind.WARNING)
                                 else:  # primary id
                                     self.report.add("Possible not recommended prefix or suffix in identifier",
-                                                 level=Kind.WARNING)
+                                                    level=Kind.WARNING)
                                 ok = False if self._compute_warnings else ok
         self._id_secondary = str(secondary)
         self._id_primary = str(primary)
@@ -126,7 +127,7 @@ class _FieldsChecker:
 
         s = self._document_number
         return self.report.add("document number format",
-                            not check.is_empty(s) and check.is_printable(s) and not check.begin_by(s, "<"))
+                               not check.is_empty(s) and check.is_printable(s) and not check.begin_by(s, "<"))
 
     @property
     def nationality(self) -> bool:
@@ -251,4 +252,3 @@ class _FieldsChecker:
 
     def __repr__(self) -> str:
         return str(self._all_fields())
-
