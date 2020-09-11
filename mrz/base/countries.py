@@ -13,6 +13,7 @@
 # (ɔ) Iván Rincón 2019
 
 english = {
+    # Countries
     "Afghanistan": "AFG",
     "Aland Islands": "ALA",
     "Albania": "ALB",
@@ -132,6 +133,7 @@ english = {
     "Kazakhstan": "KAZ",
     "Kenya": "KEN",
     "Kiribati": "KIR",
+    "Kosovo": "RKS",  # not ICAO-endorsed. Another Kosovo code below (see Organizations)
     "North Korea": "PRK",
     "South Korea": "KOR",
     "Kuwait": "KWT",
@@ -273,11 +275,12 @@ english = {
     "Yemen": "YEM",
     "Zambia": "ZMB",
     "Zimbabwe": "ZWE",
+
+    # Organizations
     "European Union": "EUE",
     "United Nations Organization": "UNO",
     "United Nations Agency": "UNA",
-    "Kosovo UN": "UNK",  # ceased being issued in 2008
-    "Kosovo": "RKS",  # not ICAO-endorsed
+    "Kosovo UN": "UNK",  # ceased being issued in 2008. Another Kosovo code above (See countries)
     "World Service Authority": "WSA",
     "African Development Bank": "XBA",
     "Afrexim": "XIM",
@@ -285,10 +288,11 @@ english = {
     "Comesa": "XCO",
     "Ecowas": "XEC",
     "Interpol": "INP",
-    "Military Order Of Malta": "XOM",
     "International Criminal Police Organization": "XPO",
-    "Stateless": "XXA",
-    "Refugee A": "XXA",
+    "Military Order Of Malta": "XOM",
+
+    # Others
+    "Refugee A": "XXA",  # Stateless
     "Refugee B": "XXB",
     "Refugee C": "XXC",
     "Unknown": "XXX"
