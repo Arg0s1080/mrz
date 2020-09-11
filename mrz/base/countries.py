@@ -278,6 +278,7 @@ english = {
     "United Nations Agency": "UNA",
     "Kosovo UN": "UNK",  # ceased being issued in 2008
     "Kosovo": "RKS",  # not ICAO-endorsed
+    "World Service Authority": "WSA",
     "African Development Bank": "XBA",
     "Afrexim": "XIM",
     "Caricom": "XCC",
@@ -285,8 +286,10 @@ english = {
     "Ecowas": "XEC",
     "Interpol": "INP",
     "Military Order Of Malta": "XOM",
+    "International Criminal Police Organization": "XPO",
     "Stateless": "XXA",
-    "Refugee": "XXA",
+    "Refugee A": "XXA",
     "Refugee B": "XXB",
+    "Refugee C": "XXC",
     "Unknown": "XXX"
 }
