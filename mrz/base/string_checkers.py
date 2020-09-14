@@ -82,7 +82,7 @@ def document_type(string, cls):
     s = string.upper()
     if check_string(s) and s and len(s) <= 2:
         if doc.startswith("TD1") or doc.startswith("TD2"):
-            if s[0] in "IiAaCc" and s.find("V") != 1 and s != "AC":
+            if s[0] in "IiAaCcRr" and s.find("V") != 1 and s != "AC":
                 ok = True
         elif doc.startswith("TD3") or doc.startswith("Passport"):
             if s[0] in "Pp" or s[0:2].upper()=='DP':
