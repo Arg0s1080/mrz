@@ -6,8 +6,7 @@
 #
 # (ɔ) Iván Rincón 2019
 
-from mrz.checker.td1 import *
-from mrz.base.functions import hash_is_ok
+from mrz.checker.td1 import TD1CodeChecker
 
 
 class TD1RpESTCodeChecker(TD1CodeChecker):
