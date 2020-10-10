@@ -11,7 +11,7 @@
 # http://www.gnu.org/licenses
 #
 # (ɔ) Iván Rincón 2019
-# (ɔ) Asa-Nisi-Masa 2020
+# (ɔ) Gytis Braždžiūnas 2020
 
 english = {
     # Countries
