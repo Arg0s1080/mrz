@@ -4,7 +4,7 @@
 #
 # https://www.gnu.org/licenses/gpl-3.0.html
 #
-# (ɔ) Iván Rincón 2019
+# (ɔ) Asa-Nisi-Masa 2020
 
 from mrz.checker.td1 import TD1CodeChecker
 
