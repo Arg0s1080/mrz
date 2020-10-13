@@ -111,6 +111,9 @@ class _FieldsChecker:
                         for tit in titles:
                             if tit == itm:
                                 if i:  # secondary id
+                                    # It should be a Kind.ERROR, but there is a possibility that some of
+                                    # the keys included in titles dict (See _honorifics.py file) can be
+                                    # used in some language as name.
                                     self.report.add("Possible unauthorized prefix or suffix in identifier",
                                                     level=Kind.WARNING)
                                 else:  # primary id
