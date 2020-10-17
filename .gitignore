@@ -7,16 +7,18 @@ __pycache__/
 build/
 dist/
 *.egg-info/
+venv/
+
 
 # Files:
 
 /TODO.md
-/test*.py
 /gitscript.sh
 /md2rst_script.py
 /examples/mrz_generator_samples/id_card_ivan.py
 /docs/ICAO9303/*/*.pdf
 /docs/ICAO9303/*/*.md
+*test*.py
 *.~lock*
 *.directory
 *.fuse_hidden*
