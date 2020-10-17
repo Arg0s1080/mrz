@@ -28,7 +28,8 @@ setup(
     author_email='ivan.rincon76@gmail.com',
     url="https://github.com/Arg0s1080/mrz",
     keywords="mrz passports visas id cards td1 td2 td3 mrva mrvb icao",
-    packages=["mrz", "mrz.base", "mrz.checker", "mrz.generator", "mrz.generator.dictionaries"],
+    packages=["mrz", "mrz.base", "mrz.checker", "mrz.generator", "mrz.generator.dictionaries",
+              "mrz.special_cases.checker", "mrz.special_cases.generator"],
     classifiers=[
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
