@@ -18,10 +18,10 @@ class TD1BELCodeGenerator(TD1CodeGenerator):
                     value = value.replace(c, "")
                 else:
                     # TODO: Raise error
-                    print("special is char not in correct position")
+                    print("special char is not in correct position")
                 break
             else:
-                # special char no detected
+                # special char not detected
                 pass
         first = value[:9]
         second = "%s%s" % (value[9:], hash_string("%s<%s" % (first, value[9:]))) if set_hash else value[9:]
