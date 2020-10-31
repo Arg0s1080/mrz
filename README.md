@@ -260,3 +260,10 @@ sudo python3 setup.py install
 - [ ] Automatic name truncation in Generator
 - [ ] Possibility of disabling checks for country code, nationality, type of document and the others fields in Checker.
 - [ ] Add logging
+
+### IMPORTANT:
+
+MRZ is a Python module to be used as library in other programs. So, its intended audience are developers. 
+**MRZ will never have a user interface nor will have CLI support.** (Of course.. if someone wants, can do it)
+However, **if someone is curious and wants to generate or check the mrz code of a passport or ID card, 
+can modify any of the [examples](https://github.com/Arg0s1080/mrz/tree/master/examples)**.
