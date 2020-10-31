@@ -11,7 +11,7 @@ ICAO9303:
 -  `Part 04: Specifications for Machine Readable Passports (MRPs) and
    other TD3 Size
    MRTDs <https://www.icao.int/publications/Documents/9303_p4_cons_en.pdf>`__
--  `Part\_05:\_Specifications for TD1 Size Machine Readable Official
+-  `Part 05: Specifications for TD1 Size Machine Readable Official
    Travel Documents
    (MROTDs) <https://www.icao.int/publications/Documents/9303_p5_cons_en.pdf>`__
 -  `Part 06: Specifications for TD2 Size Machine Readable Official
@@ -24,10 +24,10 @@ ICAO9303:
 -  `Part 09: Deployment of Biometric Identification and Electronic
    Storage of Data in
    MRTDs <https://www.icao.int/publications/Documents/9303_p9_cons_en.pdf>`__
--  `Part 10:\_Logical Data Structure (LDS) for Storage of Biometrics and
+-  `Part 10: Logical Data Structure (LDS) for Storage of Biometrics and
    Other Data in the Contactless Integrated Circuit
    (IC) <https://www.icao.int/publications/Documents/9303_p10_cons_en.pdf>`__
--  `Part 11:\_Security Mechanisms for
+-  `Part 11: Security Mechanisms for
    MRTDs <https://www.icao.int/publications/Documents/9303_p11_cons_en.pdf>`__
 -  `Part 12: Security Mechanisms for
    MRTDs <https://www.icao.int/publications/Documents/9303_p11_cons_en.pdf>`__

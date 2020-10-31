@@ -11,7 +11,7 @@ ICAO 9303:
 -  `Partie 04: Spécifications pour les passeports lisibles à la machine
    (PLM) et autres DVLM de format
    TD3 <https://www.icao.int/publications/Documents/9303_p4_cons_fr.pdf>`__
--  `Partie 05:\_Spécifications pour les documents de voyage officiels
+-  `Partie 05: Spécifications pour les documents de voyage officiels
    lisibles à la machine (DVOLM) de format
    TD1 <https://www.icao.int/publications/Documents/9303_p5_cons_fr.pdf>`__
 -  `Partie 06: Spécifications pour les documents de voyage officiels
@@ -24,7 +24,7 @@ ICAO 9303:
 -  `Partie 09: Déploiement de l’identification biométrique et stockage
    électronique des données dans les
    DVLM <https://www.icao.int/publications/Documents/9303_p9_cons_fr.pdf>`__
--  `Partie 10:\_Structure de données logique (SDL) pour le stockage des
+-  `Partie 10: Structure de données logique (SDL) pour le stockage des
    données biométriques et d’autres données dans le circuit intégré (CI)
    sans
    contact <https://www.icao.int/publications/Documents/9303_p10_cons_fr.pdf>`__
