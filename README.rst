@@ -379,9 +379,13 @@ TODO:
 IMPORTANT:
 ~~~~~~~~~~
 
-MRZ is a Python module to be used as library in other programs. So, its
-intended audience are developers. **MRZ will never have a user interface
-nor will have CLI support.** (Of course.. if someone wants, can do it)
-However, **if someone is curious and wants to generate or check the mrz
-code of a passport or ID card, can modify any of
-the**\ `examples <https://github.com/Arg0s1080/mrz/tree/master/examples>`__.
+-  MRZ is a Python module to be used as library in other programs. So,
+   its intended audience are developers. **MRZ will never have a user
+   interface nor will have CLI support.** (Of course.. if someone wants,
+   can do it) However, **if someone is curious and wants to generate or
+   check the mrz code of a passport or ID card, can modify any of
+   the**\ `examples <https://github.com/Arg0s1080/mrz/tree/master/examples>`__.
+
+-  Right now I am very busy and have very little free time. Please,
+   before creating an issue or consulting by email, read `this
+   issue <https://github.com/Arg0s1080/mrz/issues/31>`__
