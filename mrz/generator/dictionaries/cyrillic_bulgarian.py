@@ -13,7 +13,9 @@
 # (ɔ) Iván Rincón 2018
 
 
-# Cyrillic (bulgarian transliteration)
+# Bulgarian transliteration
+
+# Cyrillic with bulgarian special chars added
 
 transliteration = {
     u"\u0027": "",                         # '

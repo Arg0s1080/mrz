@@ -13,7 +13,9 @@
 # (ɔ) Iván Rincón 2018
 
 
-# Cyrillic (macedonian transliteration)
+# Macedonian transliteration
+
+# Cyrillic with macedonian special chars added
 
 transliteration = {
     u"\u0027": "",                         # '

@@ -13,7 +13,9 @@
 # (ɔ) Iván Rincón 2018
 
 
-# Cyrillic (serbian transliteration)
+# Serbian transliteration
+
+# Cyrillic with serbian special chars added
 
 transliteration = {
     u"\u0027": "",                         # '

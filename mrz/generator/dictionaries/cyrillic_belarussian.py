@@ -13,7 +13,9 @@
 # (ɔ) Iván Rincón 2018
 
 
-# Cyrillic (belarussian transliteration)
+# Belarussian transliteration
+
+# Cyrillic with belarussian special char added
 
 transliteration = {
     u"\u0027": "",                         # '
