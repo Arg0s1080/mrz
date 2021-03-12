@@ -87,8 +87,9 @@ class _FieldsChecker:
                     self.report.add("only one identifier", level=Kind.WARNING)
                     ok = not self._compute_warnings
                 else:
-                    self.report.add("more than two identifiers", level=Kind.ERROR)
-                    ok = False
+                    primary, secondary = id2iter[0], ' '.join(id2iter[1:]).replace('<', ' ').strip()
+                    self.report.add("more than two identifiers", level=Kind.WARNING)
+                    ok = not self._compute_warnings
             else:  # too many '<' in id
                 self.report.add("invalid identifier format", level=Kind.ERROR)
                 ok = False
