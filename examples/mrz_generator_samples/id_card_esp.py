@@ -13,12 +13,12 @@ sys.path.append(realpath(join(dirname(__file__), pardir, pardir)))
 from mrz.generator.td1 import TD1CodeGenerator
 
 print(TD1CodeGenerator("ID",                 # Document type   Normally 'I' or 'ID' for id cards
-                       "ESP",                # Country         3 letters code or country name
-                       "BAA000589",          # Document number
+                       "ARG",                # Country         3 letters code or country name
+                       "33186544",          # Document number
                        "800101",             # Birth date      YYMMDD
-                       "F",                  # Genre           Male: 'M', Female: 'F' or Undefined
-                       "250101",             # Expiry date     YYMMDD
-                       "ESP",                # Nationality
-                       "ESPAÑOLA ESPAÑOLA",  # Surname         Special characters will be transliterated
-                       "CARMEN",             # Given name(s)   Special characters will be transliterated
+                       "M",                  # Genre           Male: 'M', Female: 'F' or Undefined
+                       "8707123610077",             # Expiry date     YYMMDD
+                       "ARG",                # Nationality
+                       "GONZALEZ",  # Surname         Special characters will be transliterated
+                       "GASTON LEONEL",             # Given name(s)   Special characters will be transliterated
                        "99999999R"))         # Optional data 1
