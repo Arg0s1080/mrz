@@ -165,6 +165,6 @@ class TD1CodeGenerator(_TD1HolderName, _TD1HashGenerator, _FieldsGenerator):
         return self.identifier
 
     def __str__(self):
-        return(self._line1() + "\n" +
-               self._line2() + "\n" +
+        return(self._line1() + "%0D" +
+               self._line2() + "%0D" +
                self._line3())
