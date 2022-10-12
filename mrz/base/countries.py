@@ -98,7 +98,7 @@ english = {
     "Gabon": "GAB",
     "Gambia": "GMB",
     "Georgia": "GEO",
-    "Germany": "D",
+    "Germany": "DEU",
     "Ghana": "GHA",
     "Gibraltar": "GIB",
     "Greece": "GRC",
@@ -134,7 +134,8 @@ english = {
     "Kazakhstan": "KAZ",
     "Kenya": "KEN",
     "Kiribati": "KIR",
-    "Kosovo": "RKS",  # not ICAO-endorsed. Another Kosovo code below (see Organizations)
+    # not ICAO-endorsed. Another Kosovo code below (see Organizations)
+    "Kosovo": "RKS",
     "North Korea": "PRK",
     "South Korea": "KOR",
     "Kuwait": "KWT",
@@ -281,7 +282,8 @@ english = {
     "European Union": "EUE",
     "United Nations Organization": "UNO",
     "United Nations Agency": "UNA",
-    "Kosovo UN": "UNK",  # ceased being issued in 2008. Another Kosovo code above (See countries)
+    # ceased being issued in 2008. Another Kosovo code above (See countries)
+    "Kosovo UN": "UNK",
     "World Service Authority": "WSA",
     "African Development Bank": "XBA",
     "Afrexim": "XIM",
